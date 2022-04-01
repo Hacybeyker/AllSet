@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimen_15dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvItemNotificationId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Channel One" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvItemNotificationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_2dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvItemNotificationId"
+        tools:text="Channel One" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivItemNotificationStatus"
+        android:layout_width="@dimen/dimen_15dp"
+        android:layout_height="@dimen/dimen_15dp"
+        app:layout_constraintBottom_toTopOf="@id/tvItemNotificationStatus"
+        app:layout_constraintEnd_toEndOf="@id/tvItemNotificationStatus"
+        app:layout_constraintStart_toStartOf="@id/tvItemNotificationStatus"
+        app:layout_constraintTop_toTopOf="@id/tvItemNotificationId"
+        app:srcCompat="@drawable/shape_circle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvItemNotificationStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/tvItemNotificationName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivItemNotificationStatus"
+        tools:text="Channel One" />
+</androidx.constraintlayout.widget.ConstraintLayout>

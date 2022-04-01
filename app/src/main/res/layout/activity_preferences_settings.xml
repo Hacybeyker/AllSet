@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.preferencessettings.PreferencesSettingsActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDescription"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Aqui se especificara la descripcion del item" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mvSettingsPreferences"
+        style="@style/button_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:text="@string/open_settings_preferences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleSignature"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Signature:"
+        android:textSize="@dimen/dimen_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mvSettingsPreferences" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleSignatureContent"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="@dimen/dimen_14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTitleSignature"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvTitleSignature"
+        app:layout_constraintTop_toTopOf="@id/tvTitleSignature"
+        app:layout_goneMarginStart="@dimen/dimen_10dp"
+        tools:text="Carlos Osorio" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleReply"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Reply:"
+        android:textSize="@dimen/dimen_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleSignature" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleReplyContent"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="@dimen/dimen_14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTitleReply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvTitleReply"
+        app:layout_constraintTop_toTopOf="@id/tvTitleReply"
+        app:layout_goneMarginStart="@dimen/dimen_10dp"
+        tools:text="Reply" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleImages"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Images:"
+        android:textSize="@dimen/dimen_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleReply" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleImagesContent"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="@dimen/dimen_14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTitleImages"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvTitleImages"
+        app:layout_constraintTop_toTopOf="@id/tvTitleImages"
+        app:layout_goneMarginStart="@dimen/dimen_10dp"
+        tools:text="Images" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleSync"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Sync:"
+        android:textSize="@dimen/dimen_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleImages" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleSyncContent"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="@dimen/dimen_14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTitleSync"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvTitleSync"
+        app:layout_constraintTop_toTopOf="@id/tvTitleSync"
+        app:layout_goneMarginStart="@dimen/dimen_10dp"
+        tools:text="true" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

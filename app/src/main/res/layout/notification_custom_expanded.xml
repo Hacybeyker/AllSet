@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvNotificationCustomExpandedTitle"
+        style="@style/TextAppearance.Compat.Notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Esta es una notificacion personalizada" />
+
+
+    <ImageView
+        android:id="@+id/ivNotificationCustomExpandedImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_250dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/scene2" />
+
+</LinearLayout>

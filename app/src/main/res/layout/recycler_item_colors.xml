@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimen_2dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTypeColor"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        app:layout_constraintBottom_toBottomOf="@id/mbApply"
+        app:layout_constraintEnd_toStartOf="@id/tvColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mbApply"
+        tools:text="Type" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvColor"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        android:fontFamily="@font/montserrat"
+        app:layout_constraintBottom_toBottomOf="@id/mbApply"
+        app:layout_constraintEnd_toStartOf="@id/mbApply"
+        app:layout_constraintStart_toEndOf="@id/tvTypeColor"
+        app:layout_constraintTop_toTopOf="@id/mbApply"
+        tools:text="#ffffff" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mbApply"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvColor"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="apply" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

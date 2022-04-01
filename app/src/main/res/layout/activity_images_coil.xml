@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.images.coil.ImagesCoilActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Uso de la libreria de Coil" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRegularPoster"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toStartOf="@id/ivRoundedPoster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRegularDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/images_coil_regular"
+            app:layout_constraintEnd_toEndOf="@id/ivRegularPoster"
+            app:layout_constraintStart_toStartOf="@id/ivRegularPoster"
+            app:layout_constraintTop_toBottomOf="@id/ivRegularPoster" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRoundedPoster"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivRegularPoster"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoundedDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/images_coil_rounded"
+            app:layout_constraintEnd_toEndOf="@id/ivRoundedPoster"
+            app:layout_constraintStart_toStartOf="@id/ivRoundedPoster"
+            app:layout_constraintTop_toBottomOf="@id/ivRoundedPoster" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCirclePoster"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toStartOf="@id/ivRoundedPoster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRegularDescription"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCircleDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/images_coil_circle"
+            app:layout_constraintEnd_toEndOf="@id/ivCirclePoster"
+            app:layout_constraintStart_toStartOf="@id/ivCirclePoster"
+            app:layout_constraintTop_toBottomOf="@id/ivCirclePoster" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivGrayScalePoster"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivRegularPoster"
+            app:layout_constraintTop_toBottomOf="@id/tvRoundedDescription"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGrayScaleDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/images_coil_gray_scale"
+            app:layout_constraintEnd_toEndOf="@id/ivGrayScalePoster"
+            app:layout_constraintStart_toStartOf="@id/ivGrayScalePoster"
+            app:layout_constraintTop_toBottomOf="@id/ivGrayScalePoster" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBlurPoster"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toStartOf="@id/ivRoundedPoster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGrayScaleDescription"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBlurDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/images_coil_blur"
+            app:layout_constraintEnd_toEndOf="@id/ivBlurPoster"
+            app:layout_constraintStart_toStartOf="@id/ivBlurPoster"
+            app:layout_constraintTop_toBottomOf="@id/ivBlurPoster" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMultipleTransformationPoster"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivRegularPoster"
+            app:layout_constraintTop_toBottomOf="@id/tvGrayScaleDescription"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMultipleTransformationDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/images_coil_multiple_transformation"
+            app:layout_constraintEnd_toEndOf="@id/ivMultipleTransformationPoster"
+            app:layout_constraintStart_toStartOf="@id/ivMultipleTransformationPoster"
+            app:layout_constraintTop_toBottomOf="@id/ivMultipleTransformationPoster" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

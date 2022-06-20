@@ -18,6 +18,7 @@ import com.hacybeyker.allset.view.changeiconapp.ChangeIconAppActivity
 import com.hacybeyker.allset.view.clipboard.ClipBoardActivity
 import com.hacybeyker.allset.view.extractcolor.ExtractColorActivity
 import com.hacybeyker.allset.view.images.coil.ImagesCoilActivity
+import com.hacybeyker.allset.view.keyboard.KeyboardActivity
 import com.hacybeyker.allset.view.libraries.LibraryKenBurnsViewActivity
 import com.hacybeyker.allset.view.libraries.LibraryTouchImageViewActivity
 import com.hacybeyker.allset.view.libraries.scanner.LibraryScannerZxingActivity
@@ -84,7 +85,10 @@ class MainActivity : BaseActivity(), MainAdapter.OnItemSelectedListener {
             newStartActivity(activity = this, item = item)
         } else {
             when (item.classActivity) {
-                BottomSheetActivity::class.java.simpleName->{
+                KeyboardActivity::class.java.simpleName -> {
+                    KeyboardActivity.newStartActivity(activity = this, data = item)
+                }
+                BottomSheetActivity::class.java.simpleName -> {
                     BottomSheetActivity.newStartActivity(activity = this, data = item)
                 }
                 ScreenshotActivity::class.java.simpleName -> {

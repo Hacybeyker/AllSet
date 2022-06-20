@@ -8,6 +8,7 @@ import com.hacybeyker.allset.view.changeiconapp.ChangeIconAppActivity
 import com.hacybeyker.allset.view.clipboard.ClipBoardActivity
 import com.hacybeyker.allset.view.extractcolor.ExtractColorActivity
 import com.hacybeyker.allset.view.images.coil.ImagesCoilActivity
+import com.hacybeyker.allset.view.keyboard.KeyboardActivity
 import com.hacybeyker.allset.view.libraries.LibraryKenBurnsViewActivity
 import com.hacybeyker.allset.view.libraries.LibraryTouchImageViewActivity
 import com.hacybeyker.allset.view.libraries.scanner.LibraryScannerZxingActivity
@@ -30,6 +31,12 @@ class ItemData {
     companion object {
         fun fetchItemData(): ArrayList<Item> {
             return arrayListOf(
+                Item(
+                    name = "Keyboard",
+                    show = true,
+                    description = "Informacion sobre como mostrar el keyboard",
+                    classActivity = KeyboardActivity::class.java.simpleName
+                ),
                 Item(
                     name = "Screenshot",
                     show = true,

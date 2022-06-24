@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       KEY_PROD: ${{ secrets.KEY_PROD }}
-      SERVICE_ACCOUNT: ${{ seecrets.SERVICE_ACCOUNT }}
+      SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2

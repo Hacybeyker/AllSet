@@ -33,13 +33,13 @@ class ItemData {
             return arrayListOf(
                 Item(
                     name = "Keyboard",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre como mostrar el keyboard",
                     classActivity = KeyboardActivity::class.java.simpleName
                 ),
                 Item(
                     name = "Screenshot",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre como realizar screenshots",
                     classActivity = ScreenshotActivity::class.java.simpleName
                 ),
@@ -79,12 +79,14 @@ class ItemData {
                 ),
                 Item(
                     name = "Fragment",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre los fragmentos",
                     classActivity = ""
                 ),
                 Item(
-                    name = "Biometric", show = true, description = "Informacion sobre biometric",
+                    name = "Biometric",
+                    show = false,
+                    description = "Informacion sobre biometric",
                     classActivity = ""
                 ),
                 Item(
@@ -108,7 +110,9 @@ class ItemData {
                     )
                 ),
                 Item(
-                    name = "GoogleMaps", show = true, description = "Informacion sobre google maps",
+                    name = "GoogleMaps",
+                    show = false,
+                    description = "Informacion sobre google maps",
                     classActivity = ""
                 ),
                 Item(
@@ -146,7 +150,7 @@ class ItemData {
                         ),
                         Item(
                             name = "Piccaso",
-                            show = true,
+                            show = false,
                             description = "Uso de la libreria de Piccaso",
                             classActivity = ""
                         )
@@ -160,13 +164,13 @@ class ItemData {
                 ),
                 Item(
                     name = "Notifications",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre el uso de notificaciones",
                     classActivity = NotificationsActivity::class.java.simpleName
                 ),
                 Item(
                     name = "Preferences Settings",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre el uso de preferences settings",
                     classActivity = PreferencesSettingsActivity::class.java.simpleName
                 ),
@@ -190,7 +194,7 @@ class ItemData {
                         ),
                         Item(
                             name = "Scanner",
-                            show = true,
+                            show = false,
                             description = "Informacion sobre Scanner de barras o QR",
                             classActivity = "",
                             child = arrayListOf(
@@ -224,13 +228,13 @@ class ItemData {
                 ),
                 Item(
                     name = "ChangeIconAppActivity",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre como cambiar el icono del app",
                     classActivity = ChangeIconAppActivity::class.java.simpleName
                 ),
                 Item(
                     name = "TapTargetView",
-                    show = true,
+                    show = false,
                     description = "Libreria que permite mostrar como tutorial algunos botones o cajas de textos. La libreria usada es taptargetview",
                     classActivity = TapTargetViewActivity::class.java.simpleName
                 )

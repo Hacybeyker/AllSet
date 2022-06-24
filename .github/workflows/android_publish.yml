@@ -1,0 +1,63 @@
+name: Android Publish
+
+on: [ workflow_dispatch ]
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    env:
+      REPO_USERID: ${{ secrets.REPO_USERID }}
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+      KEY_PROD: ${{ secrets.KEY_PROD }}
+      KEY_QA: ${{ secrets.KEY_QA }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Git Submodule
+        uses: ./.github/workflows/submodule-action
+
+      - name: Setup JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Make Gradle Executable
+        run: chmod +x ./gradlew
+
+      - name: SetLocalProperties
+        run: |
+          echo KEY_PROD=$KEY_PROD >> local.properties
+
+      - name: Signing App Release
+        run: |
+          ./gradlew app:bundleRelease
+          ./gradlew app:assembleRelease
+
+      - name: Upload Artifact APK Release
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-release
+          path: ./app/build/outputs/apk/release
+
+      - name: Upload Artifact Bundle Release
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-bundle-release
+          path: ./app/build/outputs/bundle/release
+
+      - name: Create Tag Release
+        run: |
+          currentVersion=`grep versionName ./buildSrc/src/main/kotlin/Configuration.kt | awk -F" " '{ print $5 }' `
+          currentFormattedVersion=`echo $currentVersion | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
+          echo "Version: $currentFormattedVersion"
+          git tag $currentFormattedVersion
+          git push origin --tags
+
+      - name: Create Service Account Json
+        run: |
+          echo $SERVICE_ACCOUNT >> service_account.json
+          ls
+          pwd
+          cat service_account.json

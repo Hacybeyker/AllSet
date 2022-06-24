@@ -22,9 +22,21 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        create("release"){
+            keyAlias = findProperty("KEY_ALIAS_ALLSET") as String? ?: System.getenv("KEY_ALIAS_ALLSET")
+            keyPassword = findProperty("KEY_PASSWORD") as String? ?: System.getenv("KEY_PASSWORD")
+            storeFile = file("../.signing/release-allset-key.jks")
+            storePassword = findProperty("STORE_PASSWORD") as String? ?: System.getenv("STORE_PASSWORD")
+        }
+    }
+
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )

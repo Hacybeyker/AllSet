@@ -34,27 +34,12 @@ jobs:
       - name: Signing App Release
         run: |
           ./gradlew app:bundleRelease
-          ./gradlew app:assembleRelease
-
-      - name: Upload Artifact APK Release
-        uses: actions/upload-artifact@v2
-        with:
-          name: apk-release
-          path: ./app/build/outputs/apk/release
 
       - name: Upload Artifact Bundle Release
         uses: actions/upload-artifact@v2
         with:
           name: apk-bundle-release
           path: ./app/build/outputs/bundle/release
-
-      - name: Create Tag Release
-        run: |
-          currentVersion=`grep versionName ./buildSrc/src/main/kotlin/Configuration.kt | awk -F" " '{ print $5 }' `
-          currentFormattedVersion=`echo $currentVersion | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
-          echo "Version: $currentFormattedVersion"
-          git tag $currentFormattedVersion
-          git push origin --tags
 
       - name: Create Service Account Json
         run: |

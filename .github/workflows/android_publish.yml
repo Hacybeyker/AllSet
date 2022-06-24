@@ -9,6 +9,9 @@ jobs:
     env:
       KEY_PROD: ${{ secrets.KEY_PROD }}
       SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+      KEY_ALIAS_ALLSET: ${{ secrets.KEY_ALIAS_ALLSET }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2

@@ -7,10 +7,8 @@ jobs:
     name: Publish
     runs-on: ubuntu-latest
     env:
-      REPO_USERID: ${{ secrets.REPO_USERID }}
-      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
       KEY_PROD: ${{ secrets.KEY_PROD }}
-      KEY_QA: ${{ secrets.KEY_QA }}
+      SERVICE_ACCOUNT: ${{ seecrets.SERVICE_ACCOUNT }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2

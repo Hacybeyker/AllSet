@@ -56,10 +56,14 @@ jobs:
           git tag $currentFormattedVersion
           git push origin --tags
 
+      - name: Create Service Account Json
+        run: |
+          echo $SERVICE_ACCOUNT >> service_account.json
+
       - name: Deploy to Alpha
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJsonPlainText: $SERVICE_ACCOUNT
+          serviceAccountJsonPlainText: service_account.json
           packageName: com.hacybeyker.allset
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           track: alpha

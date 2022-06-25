@@ -45,7 +45,7 @@ jobs:
         run: echo '${{ secrets.SERVICE_ACCOUNT }}' > service_account.json
 
       - name: Deploy to Alpha
-        uses: r0adkll/upload-google-play@v1
+        uses: r0adkll/upload-google-play@v1.0.17
         with:
           serviceAccountJsonPlainText: service_account.json
           packageName: com.hacybeyker.allset

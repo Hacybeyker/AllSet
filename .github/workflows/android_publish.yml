@@ -35,19 +35,13 @@ jobs:
         run: |
           ./gradlew app:bundleRelease
 
-      - name: Upload Artifact Bundle Release
-        uses: actions/upload-artifact@v2
-        with:
-          name: apk-bundle-release
-          path: ./app/build/outputs/bundle/release
-
       - name: Create Service Account Json
         run: echo '${{ secrets.SERVICE_ACCOUNT }}' > service_account.json
 
       - name: Deploy to Alpha
         uses: r0adkll/upload-google-play@v1.0.17
         with:
-          serviceAccountJsonPlainText: service_account.json
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
           packageName: com.hacybeyker.allset
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           track: alpha

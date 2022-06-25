@@ -42,8 +42,7 @@ jobs:
           path: ./app/build/outputs/bundle/release
 
       - name: Create Service Account Json
-        run: |
-          echo '$SERVICE_ACCOUNT' >> service_account.json
+        run: echo '${{ secrets.SERVICE_ACCOUNT }}' > service_account.json
 
       - name: Deploy to Alpha
         uses: r0adkll/upload-google-play@v1

@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       KEY_PROD: ${{ secrets.KEY_PROD }}
-      SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
       KEY_ALIAS_ALLSET: ${{ secrets.KEY_ALIAS_ALLSET }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
@@ -59,7 +58,7 @@ jobs:
       - name: Deploy to Alpha
         uses: r0adkll/upload-google-play@v1.0.17
         with:
-          serviceAccountJsonPlainText: $SERVICE_ACCOUNT
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
           packageName: com.hacybeyker.allset
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           track: beta

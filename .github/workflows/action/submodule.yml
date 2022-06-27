@@ -3,6 +3,9 @@ description: "Run command to initialize submodule"
 runs:
   using: "composite"
   steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
     - run: git submodule init
       shell: bash
 

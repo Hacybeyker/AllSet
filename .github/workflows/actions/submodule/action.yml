@@ -1,11 +1,8 @@
-name: "Checkout Code & Submodule"
-description: "Checkout Code and run command to initialize submodule"
+name: "Submodule"
+description: "Run command to initialize submodule"
 runs:
   using: "composite"
   steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-
     - name: Submodule
       run: |
         git submodule init

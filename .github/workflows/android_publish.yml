@@ -12,19 +12,9 @@ jobs:
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
 
       - name: Git Submodule
-        uses: ./.github/workflows/submodule-action
-
-      - name: Setup JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-
-      - name: Make Gradle Executable
-        run: chmod +x ./gradlew
+        uses: ./.github/workflows/submodule-action/config_step
 
       - name: SetLocalProperties
         run: |
@@ -40,25 +30,3 @@ jobs:
         with:
           name: apk-release
           path: ./app/build/outputs/apk/release
-
-      - name: Upload Artifact Bundle Release
-        uses: actions/upload-artifact@v2
-        with:
-          name: apk-bundle-release
-          path: ./app/build/outputs/bundle/release
-
-      - name: Create Tag Release
-        run: |
-          currentVersion=`grep versionName ./buildSrc/src/main/kotlin/Configuration.kt | awk -F" " '{ print $5 }' `
-          currentFormattedVersion=`echo $currentVersion | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
-          echo "Version: $currentFormattedVersion"
-          git tag $currentFormattedVersion
-          git push origin --tags
-
-      - name: Deploy to Alpha
-        uses: r0adkll/upload-google-play@v1.0.17
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
-          packageName: com.hacybeyker.allset
-          releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
-          track: beta

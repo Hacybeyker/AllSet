@@ -1,9 +1,9 @@
-name: "Config Step"
+name: "Configure Step"
 description: "Run steps to initialize"
 runs:
   using: "composite"
   steps:
-    - name: Git Submodule
+    - name: Submodule
       uses: ./.github/workflows/actions/submodule
 
     - name: Make Gradle Executable

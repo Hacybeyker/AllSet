@@ -1,0 +1,13 @@
+name: "Config Step"
+description: "Run steps to initialize"
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Git Submodule
+      uses: action.yml
+
+    - name: Make Gradle Executable
+      run: chmod +x ./gradlew

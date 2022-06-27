@@ -13,7 +13,7 @@ jobs:
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
     steps:
       - name: Config Step
-        uses: ./.github/workflows/actions/config_step
+        uses: ./.github/workflows/actions/config-step
 
       - name: SetLocalProperties
         run: |

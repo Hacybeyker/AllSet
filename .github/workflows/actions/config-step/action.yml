@@ -8,3 +8,4 @@ runs:
 
     - name: Make Gradle Executable
       run: chmod +x ./gradlew
+      shell: bash

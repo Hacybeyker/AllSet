@@ -4,7 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: Git Submodule
-      uses: ./submodule
+      uses: ../submodule
 
     - name: Make Gradle Executable
       run: chmod +x ./gradlew

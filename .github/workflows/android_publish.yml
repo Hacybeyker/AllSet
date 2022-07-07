@@ -29,11 +29,14 @@ jobs:
 
       - name: Obtain Package Name
         run: |
-          currentPackage=`grep applicationId ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
+          currentPackage=`grep applicationId ./buildSrc/src/main/kotlin/Configuration.kt | awk -F" " '{ print $5 }' `
           packageFormatted=`echo $currentPackage | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
-          echo "Package: $packageFormatted"
+          echo "Here 1 - currentPackage: $currentPackage"
+          echo "Here 1 - packageFormatted: $packageFormatted"
+          echo $packageFormatted
 
       - name: Deploy to Alpha
         run: |
-          echo "Package: $packageFormatted"
+          echo "Here 2 - currentPackage: $currentPackage"
+          echo "Here 2 - packageFormatted: $packageFormatted"
           echo $packageFormatted

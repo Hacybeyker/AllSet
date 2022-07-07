@@ -27,8 +27,13 @@ jobs:
           ./gradlew app:bundleRelease
           ./gradlew app:assembleRelease
 
-      - name: Upload Artifact APK Release
-        uses: actions/upload-artifact@v2
-        with:
-          name: apk-release
-          path: ./app/build/outputs/apk/release
+      - name: Obtain Package Name
+        run: |
+          currentPackage=`grep applicationId ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
+          packageFormatted=`echo $currentPackage | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
+          echo "Package: $packageFormatted"
+
+      - name: Deploy to Alpha
+        run: |
+          echo "Package: $packageFormatted"
+          echo $packageFormatted

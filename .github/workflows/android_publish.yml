@@ -2,15 +2,16 @@ name: Android Publish
 
 on: [ workflow_dispatch ]
 
+env:
+  KEY_PROD: ${{ secrets.KEY_PROD }}
+  SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+  SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+  SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+
 jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    env:
-      KEY_PROD: ${{ secrets.KEY_PROD }}
-      SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-      SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-      SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -26,16 +27,20 @@ jobs:
         run: |
           ./gradlew app:bundleRelease
 
-      - name: Deploy to Alpha
-        uses: r0adkll/upload-google-play@v1.0.17
+      - name: Obtain Package Name
         run: |
           currentPackage=`grep applicationId ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
           packageFormatted=`echo $currentPackage | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
           echo "CurrentPackage: $currentPackage"
           echo "PackageFormatted: $packageFormatted"
           echo $packageFormatted
+        env:
+          PACKAGE: $packageFormatted
+
+      - name: Deploy to Alpha
+        uses: r0adkll/upload-google-play@v1.0.17
         with:
           serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
-          packageName: $packageFormatted
+          packageName: $PACKAGE
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           track: beta

@@ -34,8 +34,7 @@ jobs:
           echo "CurrentPackage: $currentPackage"
           echo "PackageFormatted: $packageFormatted"
           echo $packageFormatted
-        env:
-          PACKAGE: $packageFormatted
+          echo "PACKAGE=$packageFormatted" >> $GITHUB_ENV
 
       - name: Deploy to Alpha
         uses: r0adkll/upload-google-play@v1.0.17

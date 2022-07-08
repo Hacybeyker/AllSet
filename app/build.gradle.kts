@@ -13,21 +13,25 @@ android {
     buildToolsVersion = AppVersion.buildToolsVersion
 
     defaultConfig {
-        applicationId = Configuration.applicationId
+        applicationId = ConfigureApp.applicationId
         minSdk = AppVersion.minSdkVersion
         targetSdk = AppVersion.targetSdkVersion
-        versionCode = Configuration.versionCode
-        versionName = Configuration.versionName
+        versionCode = ConfigureApp.versionCode
+        versionName = ConfigureApp.versionName
         testInstrumentationRunner = AppVersion.testInstrumentationRunner
         vectorDrawables.useSupportLibrary = true
     }
 
     signingConfigs {
-        create("release"){
-            keyAlias = findProperty("KEY_ALIAS_ALLSET") as String? ?: System.getenv("KEY_ALIAS_ALLSET")
-            keyPassword = findProperty("KEY_PASSWORD") as String? ?: System.getenv("KEY_PASSWORD")
+        create("release") {
+            keyAlias =
+                findProperty("SIGNING_KEY_ALIAS_ALLSET") as String?
+                    ?: System.getenv("SIGNING_KEY_ALIAS")
+            keyPassword = findProperty("SIGNING_KEY_PASSWORD_HACYBEYKER") as String?
+                ?: System.getenv("SIGNING_KEY_PASSWORD")
             storeFile = file("../.signing/release-allset-key.jks")
-            storePassword = findProperty("STORE_PASSWORD") as String? ?: System.getenv("STORE_PASSWORD")
+            storePassword = findProperty("SIGNING_STORE_PASSWORD_HACYBEYKER") as String?
+                ?: System.getenv("SIGNING_STORE_PASSWORD")
         }
     }
 

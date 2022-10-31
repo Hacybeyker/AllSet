@@ -3,6 +3,7 @@ name: Android Publish
 on: [ workflow_dispatch ]
 
 env:
+  PACKAGE: ${{ secrets.PACKAGE }}
   KEY_PROD: ${{ secrets.KEY_PROD }}
   SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
   SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}

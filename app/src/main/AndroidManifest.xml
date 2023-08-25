@@ -20,9 +20,32 @@
         android:theme="@style/Theme.AllSet"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".OldActivityForResultActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".NewActivityForResultActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivityResultActivity"
+            android:exported="false"
+            android:label="@string/title_activity_result"
+            android:theme="@style/Theme.AllSet.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.keyboard.KeyboardActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.security.SecurityActivity"
             android:exported="false" />

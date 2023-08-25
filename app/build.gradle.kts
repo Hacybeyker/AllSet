@@ -52,7 +52,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+    kotlinOptions {
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+    }
 
     buildFeatures {
         dataBinding = true
@@ -82,6 +84,11 @@ dependencies {
     implementation(AppDependencies.appCompat)
     implementation(AppDependencies.material)
     implementation(AppDependencies.constraintLayout)
+    implementation("com.google.android.material:material:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     //Test
     testImplementation(TestDependencies.junit)
     androidTestImplementation(TestDependencies.extJUnit)
@@ -106,5 +113,5 @@ dependencies {
     implementation(AppDependencies.zxingCore)
     implementation(AppDependencies.slidableActivity)
     implementation("com.getkeepsafe.taptargetview:taptargetview:1.13.3")
-    implementation("com.google.android.gms:play-services-maps:18.0.2")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
 }

@@ -97,7 +97,7 @@ class InputText @JvmOverloads constructor(
         if (textInputLayout != null && textInputLayoutFocusedRectEnabled) {
             parentRect.set(
                 0, textInputLayout.height
-                        - resources.getDimensionPixelOffset(R.dimen.mtrl_edittext_rectangle_top_offset),
+                        - resources.getDimensionPixelOffset(R.dimen.dimen_31dp),
                 textInputLayout.width,
                 textInputLayout.height
             )

@@ -14,7 +14,7 @@ class ActivityResultActivity : BaseActivity() {
 
     private val newActivityResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
-            if (activityResult.resultCode == RES ULT_OK) {
+            if (activityResult.resultCode == RESULT_OK) {
                 Toast.makeText(this, "Message OK :)", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Message NOK", Toast.LENGTH_SHORT).show()

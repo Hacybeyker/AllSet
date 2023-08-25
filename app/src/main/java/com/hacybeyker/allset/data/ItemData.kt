@@ -51,7 +51,7 @@ class ItemData {
                 ),
                 Item(
                     name = "Activity",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre los activities",
                     classActivity = "",
                     child = arrayListOf(

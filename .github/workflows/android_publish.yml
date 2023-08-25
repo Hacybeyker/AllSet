@@ -1,4 +1,5 @@
 name: Android Publish
+run-name: Android Publish execute by @${{ github.actor }}
 
 on: [ workflow_dispatch ]
 
@@ -15,10 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Configure Step
-        uses: ./.github/workflows/actions/configure
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+          check-latest: true
+
+      - name: Setup Project
+        uses: ./.github/actions/android
 
       - name: SetLocalProperties
         run: |
@@ -28,6 +37,14 @@ jobs:
         run: |
           ./gradlew app:bundleRelease
 
+      - name: Deploy to Alpha
+        uses: r0adkll/upload-google-play@v1.0.17
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
+          packageName: $PACKAGE
+          releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
+          track: beta
+          
       - name: Obtain Package Name
         run: |
           currentPackage=`grep applicationId ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
@@ -36,11 +53,3 @@ jobs:
           echo "PackageFormatted: $packageFormatted"
           echo $packageFormatted
           echo "PACKAGE=$packageFormatted" >> $GITHUB_ENV
-
-      - name: Deploy to Alpha
-        uses: r0adkll/upload-google-play@v1.0.17
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
-          packageName: $PACKAGE
-          releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
-          track: beta

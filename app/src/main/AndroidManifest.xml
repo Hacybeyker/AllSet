@@ -20,23 +20,22 @@
         android:theme="@style/Theme.AllSet"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".OldActivityForResultActivity"
+            android:name=".view.activityresult.OldActivityForResultActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".NewActivityForResultActivity"
+            android:name=".view.activityresult.NewActivityForResultActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivityResultActivity"
+            android:name=".view.activityresult.ActivityResultActivity"
             android:exported="false"
-            android:label="@string/title_activity_result"
             android:theme="@style/Theme.AllSet.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"

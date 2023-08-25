@@ -47,6 +47,4 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="go_to_b">Go to B</string>
     <string name="go_to_a">Go to A</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -65,10 +65,10 @@ class MainActivity : BaseActivity(), MainAdapter.OnItemSelectedListener {
             activeToolbar = true
             titleToolbar = item.name
             if (item.child.isNotEmpty()) {
-                mainAdapter.items = item.child
+                mainAdapter.items = item.child.filter { it.show }
             }
         } else
-            mainAdapter.items = fetchItemData()
+            mainAdapter.items = fetchItemData().filter { it.show }
     }
 
     private fun getIntentData() {

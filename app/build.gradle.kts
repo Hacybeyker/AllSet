@@ -1,16 +1,14 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    kotlin("android")
+    kotlin("kapt")
     id("kotlin-parcelize")
-    //id("com.google.secrets_gradle_plugin").version("0.4")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
-
 }
 
 android {
+    namespace = ConfigureApp.applicationId
     compileSdk = AppVersion.compileSdkVersion
-    buildToolsVersion = AppVersion.buildToolsVersion
 
     defaultConfig {
         applicationId = ConfigureApp.applicationId
@@ -19,6 +17,7 @@ android {
         versionCode = ConfigureApp.versionCode
         versionName = ConfigureApp.versionName
         testInstrumentationRunner = AppVersion.testInstrumentationRunner
+        renderscriptSupportModeEnabled = true
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -48,15 +47,16 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
 
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 
     bundle {
@@ -70,13 +70,29 @@ android {
             enableSplit = true
         }
     }
+
+    lint {
+        disable.addAll(
+            listOf(
+                "TypographyFractions",
+                "TypographyQuotes",
+                "JvmStaticProvidesInObjectDetector",
+                "FieldSiteTargetOnQualifierAnnotation",
+                "ModuleCompanionObjects",
+                "ModuleCompanionObjectsNotInModuleParent"
+            )
+        )
+        checkDependencies = true
+        abortOnError = false
+        ignoreWarnings = false
+    }
 }
 
 dependencies {
     //Libs
     implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
     //kotlin
-    implementation(AppDependencies.kotlinStdlib)
+    //implementation(AppDependencies.kotlinStdlib)
     implementation(AppDependencies.coreKtx)
     //View
     implementation(AppDependencies.appCompat)
@@ -105,6 +121,6 @@ dependencies {
     implementation(AppDependencies.zxingAndroid) { isTransitive = false }
     implementation(AppDependencies.zxingCore)
     implementation(AppDependencies.slidableActivity)
-    implementation("com.getkeepsafe.taptargetview:taptargetview:1.13.3")
-    implementation("com.google.android.gms:play-services-maps:18.0.2")
+    implementation(AppDependencies.tapTargetView)
+    implementation(AppDependencies.gmsMaps)
 }

@@ -37,14 +37,6 @@ jobs:
         run: |
           ./gradlew app:bundleRelease
 
-      - name: Deploy to Alpha
-        uses: r0adkll/upload-google-play@v1.0.17
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
-          packageName: $PACKAGE
-          releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
-          track: beta
-          
       - name: Obtain Package Name
         run: |
           currentPackage=`grep applicationId ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
@@ -53,3 +45,11 @@ jobs:
           echo "PackageFormatted: $packageFormatted"
           echo $packageFormatted
           echo "PACKAGE=$packageFormatted" >> $GITHUB_ENV
+
+      - name: Deploy to Alpha
+        uses: r0adkll/upload-google-play@v1.0.17
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
+          packageName: $PACKAGE
+          releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
+          track: beta

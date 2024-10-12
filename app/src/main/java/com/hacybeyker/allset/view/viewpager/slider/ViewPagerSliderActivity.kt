@@ -110,8 +110,8 @@ class ViewPagerSliderActivity : BaseActivity() {
             binding.vpMain2.setCurrentItem(binding.vpMain2.currentItem + 1, true)
         }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onDestroy() {
+        super.onDestroy()
         sliderHandler.removeCallbacks(sliderRunnable)
     }
 

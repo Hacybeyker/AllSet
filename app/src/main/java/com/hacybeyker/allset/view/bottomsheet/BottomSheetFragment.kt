@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-
+import com.hacybeyker.allset.R
 
 class BottomSheetFragment(
     private val layout: Int,
@@ -14,7 +14,8 @@ class BottomSheetFragment(
     private val cancelable: Boolean = true,
     private val canceledOnTouchOutside: Boolean = true,
     private val draggable: Boolean = true,
-    private val dialogResult: (BottomSheetFragment) -> Unit
+    private val dialogResult: (BottomSheetFragment) -> Unit,
+    private val onClickListener: (BottomSheetFragment) -> Unit
 ) : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +39,7 @@ class BottomSheetFragment(
         dialog?.setCanceledOnTouchOutside(canceledOnTouchOutside)
         val bottomSheetBehavior = (dialog as BottomSheetDialog).behavior
         bottomSheetBehavior.isDraggable = draggable
+        view.findViewById<View>(R.id.mbBottomSheetShare).setOnClickListener { onClickListener(this) }
         dialogResult(this)
     }
 

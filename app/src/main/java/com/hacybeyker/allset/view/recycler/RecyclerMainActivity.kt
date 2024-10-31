@@ -14,7 +14,6 @@ import com.hacybeyker.allset.databinding.ActivityRecyclerMainBinding
 import com.hacybeyker.allset.view.recycler.adapter.RecyclerMainAdapter
 import com.hacybeyker.allset.view.recycler.classic.StartSnapHelper
 
-
 class RecyclerMainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRecyclerMainBinding

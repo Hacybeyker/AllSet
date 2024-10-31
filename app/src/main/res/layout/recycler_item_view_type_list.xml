@@ -11,20 +11,20 @@
         android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Ingresos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ingresos" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvBajada"
         android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="Aqui recibiras tus notificaiones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        tools:text="Aqui recibiras tus notificaiones" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvItems"
@@ -45,6 +45,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvItems" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

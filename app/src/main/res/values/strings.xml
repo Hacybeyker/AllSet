@@ -47,4 +47,11 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="go_to_b">Go to B</string>
     <string name="go_to_a">Go to A</string>
+    <string name="bottom_sheet_dialog_text">Bottom Sheet Dialog</string>
+    <string name="bottom_sheet_dialog_fragment_text">Bottom Sheet Dialog Fragment</string>
+    <string name="bottom_sheet_cancelable">cancelable</string>
+    <string name="bottom_sheet_touch_outside">cancel touch outside</string>
+    <string name="bottom_sheet_dragable">dragable</string>
+    <string name="bottom_sheet_expanded">Expanded</string>
+    <string name="bottom_sheet_collapsed">Collapsed</string>
 </resources>

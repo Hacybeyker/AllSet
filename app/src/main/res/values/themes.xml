@@ -24,7 +24,7 @@
     <style name="Theme.AllSet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!-- Inicio - Se usa en BottomSheetActivity  -->
-    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="BottomSheetDialogTheme" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
     </style>
 

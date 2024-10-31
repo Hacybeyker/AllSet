@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hacybeyker.allset.data.Movie
 import com.hacybeyker.allset.databinding.RecyclerItemMovieBinding
+import com.hacybeyker.allset.utils.extensions.imageLoad
 
 /**
  * Created by Carlos Osorio on 16/06/2021
@@ -49,6 +50,7 @@ class RecyclerMainAdapter :
         fun bind(item: Movie) {
             with(binding) {
                 this.itemMovieTitle.text = item.title
+                this.itemMoviePosterImage.imageLoad(url = item.posterImage)
             }
         }
     }

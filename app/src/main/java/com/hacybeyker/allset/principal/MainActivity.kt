@@ -24,7 +24,6 @@ import com.hacybeyker.allset.view.notifications.NotificationsActivity
 import com.hacybeyker.allset.view.preferencessettings.PreferencesSettingsActivity
 import com.hacybeyker.allset.view.recycler.RecyclerMainActivity
 import com.hacybeyker.allset.view.recycler.viewtype.RecyclerViewTypeActivity
-import com.hacybeyker.allset.view.screenshot.ScreenshotActivity
 import com.hacybeyker.allset.view.tablayout.TabLayoutMainActivity
 import com.hacybeyker.allset.view.taptargetview.TapTargetViewActivity
 import com.hacybeyker.allset.view.viewpager.onboarding.ViewPagerOnboardingActivity
@@ -88,9 +87,6 @@ class MainActivity : BaseActivity(), MainAdapter.OnItemSelectedListener {
                 }
                 BottomSheetActivity::class.java.simpleName -> {
                     BottomSheetActivity.newStartActivity(activity = this, data = item)
-                }
-                ScreenshotActivity::class.java.simpleName -> {
-                    ScreenshotActivity.newStartActivity(activity = this, data = item)
                 }
                 AnimationActivity::class.java.simpleName -> {
                     AnimationActivity.newStartActivity(activity = this, data = item)

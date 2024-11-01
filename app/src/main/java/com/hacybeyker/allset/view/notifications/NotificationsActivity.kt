@@ -21,7 +21,6 @@ import com.hacybeyker.allset.BaseActivity
 import com.hacybeyker.allset.R
 import com.hacybeyker.allset.data.Item
 import com.hacybeyker.allset.databinding.ActivityNotificationsBinding
-import com.hacybeyker.allset.view.libraries.scanner.LibraryScannerZxingActivity
 import com.hacybeyker.allset.view.notifications.adapter.NotificationChannelAdapter
 import com.hacybeyker.allset.view.notifications.adapter.NotificationStatusBarAdapter
 import com.hacybeyker.allset.view.notifications.vo.NotificationVO
@@ -94,10 +93,6 @@ class NotificationsActivity : BaseActivity() {
         with(binding) {
             mbNotificationNormal.setOnClickListener {
                 generateNotificationNormal()
-            }
-
-            mbNotificationWithIntent.setOnClickListener {
-                generateNotificationWithIntent()
             }
 
             mbNotificationWithImage.setOnClickListener {
@@ -231,34 +226,6 @@ class NotificationsActivity : BaseActivity() {
             CHANNEL_NAME_ONE,
             CHANNEL_DESCRIPTION_ONE,
             NOTIFY_ID_ONE,
-            builder
-        )
-    }
-
-    private fun generateNotificationWithIntent() {
-        val intent = Intent(applicationContext, LibraryScannerZxingActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-        val pendingIntent = PendingIntent.getActivity(
-            applicationContext,
-            REQUEST_CODE,
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
-        val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID_TWO).apply {
-            setSmallIcon(R.drawable.icon_notifications)
-            setDefaults(NotificationCompat.DEFAULT_ALL)
-            setContentTitle("What is Lorem Ipsum?")
-            setContentText("Lorem Ipsum is simply dummy text...")
-            setContentIntent(pendingIntent)
-            setAutoCancel(true)
-            priority = NotificationCompat.PRIORITY_MAX
-        }
-        showNotification(
-            CHANNEL_ID_TWO,
-            CHANNEL_NAME_TWO,
-            CHANNEL_DESCRIPTION_TWO,
-            NOTIFY_ID_TWO,
             builder
         )
     }

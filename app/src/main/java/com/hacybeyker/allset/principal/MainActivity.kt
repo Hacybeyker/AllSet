@@ -20,7 +20,6 @@ import com.hacybeyker.allset.view.images.coil.ImagesCoilActivity
 import com.hacybeyker.allset.view.keyboard.KeyboardActivity
 import com.hacybeyker.allset.view.libraries.LibraryKenBurnsViewActivity
 import com.hacybeyker.allset.view.libraries.LibraryTouchImageViewActivity
-import com.hacybeyker.allset.view.libraries.scanner.LibraryScannerZxingActivity
 import com.hacybeyker.allset.view.notifications.NotificationsActivity
 import com.hacybeyker.allset.view.preferencessettings.PreferencesSettingsActivity
 import com.hacybeyker.allset.view.recycler.RecyclerMainActivity
@@ -122,9 +121,6 @@ class MainActivity : BaseActivity(), MainAdapter.OnItemSelectedListener {
                 }
                 LibraryTouchImageViewActivity::class.java.simpleName -> {
                     LibraryTouchImageViewActivity.newStartActivity(activity = this, data = item)
-                }
-                LibraryScannerZxingActivity::class.java.simpleName -> {
-                    LibraryScannerZxingActivity.newStartActivity(activity = this, data = item)
                 }
                 NotificationsActivity::class.java.simpleName -> {
                     NotificationsActivity.newStartActivity(activity = this, data = item)

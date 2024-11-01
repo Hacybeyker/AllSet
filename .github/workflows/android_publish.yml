@@ -74,3 +74,4 @@ jobs:
           packageName: com.hacybeyker.allset
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           track: beta
+          changesNotSentForReview: true

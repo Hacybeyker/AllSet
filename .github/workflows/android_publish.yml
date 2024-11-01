@@ -36,6 +36,27 @@ jobs:
       - name: Signing App Release
         run: |
           ./gradlew app:bundleRelease
+          ./gradlew app:assembleRelease
+
+      - name: Upload Artifact APK Release
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-release
+          path: ./app/build/outputs/apk/release
+
+      - name: Upload Artifact Bundle Release
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-bundle-release
+          path: ./app/build/outputs/bundle/release
+
+      - name: Create Tag Release
+        run: |
+          currentVersion=`grep versionName ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
+          versionFormatted=`echo $currentVersion | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
+          echo "Version: $versionFormatted"
+          git tag $versionFormatted
+          git push origin --tags
 
       - name: Obtain Package Name
         run: |
@@ -47,7 +68,7 @@ jobs:
           echo "PACKAGE=$packageFormatted" >> $GITHUB_ENV
 
       - name: Deploy to Alpha
-        uses: r0adkll/upload-google-play@v1.0.17
+        uses: r0adkll/upload-google-play@v1.1.3
         with:
           serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
           packageName: com.hacybeyker.allset

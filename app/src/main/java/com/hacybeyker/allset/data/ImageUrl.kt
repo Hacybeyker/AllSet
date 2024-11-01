@@ -5,10 +5,10 @@ package com.hacybeyker.allset.data
  */
 
 const val imageServer1 =
-    "https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"
+    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 const val imageServer2 =
-    "https://images-na.ssl-images-amazon.com/images/I/71GW%2BACNBQL._AC_SY879_.jpg"
+    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 const val imageServer3 =
-    "https://images-na.ssl-images-amazon.com/images/I/71xZtfOsHdL._AC_SY679_.jpg"
+    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 const val imageServer4 =
-    "https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._AC_SY679_.jpg"
+    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

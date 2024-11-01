@@ -153,11 +153,13 @@ class NotificationsActivity : BaseActivity() {
                             action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
                             putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
                         }
+
                         Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> {
                             action = "android.settings.APP_NOTIFICATION_SETTINGS"
                             putExtra("app_package", packageName)
                             putExtra("app_uid", applicationInfo.uid)
                         }
+
                         else -> {
                             action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                             addCategory(Intent.CATEGORY_DEFAULT)
@@ -300,7 +302,10 @@ class NotificationsActivity : BaseActivity() {
         expandedView.setImageViewResource(R.id.tvNotificationCustomExpandedImage, R.drawable.scene3)*/
 
         val intent = Intent(applicationContext, NotificationReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(applicationContext, 0, intent, 0)
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext, 0, intent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
         expandedView.setOnClickPendingIntent(R.id.ivNotificationCustomExpandedImage, pendingIntent)
 
         val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID_FOUR).apply {

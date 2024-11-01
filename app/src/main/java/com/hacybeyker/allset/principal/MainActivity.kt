@@ -14,7 +14,6 @@ import com.hacybeyker.allset.view.activities.animation.AnimationActivity
 import com.hacybeyker.allset.view.activities.animation.normal.AnimationNormalActivityA
 import com.hacybeyker.allset.view.activities.animation.swipe.AnimationSwipeActivityA
 import com.hacybeyker.allset.view.bottomsheet.BottomSheetActivity
-import com.hacybeyker.allset.view.changeiconapp.ChangeIconAppActivity
 import com.hacybeyker.allset.view.clipboard.ClipBoardActivity
 import com.hacybeyker.allset.view.extractcolor.ExtractColorActivity
 import com.hacybeyker.allset.view.images.coil.ImagesCoilActivity
@@ -144,9 +143,6 @@ class MainActivity : BaseActivity(), MainAdapter.OnItemSelectedListener {
                 }
                 ExtractColorActivity::class.java.simpleName -> {
                     ExtractColorActivity.newStartActivity(activity = this, data = item)
-                }
-                ChangeIconAppActivity::class.java.simpleName -> {
-                    ChangeIconAppActivity.newStartActivity(activity = this, data = item)
                 }
                 TapTargetViewActivity::class.java.simpleName -> {
                     TapTargetViewActivity.newStartActivity(activity = this, data = item)

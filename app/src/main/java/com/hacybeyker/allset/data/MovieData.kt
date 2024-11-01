@@ -9,31 +9,31 @@ class MovieData {
         fun fetchMovieData(): ArrayList<Movie> {
             return arrayListOf(
                 Movie(
-                    "Avengers End Game",
-                    "This is a movie Avengers End Game",
-                    "https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg",
-                    "https://img.cinemablend.com/filter:scale/quill/0/4/e/a/3/2/04ea32c2f31065db125758c973a5ff44adb45ff3.jpg?fw=1200",
+                    "Example 01",
+                    "This is a movie Example 01",
+                    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     9.5
                 ),
                 Movie(
-                    "Avengers Assemble",
-                    "this is a movie Avengers Assemble",
-                    "https://images-na.ssl-images-amazon.com/images/I/71xZtfOsHdL._AC_SY679_.jpg",
-                    "https://i.pinimg.com/originals/74/c4/a7/74c4a7ee958e1fab46c614f04d1501e9.jpg",
+                    "Example 02",
+                    "this is a movie Example 02",
+                    "https://images.unsplash.com/photo-1525431836161-e40d6846e656?q=80&w=3056&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    "https://images.unsplash.com/photo-1525431836161-e40d6846e656?q=80&w=3056&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     9.5
                 ),
                 Movie(
-                    "Avengers Infinity War",
-                    "this is a movie Avengers Infinity War",
-                    "https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._AC_SY679_.jpg",
-                    "https://gestion.pe/resizer/V_vm34QHZXXOvrvgAKO1YQw8FjE=/954x549/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/UALZPGSVTVETZODBGYNNH6EYUQ.jpg",
+                    "Example 03",
+                    "this is a movie Example 03",
+                    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    "https://plus.unsplash.com/premium_photo-1680871320511-8be2085ff281?q=80&w=3659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     9.5
                 ),
                 Movie(
-                    "Avengers Age of Ultron",
-                    "this is a movie Avengers Age of Ultron",
-                    "https://1.bp.blogspot.com/-2TckfBoCElM/XK5RW3h_ilI/AAAAAAAAYpo/6XoMItrHohkXBvCBBn24JEPuA4lb9nFLwCLcBGAs/s1600/Age%2Bof%2BUltron.jpeg",
-                    "https://wallpapercave.com/wp/wp1818455.jpg",
+                    "Example 04",
+                    "this is a movie Example 04",
+                    "https://images.unsplash.com/photo-1525431836161-e40d6846e656?q=80&w=3056&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    "https://images.unsplash.com/photo-1525431836161-e40d6846e656?q=80&w=3056&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     9.5
                 )
             )

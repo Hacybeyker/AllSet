@@ -4,7 +4,6 @@ import com.hacybeyker.allset.view.activities.animation.AnimationActivity
 import com.hacybeyker.allset.view.activities.animation.normal.AnimationNormalActivityA
 import com.hacybeyker.allset.view.activities.animation.swipe.AnimationSwipeActivityA
 import com.hacybeyker.allset.view.bottomsheet.BottomSheetActivity
-import com.hacybeyker.allset.view.changeiconapp.ChangeIconAppActivity
 import com.hacybeyker.allset.view.clipboard.ClipBoardActivity
 import com.hacybeyker.allset.view.extractcolor.ExtractColorActivity
 import com.hacybeyker.allset.view.images.coil.ImagesCoilActivity
@@ -225,12 +224,6 @@ class ItemData {
                     show = true,
                     description = "Informacion sobre como extraer colores de una imagen",
                     classActivity = ExtractColorActivity::class.java.simpleName
-                ),
-                Item(
-                    name = "ChangeIconAppActivity",
-                    show = false,
-                    description = "Informacion sobre como cambiar el icono del app",
-                    classActivity = ChangeIconAppActivity::class.java.simpleName
                 ),
                 Item(
                     name = "TapTargetView",

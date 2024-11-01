@@ -10,7 +10,6 @@ import com.hacybeyker.allset.view.images.coil.ImagesCoilActivity
 import com.hacybeyker.allset.view.keyboard.KeyboardActivity
 import com.hacybeyker.allset.view.libraries.LibraryKenBurnsViewActivity
 import com.hacybeyker.allset.view.libraries.LibraryTouchImageViewActivity
-import com.hacybeyker.allset.view.libraries.scanner.LibraryScannerZxingActivity
 import com.hacybeyker.allset.view.notifications.NotificationsActivity
 import com.hacybeyker.allset.view.preferencessettings.PreferencesSettingsActivity
 import com.hacybeyker.allset.view.recycler.RecyclerMainActivity
@@ -196,14 +195,7 @@ class ItemData {
                             show = false,
                             description = "Informacion sobre Scanner de barras o QR",
                             classActivity = "",
-                            child = arrayListOf(
-                                Item(
-                                    name = "Scanner",
-                                    show = true,
-                                    description = "Informacion sobre Scanner de barras o QR",
-                                    classActivity = LibraryScannerZxingActivity::class.java.simpleName
-                                )
-                            )
+                            child = arrayListOf()
                         )
                     )
                 ),

@@ -5,7 +5,6 @@ import com.hacybeyker.allset.view.activities.animation.normal.AnimationNormalAct
 import com.hacybeyker.allset.view.activities.animation.swipe.AnimationSwipeActivityA
 import com.hacybeyker.allset.view.bottomsheet.BottomSheetActivity
 import com.hacybeyker.allset.view.clipboard.ClipBoardActivity
-import com.hacybeyker.allset.view.extractcolor.ExtractColorActivity
 import com.hacybeyker.allset.view.images.coil.ImagesCoilActivity
 import com.hacybeyker.allset.view.keyboard.KeyboardActivity
 import com.hacybeyker.allset.view.libraries.LibraryKenBurnsViewActivity
@@ -14,7 +13,6 @@ import com.hacybeyker.allset.view.notifications.NotificationsActivity
 import com.hacybeyker.allset.view.preferencessettings.PreferencesSettingsActivity
 import com.hacybeyker.allset.view.recycler.RecyclerMainActivity
 import com.hacybeyker.allset.view.recycler.viewtype.RecyclerViewTypeActivity
-import com.hacybeyker.allset.view.screenshot.ScreenshotActivity
 import com.hacybeyker.allset.view.tablayout.TabLayoutMainActivity
 import com.hacybeyker.allset.view.taptargetview.TapTargetViewActivity
 import com.hacybeyker.allset.view.viewpager.onboarding.ViewPagerOnboardingActivity
@@ -34,12 +32,6 @@ class ItemData {
                     show = false,
                     description = "Informacion sobre como mostrar el keyboard",
                     classActivity = KeyboardActivity::class.java.simpleName
-                ),
-                Item(
-                    name = "Screenshot",
-                    show = false,
-                    description = "Informacion sobre como realizar screenshots",
-                    classActivity = ScreenshotActivity::class.java.simpleName
                 ),
                 Item(
                     name = "Bottom Sheet",
@@ -76,18 +68,6 @@ class ItemData {
                     )
                 ),
                 Item(
-                    name = "Fragment",
-                    show = false,
-                    description = "Informacion sobre los fragmentos",
-                    classActivity = ""
-                ),
-                Item(
-                    name = "Biometric",
-                    show = false,
-                    description = "Informacion sobre biometric",
-                    classActivity = ""
-                ),
-                Item(
                     name = "ViewPager2",
                     show = true,
                     description = "Informacion sobre view pager 2",
@@ -108,12 +88,6 @@ class ItemData {
                     )
                 ),
                 Item(
-                    name = "GoogleMaps",
-                    show = false,
-                    description = "Informacion sobre google maps",
-                    classActivity = ""
-                ),
-                Item(
                     name = "RecyclerView",
                     show = true,
                     description = "Informacion sobre recycler view",
@@ -131,7 +105,6 @@ class ItemData {
                             description = "Uso de la recyclerview con recycler view",
                             classActivity = RecyclerMainActivity::class.java.simpleName
                         )
-
                     )
                 ),
                 Item(
@@ -210,12 +183,6 @@ class ItemData {
                     show = true,
                     description = "Informacion sobre el uso de clip board",
                     classActivity = ClipBoardActivity::class.java.simpleName
-                ),
-                Item(
-                    name = "ExtractColorActivity",
-                    show = true,
-                    description = "Informacion sobre como extraer colores de una imagen",
-                    classActivity = ExtractColorActivity::class.java.simpleName
                 ),
                 Item(
                     name = "TapTargetView",

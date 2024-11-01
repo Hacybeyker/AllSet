@@ -92,7 +92,6 @@ dependencies {
     //Libs
     implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
     //kotlin
-    //implementation(AppDependencies.kotlinStdlib)
     implementation(AppDependencies.coreKtx)
     //View
     implementation(AppDependencies.appCompat)
@@ -118,9 +117,6 @@ dependencies {
     implementation(AppDependencies.roundedImageView)
     implementation(AppDependencies.kenburnsView)
     implementation(AppDependencies.touchImageView)
-    implementation(AppDependencies.zxingAndroid) { isTransitive = false }
-    implementation(AppDependencies.zxingCore)
     implementation(AppDependencies.slidableActivity)
     implementation(AppDependencies.tapTargetView)
-    implementation(AppDependencies.gmsMaps)
 }

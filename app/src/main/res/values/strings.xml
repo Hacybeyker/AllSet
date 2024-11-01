@@ -37,7 +37,6 @@
     <string name="tab_layout_home_fragment">Home Fragment</string>
     <string name="tab_layout_account_fragment">Account Fragment</string>
     <string name="tab_layout_settings_fragment">Settings Fragment</string>
-    <string name="title_activity_change_icon_app">ChangeIconAppActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

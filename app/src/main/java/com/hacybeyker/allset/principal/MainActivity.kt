@@ -69,10 +69,15 @@ class MainActivity : BaseActivity(), MainAdapter.OnItemSelectedListener {
     }
 
     private fun getIntentData() {
-        intent?.let {
-            val dataTemp = it.getParcelableExtra<Item>(tag)
-            dataTemp?.let {
-                this.item = dataTemp as Item
+        intent?.let { intent ->
+            val item = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                intent.getParcelableExtra(tag, Item::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                intent.getParcelableExtra(tag)
+            }
+            item?.let { 
+                this.item = it
             }
         }
     }

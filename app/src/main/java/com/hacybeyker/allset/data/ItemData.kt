@@ -109,7 +109,7 @@ class ItemData {
                 ),
                 Item(
                     name = "Images",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre libreria de imagenes",
                     classActivity = "",
                     child = arrayListOf(
@@ -180,7 +180,7 @@ class ItemData {
                 ),
                 Item(
                     name = "ClipBoardActivity",
-                    show = true,
+                    show = false,
                     description = "Informacion sobre el uso de clip board",
                     classActivity = ClipBoardActivity::class.java.simpleName
                 ),

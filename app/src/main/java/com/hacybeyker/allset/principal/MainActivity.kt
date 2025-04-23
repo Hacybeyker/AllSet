@@ -85,60 +85,79 @@ class MainActivity : BaseActivity(), MainAdapter.OnItemSelectedListener {
                 KeyboardActivity::class.java.simpleName -> {
                     KeyboardActivity.newStartActivity(activity = this, data = item)
                 }
+
                 BottomSheetActivity::class.java.simpleName -> {
                     BottomSheetActivity.newStartActivity(activity = this, data = item)
                 }
+
                 AnimationActivity::class.java.simpleName -> {
                     AnimationActivity.newStartActivity(activity = this, data = item)
                 }
+
                 AnimationSwipeActivityA::class.java.simpleName -> {
                     AnimationSwipeActivityA.newStartActivity(activity = this, data = item)
                 }
+
                 AnimationNormalActivityA::class.java.simpleName -> {
                     AnimationNormalActivityA.newStartActivity(activity = this, data = item)
                 }
+
                 RecyclerMainActivity::class.java.simpleName -> {
                     RecyclerMainActivity.newStartActivity(activity = this, data = item)
                 }
+
                 ViewPagerOnboardingActivity::class.java.simpleName -> {
                     ViewPagerOnboardingActivity.newStartActivity(activity = this, data = item)
                 }
+
                 ViewPagerSliderActivity::class.java.simpleName -> {
                     ViewPagerSliderActivity.newStartActivity(activity = this, data = item)
                 }
+
                 ImagesCoilActivity::class.java.simpleName -> {
                     ImagesCoilActivity.newStartActivity(activity = this, data = item)
                 }
+
                 WebViewActivity::class.java.simpleName -> {
                     WebViewActivity.newStartActivity(activity = this, data = item)
                 }
+
                 LibraryKenBurnsViewActivity::class.java.simpleName -> {
                     LibraryKenBurnsViewActivity.newStartActivity(activity = this, data = item)
                 }
+
                 LibraryTouchImageViewActivity::class.java.simpleName -> {
                     LibraryTouchImageViewActivity.newStartActivity(activity = this, data = item)
                 }
+
                 NotificationsActivity::class.java.simpleName -> {
                     NotificationsActivity.newStartActivity(activity = this, data = item)
                 }
+
                 PreferencesSettingsActivity::class.java.simpleName -> {
                     PreferencesSettingsActivity.newStartActivity(activity = this, data = item)
                 }
+
                 TabLayoutMainActivity::class.java.simpleName -> {
                     TabLayoutMainActivity.newStartActivity(activity = this, data = item)
                 }
+
                 RecyclerViewTypeActivity::class.java.simpleName -> {
                     RecyclerViewTypeActivity.newStartActivity(activity = this, data = item)
                 }
+
                 ClipBoardActivity::class.java.simpleName -> {
                     ClipBoardActivity.newStartActivity(activity = this, data = item)
                 }
+
                 ExtractColorActivity::class.java.simpleName -> {
                     ExtractColorActivity.newStartActivity(activity = this, data = item)
                 }
+
                 TapTargetViewActivity::class.java.simpleName -> {
                     TapTargetViewActivity.newStartActivity(activity = this, data = item)
                 }
+
                 else -> {
                     Toast.makeText(
                         this,

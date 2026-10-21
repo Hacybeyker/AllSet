@@ -97,6 +97,8 @@ dependencies {
     //Web
     implementation(libs.androidx.webkit)
     implementation(libs.androidx.browser)
+    //Storage
+    implementation(libs.androidx.datastore.preferences)
     //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -41,3 +41,6 @@ data object KenBurnsDemo : NavKey
 
 @Serializable
 data object ZoomDemo : NavKey
+
+@Serializable
+data object SettingsDemo : NavKey

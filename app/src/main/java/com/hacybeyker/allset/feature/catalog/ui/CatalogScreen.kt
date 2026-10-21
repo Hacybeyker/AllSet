@@ -1,6 +1,7 @@
 package com.hacybeyker.allset.feature.catalog.ui
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -24,11 +25,12 @@ fun CatalogScreen(
     demos: List<Demo>,
     onDemoClick: (Demo) -> Unit,
     modifier: Modifier = Modifier,
-    onBack: (() -> Unit)? = null
+    onBack: (() -> Unit)? = null,
+    actions: @Composable RowScope.() -> Unit = {}
 ) {
     Scaffold(
         modifier = modifier,
-        topBar = { AllSetTopAppBar(title = title, onBack = onBack) }
+        topBar = { AllSetTopAppBar(title = title, onBack = onBack, actions = actions) }
     ) { innerPadding ->
         LazyColumn(contentPadding = innerPadding) {
             items(items = demos, key = { it.id }) { demo ->

@@ -6,6 +6,7 @@ import com.hacybeyker.allset.navigation.ContactsDemo
 import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.KenBurnsDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
+import com.hacybeyker.allset.navigation.SettingsDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
 import com.hacybeyker.allset.navigation.TabsDemo
 import com.hacybeyker.allset.navigation.WebViewDemo
@@ -109,12 +110,6 @@ object DemoCatalog {
                     id = "images-coil",
                     name = "Coil",
                     description = "Uso de la libreria de Coil"
-                ),
-                Demo(
-                    id = "images-picasso",
-                    name = "Piccaso",
-                    description = "Uso de la libreria de Piccaso",
-                    show = false
                 )
             )
         ),
@@ -131,10 +126,10 @@ object DemoCatalog {
             show = false
         ),
         Demo(
-            id = "preferences",
-            name = "Preferences Settings",
-            description = "Informacion sobre el uso de preferences settings",
-            show = false
+            id = "settings",
+            name = "Ajustes",
+            description = "Tema y color dinámico guardados con DataStore y aplicados a toda la app",
+            destination = SettingsDemo
         ),
         Demo(
             id = "image-effects",
@@ -152,12 +147,6 @@ object DemoCatalog {
                     name = "Zoom con gestos",
                     description = "Pellizcar para acercar, arrastrar y tocar dos veces para alternar el zoom",
                     destination = ZoomDemo
-                ),
-                Demo(
-                    id = "libraries-scanner",
-                    name = "Scanner",
-                    description = "Informacion sobre Scanner de barras o QR",
-                    show = false
                 )
             )
         ),

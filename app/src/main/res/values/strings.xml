@@ -134,4 +134,17 @@
     <string name="image_effects_zoom_out">Alejar</string>
     <string name="image_effects_zoom_reset">Restablecer zoom</string>
     <string name="image_effects_zoom_level">%1$.1fx</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_system">Usar el del sistema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Oscuro</string>
+    <string name="settings_color">Color</string>
+    <string name="settings_dynamic_color">Color dinámico</string>
+    <string name="settings_dynamic_color_description">Usa los colores de tu fondo de pantalla.</string>
+    <string name="settings_dynamic_color_unavailable">Disponible desde Android 12.</string>
+    <string name="settings_about">Acerca de</string>
+    <string name="settings_version">Versión</string>
 </resources>

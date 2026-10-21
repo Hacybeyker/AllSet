@@ -1,5 +1,9 @@
 package com.hacybeyker.allset.navigation
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -20,6 +24,7 @@ import com.hacybeyker.allset.feature.lists.ui.InboxScreen
 import com.hacybeyker.allset.feature.lists.ui.ShelvesScreen
 import com.hacybeyker.allset.feature.pager.ui.CarouselScreen
 import com.hacybeyker.allset.feature.pager.ui.OnboardingScreen
+import com.hacybeyker.allset.feature.settings.ui.SettingsScreen
 import com.hacybeyker.allset.feature.tabs.ui.TabsScreen
 import com.hacybeyker.allset.feature.webview.ui.WebViewScreen
 
@@ -46,7 +51,12 @@ fun AppNavHost(modifier: Modifier = Modifier) {
                 CatalogScreen(
                     title = stringResource(R.string.app_name),
                     demos = DemoCatalog.demos.filter { it.show },
-                    onDemoClick = openDemo
+                    onDemoClick = openDemo,
+                    actions = {
+                        IconButton(onClick = { backStack.add(SettingsDemo) }) {
+                            Icon(imageVector = Icons.Filled.Settings, contentDescription = stringResource(R.string.settings_title))
+                        }
+                    }
                 )
             }
             entry<DemoGroup> { key ->
@@ -90,6 +100,9 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<ZoomDemo> {
                 ZoomScreen(onBack = onBack)
+            }
+            entry<SettingsDemo> {
+                SettingsScreen(onBack = onBack)
             }
         }
     )

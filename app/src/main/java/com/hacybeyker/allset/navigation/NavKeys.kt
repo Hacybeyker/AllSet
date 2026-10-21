@@ -47,3 +47,6 @@ data object SettingsDemo : NavKey
 
 @Serializable
 data object KeyboardDemo : NavKey
+
+@Serializable
+data object ClipboardDemo : NavKey

@@ -17,6 +17,7 @@ import com.hacybeyker.allset.feature.catalog.Demo
 import com.hacybeyker.allset.feature.catalog.DemoCatalog
 import com.hacybeyker.allset.feature.catalog.ui.CatalogScreen
 import com.hacybeyker.allset.feature.catalog.ui.ComingSoonScreen
+import com.hacybeyker.allset.feature.clipboard.ui.ClipboardScreen
 import com.hacybeyker.allset.feature.imageeffects.ui.KenBurnsScreen
 import com.hacybeyker.allset.feature.imageeffects.ui.ZoomScreen
 import com.hacybeyker.allset.feature.keyboard.ui.KeyboardScreen
@@ -107,6 +108,9 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<KeyboardDemo> {
                 KeyboardScreen(onBack = onBack)
+            }
+            entry<ClipboardDemo> {
+                ClipboardScreen(onBack = onBack)
             }
         }
     )

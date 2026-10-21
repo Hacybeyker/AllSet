@@ -2,6 +2,7 @@ package com.hacybeyker.allset.feature.catalog
 
 import com.hacybeyker.allset.navigation.BottomSheetDemo
 import com.hacybeyker.allset.navigation.CarouselDemo
+import com.hacybeyker.allset.navigation.ClipboardDemo
 import com.hacybeyker.allset.navigation.ContactsDemo
 import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.KenBurnsDemo
@@ -159,9 +160,9 @@ object DemoCatalog {
         ),
         Demo(
             id = "clipboard",
-            name = "ClipBoardActivity",
-            description = "Informacion sobre el uso de clip board",
-            show = false
+            name = "Portapapeles",
+            description = "Copiar y pegar con LocalClipboard, contenido sensible y lectura solo al pegar",
+            destination = ClipboardDemo
         ),
         Demo(
             id = "taptargetview",

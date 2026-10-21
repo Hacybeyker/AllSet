@@ -1,5 +1,10 @@
 package com.hacybeyker.allset.navigation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
@@ -12,6 +17,9 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.hacybeyker.allset.R
+import com.hacybeyker.allset.feature.animations.ui.ContentAnimationsScreen
+import com.hacybeyker.allset.feature.animations.ui.SharedElementsScreen
+import com.hacybeyker.allset.feature.animations.ui.VerticalTransitionScreen
 import com.hacybeyker.allset.feature.bottomsheet.ui.BottomSheetScreen
 import com.hacybeyker.allset.feature.catalog.Demo
 import com.hacybeyker.allset.feature.catalog.DemoCatalog
@@ -111,6 +119,25 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<ClipboardDemo> {
                 ClipboardScreen(onBack = onBack)
+            }
+            entry<SharedElementsDemo> {
+                SharedElementsScreen(onBack = onBack)
+            }
+            entry<ContentAnimationsDemo> {
+                ContentAnimationsScreen(onBack = onBack)
+            }
+            // This entry declares its own transitions: it enters from the bottom and leaves the same
+            // way, also while following the predictive back gesture.
+            entry<VerticalTransitionDemo>(
+                metadata = NavDisplay.transitionSpec {
+                    slideInVertically { height -> height } togetherWith ExitTransition.KeepUntilTransitionsFinished
+                } + NavDisplay.popTransitionSpec {
+                    EnterTransition.None togetherWith slideOutVertically { height -> height }
+                } + NavDisplay.predictivePopTransitionSpec { _ ->
+                    EnterTransition.None togetherWith slideOutVertically { height -> height }
+                }
+            ) {
+                VerticalTransitionScreen(onBack = onBack)
             }
         }
     )

@@ -183,4 +183,45 @@
     <string name="clipboard_clear">Limpiar</string>
     <string name="clipboard_copied">Copiado al portapapeles</string>
     <string name="clipboard_empty">El portapapeles está vacío o no tiene texto</string>
+
+    <!-- Animations -->
+    <string name="animations_close">Cerrar</string>
+    <string name="animations_shared_title">Elementos compartidos</string>
+    <string name="animations_place_mountain">Montaña</string>
+    <string name="animations_place_forest">Bosque</string>
+    <string name="animations_place_coast">Costa</string>
+    <string name="animations_place_desert">Desierto</string>
+    <string name="animations_place_lake">Lago</string>
+    <string name="animations_place_volcano">Volcán</string>
+    <string name="animations_place_mountain_description">Picos nevados y senderos para caminar entre las nubes.</string>
+    <string name="animations_place_forest_description">Árboles centenarios, ríos tranquilos y mucha sombra.</string>
+    <string name="animations_place_coast_description">Playas largas, olas suaves y atardeceres sobre el mar.</string>
+    <string name="animations_place_desert_description">Dunas doradas y cielos llenos de estrellas por la noche.</string>
+    <string name="animations_place_lake_description">Agua cristalina rodeada de montañas y pueblos pequeños.</string>
+    <string name="animations_place_volcano_description">Paisajes de lava, aguas termales y vistas únicas.</string>
+    <string name="animations_content_title">Animaciones de contenido</string>
+    <string name="animations_counter_title">AnimatedContent</string>
+    <string name="animations_counter_description">El número sube al aumentar y baja al disminuir.</string>
+    <string name="animations_counter_increase">Aumentar</string>
+    <string name="animations_counter_decrease">Disminuir</string>
+    <string name="animations_visibility_title">AnimatedVisibility</string>
+    <string name="animations_visibility_description">El mensaje aparece y desaparece expandiéndose.</string>
+    <string name="animations_visibility_toggle">Mostrar mensaje</string>
+    <string name="animations_visibility_message">Este mensaje entra con una expansión y un fundido.</string>
+    <string name="animations_size_title">animateContentSize</string>
+    <string name="animations_size_description">La tarjeta cambia de tamaño con suavidad al mostrar todo el texto.</string>
+    <string name="animations_size_text">Jetpack Compose anima los cambios de tamaño sin que tengas que calcular alturas. Basta con agregar el modificador al contenedor: cuando el texto pasa de dos líneas a mostrarse completo, la altura cambia poco a poco en lugar de saltar.</string>
+    <string name="animations_size_more">Ver más</string>
+    <string name="animations_size_less">Ver menos</string>
+    <string name="animations_value_title">Valores animados</string>
+    <string name="animations_value_description">El color y la escala del ícono cambian con un resorte.</string>
+    <string name="animations_value_add_favorite">Agregar a favoritos</string>
+    <string name="animations_value_remove_favorite">Quitar de favoritos</string>
+    <string name="animations_value_favorite">En tus favoritos</string>
+    <string name="animations_value_not_favorite">Toca el corazón</string>
+    <string name="animations_infinite_title">Animación infinita</string>
+    <string name="animations_infinite_description">Un indicador que se repite mientras la pantalla está visible.</string>
+    <string name="animations_infinite_live">En vivo</string>
+    <string name="animations_transition_title">Transición entre pantallas</string>
+    <string name="animations_transition_description">Esta pantalla entró desde abajo con una transición definida en los metadatos de su entrada de navegación. Al volver sale hacia abajo y, con el gesto atrás predictivo, sigue tu dedo.</string>
 </resources>

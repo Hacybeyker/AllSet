@@ -4,13 +4,16 @@ import com.hacybeyker.allset.navigation.BottomSheetDemo
 import com.hacybeyker.allset.navigation.CarouselDemo
 import com.hacybeyker.allset.navigation.ClipboardDemo
 import com.hacybeyker.allset.navigation.ContactsDemo
+import com.hacybeyker.allset.navigation.ContentAnimationsDemo
 import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.KenBurnsDemo
 import com.hacybeyker.allset.navigation.KeyboardDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
 import com.hacybeyker.allset.navigation.SettingsDemo
+import com.hacybeyker.allset.navigation.SharedElementsDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
 import com.hacybeyker.allset.navigation.TabsDemo
+import com.hacybeyker.allset.navigation.VerticalTransitionDemo
 import com.hacybeyker.allset.navigation.WebViewDemo
 import com.hacybeyker.allset.navigation.ZoomDemo
 
@@ -34,27 +37,27 @@ object DemoCatalog {
             destination = BottomSheetDemo
         ),
         Demo(
-            id = "activity",
-            name = "Activity",
-            description = "Informacion sobre los activities",
-            show = false,
+            id = "animations",
+            name = "Animaciones",
+            description = "Elementos compartidos, animaciones de contenido y transiciones entre pantallas",
             children = listOf(
                 Demo(
-                    id = "activity-animations",
-                    name = "Animations",
-                    description = "Muestra distintas formas para animar un activity",
-                    children = listOf(
-                        Demo(
-                            id = "activity-animation-normal",
-                            name = "Animation Normal",
-                            description = "Muestra la interaccion izquierda a derecha de un activity con otro, esto es posible mediante anim y con overridePendingTransition"
-                        ),
-                        Demo(
-                            id = "activity-animation-swipe",
-                            name = "Animation Swipe",
-                            description = "Permite realizar swipe de un activity a otro mediante la libreria Slidr"
-                        )
-                    )
+                    id = "animations-shared",
+                    name = "Elementos compartidos",
+                    description = "La tarjeta y su título se transforman en el detalle con SharedTransitionLayout",
+                    destination = SharedElementsDemo
+                ),
+                Demo(
+                    id = "animations-content",
+                    name = "Animaciones de contenido",
+                    description = "AnimatedContent, AnimatedVisibility, animateContentSize, valores animados y animación infinita",
+                    destination = ContentAnimationsDemo
+                ),
+                Demo(
+                    id = "animations-transition",
+                    name = "Transición entre pantallas",
+                    description = "Una pantalla que entra y sale desde abajo, también con el gesto atrás predictivo",
+                    destination = VerticalTransitionDemo
                 )
             )
         ),

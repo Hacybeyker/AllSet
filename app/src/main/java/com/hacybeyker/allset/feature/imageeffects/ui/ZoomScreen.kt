@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.materialIcon
-import androidx.compose.material.icons.materialPath
 import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -21,28 +19,16 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hacybeyker.allset.R
 import com.hacybeyker.allset.core.ui.components.AllSetTopAppBar
+import com.hacybeyker.allset.core.ui.icons.AllSetIcons
 import com.hacybeyker.allset.core.ui.theme.AllSetTheme
 import kotlinx.coroutines.launch
 
 private const val ButtonZoomFactor = 1.5f
-
-// The minus icon isn't part of material-icons-core, so it is built in code with the same path.
-private val ZoomOutIcon: ImageVector = materialIcon(name = "Filled.Remove") {
-    materialPath {
-        moveTo(19f, 13f)
-        horizontalLineTo(5f)
-        verticalLineToRelative(-2f)
-        horizontalLineToRelative(14f)
-        verticalLineToRelative(2f)
-        close()
-    }
-}
 
 @Composable
 fun ZoomScreen(onBack: () -> Unit, modifier: Modifier = Modifier) {
@@ -78,7 +64,7 @@ fun ZoomScreen(onBack: () -> Unit, modifier: Modifier = Modifier) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 FilledTonalIconButton(onClick = { scope.launch { zoomState.zoomBy(1f / ButtonZoomFactor) } }) {
-                    Icon(imageVector = ZoomOutIcon, contentDescription = stringResource(R.string.image_effects_zoom_out))
+                    Icon(imageVector = AllSetIcons.Remove, contentDescription = stringResource(R.string.image_effects_zoom_out))
                 }
                 Text(
                     text = stringResource(R.string.image_effects_zoom_level, zoomState.scale),

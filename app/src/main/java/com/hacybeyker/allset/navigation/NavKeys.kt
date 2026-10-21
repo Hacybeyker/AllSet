@@ -50,3 +50,12 @@ data object KeyboardDemo : NavKey
 
 @Serializable
 data object ClipboardDemo : NavKey
+
+@Serializable
+data object SharedElementsDemo : NavKey
+
+@Serializable
+data object ContentAnimationsDemo : NavKey
+
+@Serializable
+data object VerticalTransitionDemo : NavKey

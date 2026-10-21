@@ -72,4 +72,26 @@
     <string name="carousel_place_desert">Desierto</string>
     <string name="carousel_place_lake">Lago</string>
     <string name="carousel_place_volcano">Volcán</string>
+
+    <!-- Lists -->
+    <string name="lists_contacts_title">Contactos por sección</string>
+    <string name="lists_favorites">Favoritos</string>
+    <string name="lists_scroll_to_top">Volver arriba</string>
+    <string name="lists_inbox_title">Bandeja con gestos</string>
+    <string name="lists_inbox_hint">Desliza a la derecha para marcar como leído o no leído, y a la izquierda para eliminar. Arrastra hacia abajo para recargar.</string>
+    <string name="lists_inbox_deleted">Mensaje eliminado</string>
+    <string name="lists_inbox_undo">Deshacer</string>
+    <string name="lists_inbox_mark_read">Marcar como leído</string>
+    <string name="lists_inbox_mark_unread">Marcar como no leído</string>
+    <string name="lists_inbox_delete">Eliminar</string>
+    <string name="lists_inbox_empty_title">No hay mensajes</string>
+    <string name="lists_inbox_empty_message">Arrastra hacia abajo para recargar la bandeja.</string>
+    <string name="lists_shelves_title">Filas horizontales</string>
+    <string name="lists_shelves_hint">Cada fila es una LazyRow dentro de la LazyColumn. Al soltarla se ajusta a la tarjeta más cercana y recuerda su posición aunque salga de la pantalla.</string>
+    <string name="lists_shelf_recommended">Recomendados para ti</string>
+    <string name="lists_shelf_popular">Más populares</string>
+    <string name="lists_shelf_new">Novedades</string>
+    <string name="lists_shelf_weekend">Para el fin de semana</string>
+    <string name="lists_shelf_nearby">Cerca de ti</string>
+    <string name="lists_shelf_classics">Clásicos</string>
 </resources>

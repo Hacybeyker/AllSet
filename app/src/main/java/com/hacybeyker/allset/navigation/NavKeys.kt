@@ -20,3 +20,12 @@ data object OnboardingDemo : NavKey
 
 @Serializable
 data object CarouselDemo : NavKey
+
+@Serializable
+data object ContactsDemo : NavKey
+
+@Serializable
+data object InboxDemo : NavKey
+
+@Serializable
+data object ShelvesDemo : NavKey

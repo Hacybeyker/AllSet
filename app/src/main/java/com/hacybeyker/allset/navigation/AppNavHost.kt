@@ -13,6 +13,9 @@ import com.hacybeyker.allset.feature.catalog.Demo
 import com.hacybeyker.allset.feature.catalog.DemoCatalog
 import com.hacybeyker.allset.feature.catalog.ui.CatalogScreen
 import com.hacybeyker.allset.feature.catalog.ui.ComingSoonScreen
+import com.hacybeyker.allset.feature.lists.ui.ContactsScreen
+import com.hacybeyker.allset.feature.lists.ui.InboxScreen
+import com.hacybeyker.allset.feature.lists.ui.ShelvesScreen
 import com.hacybeyker.allset.feature.pager.ui.CarouselScreen
 import com.hacybeyker.allset.feature.pager.ui.OnboardingScreen
 
@@ -62,6 +65,15 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<CarouselDemo> {
                 CarouselScreen(onBack = onBack)
+            }
+            entry<ContactsDemo> {
+                ContactsScreen(onBack = onBack)
+            }
+            entry<InboxDemo> {
+                InboxScreen(onBack = onBack)
+            }
+            entry<ShelvesDemo> {
+                ShelvesScreen(onBack = onBack)
             }
         }
     )

@@ -2,7 +2,10 @@ package com.hacybeyker.allset.feature.catalog
 
 import com.hacybeyker.allset.navigation.BottomSheetDemo
 import com.hacybeyker.allset.navigation.CarouselDemo
+import com.hacybeyker.allset.navigation.ContactsDemo
+import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
+import com.hacybeyker.allset.navigation.ShelvesDemo
 
 /**
  * Demos of the app. Entries without a destination are pending and keep their original name,
@@ -68,19 +71,27 @@ object DemoCatalog {
             )
         ),
         Demo(
-            id = "recyclerview",
-            name = "RecyclerView",
-            description = "Informacion sobre recycler view",
+            id = "lists",
+            name = "Listas",
+            description = "LazyColumn y LazyRow: secciones, gestos y filas horizontales",
             children = listOf(
                 Demo(
-                    id = "recyclerview-viewtype",
-                    name = "ViewType",
-                    description = "Uso de la recyclerview con viewtype"
+                    id = "lists-contacts",
+                    name = "Contactos por sección",
+                    description = "Encabezados fijos, varios tipos de elemento y botón para volver arriba",
+                    destination = ContactsDemo
                 ),
                 Demo(
-                    id = "recyclerview-recycler-view",
-                    name = "Recycler View",
-                    description = "Uso de la recyclerview con recycler view"
+                    id = "lists-inbox",
+                    name = "Bandeja con gestos",
+                    description = "Deslizar para marcar como leído o eliminar, deshacer y arrastrar para recargar",
+                    destination = InboxDemo
+                ),
+                Demo(
+                    id = "lists-shelves",
+                    name = "Filas horizontales",
+                    description = "LazyRow dentro de LazyColumn que se ajusta a cada tarjeta",
+                    destination = ShelvesDemo
                 )
             )
         ),

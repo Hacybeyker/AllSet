@@ -18,6 +18,7 @@ import com.hacybeyker.allset.feature.lists.ui.InboxScreen
 import com.hacybeyker.allset.feature.lists.ui.ShelvesScreen
 import com.hacybeyker.allset.feature.pager.ui.CarouselScreen
 import com.hacybeyker.allset.feature.pager.ui.OnboardingScreen
+import com.hacybeyker.allset.feature.tabs.ui.TabsScreen
 
 @Composable
 fun AppNavHost(modifier: Modifier = Modifier) {
@@ -74,6 +75,9 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<ShelvesDemo> {
                 ShelvesScreen(onBack = onBack)
+            }
+            entry<TabsDemo> {
+                TabsScreen(onBack = onBack)
             }
         }
     )

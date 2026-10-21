@@ -36,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hacybeyker.allset.R
 import com.hacybeyker.allset.core.ui.components.AllSetTopAppBar
+import com.hacybeyker.allset.core.ui.components.Avatar
 import com.hacybeyker.allset.core.ui.theme.AllSetTheme
 import java.text.Normalizer
 import kotlinx.coroutines.launch

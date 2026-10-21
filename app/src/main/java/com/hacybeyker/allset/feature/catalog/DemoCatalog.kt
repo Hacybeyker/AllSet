@@ -6,6 +6,7 @@ import com.hacybeyker.allset.navigation.ContactsDemo
 import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
+import com.hacybeyker.allset.navigation.TabsDemo
 
 /**
  * Demos of the app. Entries without a destination are pending and keep their original name,
@@ -155,9 +156,10 @@ object DemoCatalog {
             )
         ),
         Demo(
-            id = "tablayout",
-            name = "Tab Layout",
-            description = "Informacion sobre el uso de tab layout"
+            id = "tabs",
+            name = "Tabs",
+            description = "PrimaryTabRow con HorizontalPager, pestañas desplazables y badges",
+            destination = TabsDemo
         ),
         Demo(
             id = "clipboard",

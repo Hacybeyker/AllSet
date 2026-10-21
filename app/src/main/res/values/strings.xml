@@ -94,4 +94,24 @@
     <string name="lists_shelf_weekend">Para el fin de semana</string>
     <string name="lists_shelf_nearby">Cerca de ti</string>
     <string name="lists_shelf_classics">Clásicos</string>
+
+    <!-- Tabs -->
+    <string name="tabs_title">Tabs</string>
+    <string name="tabs_explore">Explorar</string>
+    <string name="tabs_messages">Mensajes</string>
+    <string name="tabs_profile">Perfil</string>
+    <plurals name="tabs_unread_messages">
+        <item quantity="one">%d mensaje sin leer</item>
+        <item quantity="other">%d mensajes sin leer</item>
+    </plurals>
+    <string name="tabs_category_all">Todo</string>
+    <string name="tabs_category_beaches">Playas</string>
+    <string name="tabs_category_mountains">Montañas</string>
+    <string name="tabs_category_cities">Ciudades</string>
+    <string name="tabs_category_forests">Bosques</string>
+    <string name="tabs_category_deserts">Desiertos</string>
+    <string name="tabs_category_lakes">Lagos</string>
+    <string name="tabs_profile_notifications">Notificaciones</string>
+    <string name="tabs_profile_compact">Modo compacto</string>
+    <string name="tabs_profile_wifi">Descargar solo con Wi-Fi</string>
 </resources>

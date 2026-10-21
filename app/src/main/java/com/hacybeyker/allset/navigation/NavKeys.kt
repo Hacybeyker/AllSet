@@ -29,3 +29,6 @@ data object InboxDemo : NavKey
 
 @Serializable
 data object ShelvesDemo : NavKey
+
+@Serializable
+data object TabsDemo : NavKey

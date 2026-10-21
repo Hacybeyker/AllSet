@@ -62,3 +62,6 @@ data object VerticalTransitionDemo : NavKey
 
 @Serializable
 data object SpotlightDemo : NavKey
+
+@Serializable
+data object NotificationsDemo : NavKey

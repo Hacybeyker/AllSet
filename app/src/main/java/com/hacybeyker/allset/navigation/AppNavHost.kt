@@ -12,6 +12,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
@@ -32,6 +33,7 @@ import com.hacybeyker.allset.feature.keyboard.ui.KeyboardScreen
 import com.hacybeyker.allset.feature.lists.ui.ContactsScreen
 import com.hacybeyker.allset.feature.lists.ui.InboxScreen
 import com.hacybeyker.allset.feature.lists.ui.ShelvesScreen
+import com.hacybeyker.allset.feature.notifications.ui.NotificationsScreen
 import com.hacybeyker.allset.feature.pager.ui.CarouselScreen
 import com.hacybeyker.allset.feature.pager.ui.OnboardingScreen
 import com.hacybeyker.allset.feature.settings.ui.SettingsScreen
@@ -40,8 +42,8 @@ import com.hacybeyker.allset.feature.tabs.ui.TabsScreen
 import com.hacybeyker.allset.feature.webview.ui.WebViewScreen
 
 @Composable
-fun AppNavHost(modifier: Modifier = Modifier) {
-    val backStack = rememberNavBackStack(Home)
+fun AppNavHost(initialBackStack: List<NavKey>, modifier: Modifier = Modifier) {
+    val backStack = rememberNavBackStack(*initialBackStack.toTypedArray())
     val onBack: () -> Unit = { backStack.removeLastOrNull() }
     val openDemo: (Demo) -> Unit = { demo ->
         backStack.add(
@@ -142,6 +144,9 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<SpotlightDemo> {
                 SpotlightScreen(onBack = onBack)
+            }
+            entry<NotificationsDemo> {
+                NotificationsScreen(onBack = onBack)
             }
         }
     )

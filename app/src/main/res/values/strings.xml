@@ -243,4 +243,38 @@
     <string name="spotlight_filter_unread">No leídos</string>
     <string name="spotlight_filter_important">Importantes</string>
     <string name="spotlight_sample_message">Te escribo para confirmar la reunión de mañana.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notificaciones</string>
+    <string name="notifications_permission_title">Permiso</string>
+    <string name="notifications_permission_rationale">Desde Android 13 cada app pide permiso para mostrar notificaciones. Esta demo solo las usa para mostrarte los ejemplos que envías con los botones.</string>
+    <string name="notifications_permission_granted">Las notificaciones están permitidas. Envía un ejemplo y abre el panel de notificaciones.</string>
+    <string name="notifications_permission_blocked">Las notificaciones de la app están desactivadas. Actívalas en Ajustes para probar la demo.</string>
+    <string name="notifications_allow">Permitir notificaciones</string>
+    <string name="notifications_open_settings">Abrir Ajustes</string>
+    <string name="notifications_send_title">Ejemplos</string>
+    <string name="notifications_send_description">Cada ejemplo usa un estilo y un canal distintos. Al tocar la notificación se abre esta pantalla.</string>
+    <string name="notifications_send_message">Mensaje con texto largo y acción</string>
+    <string name="notifications_send_picture">Imagen</string>
+    <string name="notifications_send_download">Descarga con progreso</string>
+    <string name="notifications_channels_title">Canales</string>
+    <string name="notifications_channels_description">Mensajes, Promociones y Descargas son canales separados: en Ajustes puedes silenciar o desactivar cada uno sin afectar a los demás.</string>
+    <string name="notifications_open_channels">Ver canales en Ajustes</string>
+    <string name="notifications_channel_messages">Mensajes</string>
+    <string name="notifications_channel_messages_description">Ejemplo de mensaje con texto largo y una acción</string>
+    <string name="notifications_channel_promotions">Promociones</string>
+    <string name="notifications_channel_promotions_description">Ejemplo de notificación con imagen</string>
+    <string name="notifications_channel_downloads">Descargas</string>
+    <string name="notifications_channel_downloads_description">Progreso de descargas simuladas</string>
+    <string name="notifications_message_title">Lucía Mendoza</string>
+    <string name="notifications_message_text">¿Confirmamos la reunión de mañana?</string>
+    <string name="notifications_message_long_text">¿Confirmamos la reunión de mañana a las 10:00? Llevo el resumen del proyecto y las cifras del último mes. Si prefieres pasarla a la tarde, avísame y reservo otra sala.</string>
+    <string name="notifications_mark_as_read">Marcar como leído</string>
+    <string name="notifications_picture_title">Nuevos fondos de pantalla</string>
+    <string name="notifications_picture_text">Expande la notificación para ver la imagen.</string>
+    <string name="notifications_picture_summary">12 fondos nuevos para tu pantalla de inicio.</string>
+    <string name="notifications_picture_banner">Colección de otoño</string>
+    <string name="notifications_download_title">Fotos del viaje.zip</string>
+    <string name="notifications_download_progress">Descargando… %1$d %%</string>
+    <string name="notifications_download_completed">Descarga completada</string>
 </resources>

@@ -8,11 +8,12 @@ import com.hacybeyker.allset.navigation.ContentAnimationsDemo
 import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.KenBurnsDemo
 import com.hacybeyker.allset.navigation.KeyboardDemo
+import com.hacybeyker.allset.navigation.NotificationsDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
 import com.hacybeyker.allset.navigation.SettingsDemo
 import com.hacybeyker.allset.navigation.SharedElementsDemo
-import com.hacybeyker.allset.navigation.SpotlightDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
+import com.hacybeyker.allset.navigation.SpotlightDemo
 import com.hacybeyker.allset.navigation.TabsDemo
 import com.hacybeyker.allset.navigation.VerticalTransitionDemo
 import com.hacybeyker.allset.navigation.WebViewDemo
@@ -127,9 +128,9 @@ object DemoCatalog {
         ),
         Demo(
             id = "notifications",
-            name = "Notifications",
-            description = "Informacion sobre el uso de notificaciones",
-            show = false
+            name = "Notificaciones",
+            description = "Permiso, canales, estilos, acciones y abrir la app desde una notificación",
+            destination = NotificationsDemo
         ),
         Demo(
             id = "settings",

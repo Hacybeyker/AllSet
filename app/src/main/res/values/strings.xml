@@ -114,4 +114,12 @@
     <string name="tabs_profile_notifications">Notificaciones</string>
     <string name="tabs_profile_compact">Modo compacto</string>
     <string name="tabs_profile_wifi">Descargar solo con Wi-Fi</string>
+
+    <!-- WebView -->
+    <string name="webview_title">WebView</string>
+    <string name="webview_reload">Recargar</string>
+    <string name="webview_message_from_page">La página dice: %1$s</string>
+    <string name="webview_reply">La app recibió tu mensaje.</string>
+    <string name="webview_no_browser">No hay un navegador para abrir el enlace.</string>
+    <string name="webview_renderer_gone">La página dejó de responder y se volvió a cargar.</string>
 </resources>

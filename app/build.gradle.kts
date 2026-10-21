@@ -92,6 +92,11 @@ dependencies {
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.kotlinx.serialization.core)
+    //Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    //Web
+    implementation(libs.androidx.webkit)
+    implementation(libs.androidx.browser)
     //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

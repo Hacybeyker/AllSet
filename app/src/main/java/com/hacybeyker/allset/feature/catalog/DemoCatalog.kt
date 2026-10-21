@@ -7,6 +7,7 @@ import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
 import com.hacybeyker.allset.navigation.TabsDemo
+import com.hacybeyker.allset.navigation.WebViewDemo
 
 /**
  * Demos of the app. Entries without a destination are pending and keep their original name,
@@ -118,7 +119,8 @@ object DemoCatalog {
         Demo(
             id = "webview",
             name = "WebView",
-            description = "Informacion sobre el uso de WebView"
+            description = "Contenido web local con historial, enlaces en Custom Tabs y mensajes con la página",
+            destination = WebViewDemo
         ),
         Demo(
             id = "notifications",

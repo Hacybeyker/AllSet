@@ -32,3 +32,6 @@ data object ShelvesDemo : NavKey
 
 @Serializable
 data object TabsDemo : NavKey
+
+@Serializable
+data object WebViewDemo : NavKey

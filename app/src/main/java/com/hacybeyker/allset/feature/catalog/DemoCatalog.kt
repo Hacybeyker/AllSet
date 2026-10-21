@@ -4,10 +4,12 @@ import com.hacybeyker.allset.navigation.BottomSheetDemo
 import com.hacybeyker.allset.navigation.CarouselDemo
 import com.hacybeyker.allset.navigation.ContactsDemo
 import com.hacybeyker.allset.navigation.InboxDemo
+import com.hacybeyker.allset.navigation.KenBurnsDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
 import com.hacybeyker.allset.navigation.TabsDemo
 import com.hacybeyker.allset.navigation.WebViewDemo
+import com.hacybeyker.allset.navigation.ZoomDemo
 
 /**
  * Demos of the app. Entries without a destination are pending and keep their original name,
@@ -135,19 +137,21 @@ object DemoCatalog {
             show = false
         ),
         Demo(
-            id = "libraries",
-            name = "Libraries",
-            description = "Informacion sobre librerias ramdom",
+            id = "image-effects",
+            name = "Efectos de imagen",
+            description = "Componentes propios en Compose: efecto Ken Burns y zoom con gestos",
             children = listOf(
                 Demo(
-                    id = "libraries-kenburns",
-                    name = "KenBurnView",
-                    description = "Informacion sobre KenBurnView"
+                    id = "image-effects-ken-burns",
+                    name = "Ken Burns",
+                    description = "Zoom y desplazamiento lentos y aleatorios sobre cualquier contenido",
+                    destination = KenBurnsDemo
                 ),
                 Demo(
-                    id = "libraries-touchimageview",
-                    name = "TouchImageView",
-                    description = "Informacion sobre KenBurnView"
+                    id = "image-effects-zoom",
+                    name = "Zoom con gestos",
+                    description = "Pellizcar para acercar, arrastrar y tocar dos veces para alternar el zoom",
+                    destination = ZoomDemo
                 ),
                 Demo(
                     id = "libraries-scanner",

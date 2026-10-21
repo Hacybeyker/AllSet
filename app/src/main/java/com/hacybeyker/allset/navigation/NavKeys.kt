@@ -35,3 +35,9 @@ data object TabsDemo : NavKey
 
 @Serializable
 data object WebViewDemo : NavKey
+
+@Serializable
+data object KenBurnsDemo : NavKey
+
+@Serializable
+data object ZoomDemo : NavKey

@@ -122,4 +122,16 @@
     <string name="webview_reply">La app recibió tu mensaje.</string>
     <string name="webview_no_browser">No hay un navegador para abrir el enlace.</string>
     <string name="webview_renderer_gone">La página dejó de responder y se volvió a cargar.</string>
+
+    <!-- Image effects -->
+    <string name="image_effects_ken_burns_title">Ken Burns</string>
+    <string name="image_effects_ken_burns_description">KenBurns es un componente propio: acerca y desplaza su contenido poco a poco hacia puntos aleatorios sin mostrar los bordes. Funciona con cualquier contenido y se queda quieto si el sistema tiene las animaciones desactivadas.</string>
+    <string name="image_effects_ken_burns_pause">Pausar</string>
+    <string name="image_effects_ken_burns_resume">Reanudar</string>
+    <string name="image_effects_zoom_title">Zoom con gestos</string>
+    <string name="image_effects_zoom_description">Pellizca para acercar, arrastra para moverte y toca dos veces para alternar el zoom. Los botones hacen lo mismo sin gestos.</string>
+    <string name="image_effects_zoom_in">Acercar</string>
+    <string name="image_effects_zoom_out">Alejar</string>
+    <string name="image_effects_zoom_reset">Restablecer zoom</string>
+    <string name="image_effects_zoom_level">%1$.1fx</string>
 </resources>

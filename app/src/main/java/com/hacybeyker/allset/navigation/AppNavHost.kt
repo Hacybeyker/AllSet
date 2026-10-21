@@ -13,6 +13,8 @@ import com.hacybeyker.allset.feature.catalog.Demo
 import com.hacybeyker.allset.feature.catalog.DemoCatalog
 import com.hacybeyker.allset.feature.catalog.ui.CatalogScreen
 import com.hacybeyker.allset.feature.catalog.ui.ComingSoonScreen
+import com.hacybeyker.allset.feature.imageeffects.ui.KenBurnsScreen
+import com.hacybeyker.allset.feature.imageeffects.ui.ZoomScreen
 import com.hacybeyker.allset.feature.lists.ui.ContactsScreen
 import com.hacybeyker.allset.feature.lists.ui.InboxScreen
 import com.hacybeyker.allset.feature.lists.ui.ShelvesScreen
@@ -82,6 +84,12 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<WebViewDemo> {
                 WebViewScreen(onBack = onBack)
+            }
+            entry<KenBurnsDemo> {
+                KenBurnsScreen(onBack = onBack)
+            }
+            entry<ZoomDemo> {
+                ZoomScreen(onBack = onBack)
             }
         }
     )

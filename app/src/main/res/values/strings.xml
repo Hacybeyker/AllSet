@@ -224,4 +224,23 @@
     <string name="animations_infinite_live">En vivo</string>
     <string name="animations_transition_title">Transición entre pantallas</string>
     <string name="animations_transition_description">Esta pantalla entró desde abajo con una transición definida en los metadatos de su entrada de navegación. Al volver sale hacia abajo y, con el gesto atrás predictivo, sigue tu dedo.</string>
+
+    <!-- Spotlight -->
+    <string name="spotlight_title">Tutorial con foco</string>
+    <string name="spotlight_intro">Spotlight es un componente propio: oscurece la pantalla y resalta cada elemento con una explicación. Toca en cualquier parte o usa los botones para avanzar.</string>
+    <string name="spotlight_replay">Ver el tutorial de nuevo</string>
+    <string name="spotlight_step">%1$d de %2$d</string>
+    <string name="spotlight_skip">Omitir</string>
+    <string name="spotlight_next">Siguiente</string>
+    <string name="spotlight_done">Entendido</string>
+    <string name="spotlight_search_title">Buscar</string>
+    <string name="spotlight_search_description">Encuentra cualquier mensaje por remitente o asunto.</string>
+    <string name="spotlight_filters_title">Filtros</string>
+    <string name="spotlight_filters_description">Muestra solo los mensajes no leídos o los importantes.</string>
+    <string name="spotlight_compose_title">Redactar</string>
+    <string name="spotlight_compose_description">Escribe un mensaje nuevo desde cualquier pantalla.</string>
+    <string name="spotlight_filter_all">Todos</string>
+    <string name="spotlight_filter_unread">No leídos</string>
+    <string name="spotlight_filter_important">Importantes</string>
+    <string name="spotlight_sample_message">Te escribo para confirmar la reunión de mañana.</string>
 </resources>

@@ -59,3 +59,6 @@ data object ContentAnimationsDemo : NavKey
 
 @Serializable
 data object VerticalTransitionDemo : NavKey
+
+@Serializable
+data object SpotlightDemo : NavKey

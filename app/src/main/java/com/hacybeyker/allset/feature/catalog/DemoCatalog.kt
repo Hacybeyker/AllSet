@@ -11,6 +11,7 @@ import com.hacybeyker.allset.navigation.KeyboardDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
 import com.hacybeyker.allset.navigation.SettingsDemo
 import com.hacybeyker.allset.navigation.SharedElementsDemo
+import com.hacybeyker.allset.navigation.SpotlightDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
 import com.hacybeyker.allset.navigation.TabsDemo
 import com.hacybeyker.allset.navigation.VerticalTransitionDemo
@@ -168,10 +169,10 @@ object DemoCatalog {
             destination = ClipboardDemo
         ),
         Demo(
-            id = "taptargetview",
-            name = "TapTargetView",
-            description = "Libreria que permite mostrar como tutorial algunos botones o cajas de textos. La libreria usada es taptargetview",
-            show = false
+            id = "spotlight",
+            name = "Tutorial con foco",
+            description = "Componente propio que oscurece la pantalla y resalta elementos paso a paso",
+            destination = SpotlightDemo
         )
     )
 

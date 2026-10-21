@@ -35,6 +35,7 @@ import com.hacybeyker.allset.feature.lists.ui.ShelvesScreen
 import com.hacybeyker.allset.feature.pager.ui.CarouselScreen
 import com.hacybeyker.allset.feature.pager.ui.OnboardingScreen
 import com.hacybeyker.allset.feature.settings.ui.SettingsScreen
+import com.hacybeyker.allset.feature.spotlight.ui.SpotlightScreen
 import com.hacybeyker.allset.feature.tabs.ui.TabsScreen
 import com.hacybeyker.allset.feature.webview.ui.WebViewScreen
 
@@ -138,6 +139,9 @@ fun AppNavHost(modifier: Modifier = Modifier) {
                 }
             ) {
                 VerticalTransitionScreen(onBack = onBack)
+            }
+            entry<SpotlightDemo> {
+                SpotlightScreen(onBack = onBack)
             }
         }
     )

@@ -39,4 +39,37 @@
         <item>Toma la salida 3 hacia el centro</item>
         <item>Llegaste a tu destino</item>
     </string-array>
+
+    <!-- Pager -->
+    <string name="pager_indicator_description">Página %1$d de %2$d</string>
+    <string name="onboarding_skip">Omitir</string>
+    <string name="onboarding_next">Siguiente</string>
+    <string name="onboarding_start">Comenzar</string>
+    <string name="onboarding_explore_title">Explora ejemplos</string>
+    <string name="onboarding_explore_description">Recorre componentes de Android listos para probar en tu dispositivo.</string>
+    <string name="onboarding_learn_title">Aprende haciendo</string>
+    <string name="onboarding_learn_description">Cada demo muestra casos reales hechos con Jetpack Compose.</string>
+    <string name="onboarding_apply_title">Llévalo a tu app</string>
+    <string name="onboarding_apply_description">Usa el código como punto de partida en tus proyectos.</string>
+    <string name="carousel_title">Carousel</string>
+    <string name="carousel_banner_section">Banner automático</string>
+    <string name="carousel_banner_description">HorizontalPager que avanza solo cada 3 segundos y se pausa mientras lo arrastras.</string>
+    <string name="carousel_banner_season_title">Oferta de temporada</string>
+    <string name="carousel_banner_season_subtitle">Hasta 40% de descuento en destinos seleccionados</string>
+    <string name="carousel_banner_new_title">Nuevos destinos</string>
+    <string name="carousel_banner_new_subtitle">Descubre los lugares agregados esta semana</string>
+    <string name="carousel_banner_for_you_title">Para ti</string>
+    <string name="carousel_banner_for_you_subtitle">Recomendaciones según tus viajes anteriores</string>
+    <string name="carousel_multi_browse_section">Multi-browse</string>
+    <string name="carousel_multi_browse_description">Un elemento grande y avances de los siguientes. Ideal para explorar una colección.</string>
+    <string name="carousel_hero_section">Hero centrado</string>
+    <string name="carousel_hero_description">Destaca un elemento grande al centro, con vistas previas a los lados.</string>
+    <string name="carousel_uncontained_section">Sin contención</string>
+    <string name="carousel_uncontained_description">Elementos del mismo tamaño que siguen más allá del borde de la pantalla.</string>
+    <string name="carousel_place_mountain">Montaña</string>
+    <string name="carousel_place_forest">Bosque</string>
+    <string name="carousel_place_coast">Costa</string>
+    <string name="carousel_place_desert">Desierto</string>
+    <string name="carousel_place_lake">Lago</string>
+    <string name="carousel_place_volcano">Volcán</string>
 </resources>

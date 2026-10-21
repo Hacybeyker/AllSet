@@ -14,3 +14,9 @@ data class ComingSoon(val demoId: String) : NavKey
 
 @Serializable
 data object BottomSheetDemo : NavKey
+
+@Serializable
+data object OnboardingDemo : NavKey
+
+@Serializable
+data object CarouselDemo : NavKey

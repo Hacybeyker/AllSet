@@ -13,6 +13,8 @@ import com.hacybeyker.allset.feature.catalog.Demo
 import com.hacybeyker.allset.feature.catalog.DemoCatalog
 import com.hacybeyker.allset.feature.catalog.ui.CatalogScreen
 import com.hacybeyker.allset.feature.catalog.ui.ComingSoonScreen
+import com.hacybeyker.allset.feature.pager.ui.CarouselScreen
+import com.hacybeyker.allset.feature.pager.ui.OnboardingScreen
 
 @Composable
 fun AppNavHost(modifier: Modifier = Modifier) {
@@ -54,6 +56,12 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             }
             entry<BottomSheetDemo> {
                 BottomSheetScreen(onBack = onBack)
+            }
+            entry<OnboardingDemo> {
+                OnboardingScreen(onFinish = onBack)
+            }
+            entry<CarouselDemo> {
+                CarouselScreen(onBack = onBack)
             }
         }
     )

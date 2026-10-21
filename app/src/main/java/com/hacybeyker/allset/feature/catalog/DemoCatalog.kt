@@ -1,10 +1,12 @@
 package com.hacybeyker.allset.feature.catalog
 
 import com.hacybeyker.allset.navigation.BottomSheetDemo
+import com.hacybeyker.allset.navigation.CarouselDemo
+import com.hacybeyker.allset.navigation.OnboardingDemo
 
 /**
- * Temporary list of the demos from the XML version of the app (names, descriptions,
- * hierarchy and visibility), kept so they can be rebuilt with Jetpack Compose.
+ * Demos of the app. Entries without a destination are pending and keep their original name,
+ * description, hierarchy and visibility until they are rebuilt with Jetpack Compose.
  */
 object DemoCatalog {
 
@@ -47,19 +49,21 @@ object DemoCatalog {
             )
         ),
         Demo(
-            id = "viewpager",
-            name = "ViewPager2",
-            description = "Informacion sobre view pager 2",
+            id = "pager",
+            name = "Pager",
+            description = "HorizontalPager y carruseles de Material 3",
             children = listOf(
                 Demo(
-                    id = "viewpager-onboarding",
+                    id = "pager-onboarding",
                     name = "Onboarding",
-                    description = "Informacion sobre view pager 2, ejemplo de Onboarding"
+                    description = "Introducción con HorizontalPager, indicador y transición entre páginas",
+                    destination = OnboardingDemo
                 ),
                 Demo(
-                    id = "viewpager-slider",
-                    name = "Slider",
-                    description = "Informacion sobre view pager 2, ejemplo de Slider"
+                    id = "pager-carousel",
+                    name = "Carousel",
+                    description = "Banner automático y carruseles multi-browse, hero y sin contención",
+                    destination = CarouselDemo
                 )
             )
         ),

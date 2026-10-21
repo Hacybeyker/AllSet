@@ -8,6 +8,7 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.hacybeyker.allset.R
+import com.hacybeyker.allset.feature.bottomsheet.ui.BottomSheetScreen
 import com.hacybeyker.allset.feature.catalog.Demo
 import com.hacybeyker.allset.feature.catalog.DemoCatalog
 import com.hacybeyker.allset.feature.catalog.ui.CatalogScreen
@@ -18,7 +19,13 @@ fun AppNavHost(modifier: Modifier = Modifier) {
     val backStack = rememberNavBackStack(Home)
     val onBack: () -> Unit = { backStack.removeLastOrNull() }
     val openDemo: (Demo) -> Unit = { demo ->
-        backStack.add(if (demo.children.isEmpty()) DemoDetail(demo.id) else DemoGroup(demo.id))
+        backStack.add(
+            when {
+                demo.destination != null -> demo.destination
+                demo.children.isNotEmpty() -> DemoGroup(demo.id)
+                else -> ComingSoon(demo.id)
+            }
+        )
     }
     NavDisplay(
         backStack = backStack,
@@ -42,8 +49,11 @@ fun AppNavHost(modifier: Modifier = Modifier) {
                     onBack = onBack
                 )
             }
-            entry<DemoDetail> { key ->
+            entry<ComingSoon> { key ->
                 ComingSoonScreen(demo = DemoCatalog.find(key.demoId), onBack = onBack)
+            }
+            entry<BottomSheetDemo> {
+                BottomSheetScreen(onBack = onBack)
             }
         }
     )

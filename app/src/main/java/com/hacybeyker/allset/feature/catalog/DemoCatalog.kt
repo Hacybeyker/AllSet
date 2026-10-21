@@ -1,5 +1,7 @@
 package com.hacybeyker.allset.feature.catalog
 
+import com.hacybeyker.allset.navigation.BottomSheetDemo
+
 /**
  * Temporary list of the demos from the XML version of the app (names, descriptions,
  * hierarchy and visibility), kept so they can be rebuilt with Jetpack Compose.
@@ -16,7 +18,8 @@ object DemoCatalog {
         Demo(
             id = "bottom-sheet",
             name = "Bottom Sheet",
-            description = "Informacion sobre como realizar bottom sheet"
+            description = "Hojas inferiores modales y persistentes con Material 3",
+            destination = BottomSheetDemo
         ),
         Demo(
             id = "activity",

@@ -10,4 +10,7 @@ data object Home : NavKey
 data class DemoGroup(val demoId: String) : NavKey
 
 @Serializable
-data class DemoDetail(val demoId: String) : NavKey
+data class ComingSoon(val demoId: String) : NavKey
+
+@Serializable
+data object BottomSheetDemo : NavKey

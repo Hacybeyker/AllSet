@@ -3,4 +3,40 @@
     <string name="navigate_back">Volver</string>
     <string name="coming_soon_title">Próximamente</string>
     <string name="coming_soon_message">Este ejemplo se está rehaciendo con Jetpack Compose.</string>
+
+    <!-- Bottom Sheet -->
+    <string name="bottom_sheet_title">Bottom Sheet</string>
+    <string name="bottom_sheet_intro">Material 3 tiene dos tipos de hoja inferior: la modal, que bloquea el resto de la pantalla hasta cerrarse, y la persistente, que convive con el contenido.</string>
+    <string name="bottom_sheet_modal_title">Hoja modal</string>
+    <string name="bottom_sheet_open_actions">Ver acciones</string>
+    <string name="bottom_sheet_dismiss_outside">Cerrar al tocar fuera</string>
+    <string name="bottom_sheet_dismiss_back">Cerrar con el gesto atrás</string>
+    <string name="bottom_sheet_draggable">Permitir arrastrar</string>
+    <string name="bottom_sheet_open_comment">Escribir comentario</string>
+    <string name="bottom_sheet_persistent_title">Hoja persistente</string>
+    <string name="bottom_sheet_persistent_hint">La hoja de abajo siempre está visible: arrástrala o toca «Ver pasos». Con la hoja expandida, el gesto atrás la contrae.</string>
+    <string name="bottom_sheet_action_share">Compartir</string>
+    <string name="bottom_sheet_action_favorite">Añadir a favoritos</string>
+    <string name="bottom_sheet_action_edit">Editar</string>
+    <string name="bottom_sheet_action_delete">Eliminar</string>
+    <string name="bottom_sheet_action_selected">Elegiste: %1$s</string>
+    <string name="bottom_sheet_comment_title">Nuevo comentario</string>
+    <string name="bottom_sheet_comment_label">Comentario</string>
+    <string name="bottom_sheet_comment_send">Enviar</string>
+    <string name="bottom_sheet_comment_sent">Comentario enviado</string>
+    <string name="bottom_sheet_discard_title">¿Descartar comentario?</string>
+    <string name="bottom_sheet_discard_message">Se perderá lo que escribiste.</string>
+    <string name="bottom_sheet_discard_confirm">Descartar</string>
+    <string name="bottom_sheet_discard_cancel">Seguir escribiendo</string>
+    <string name="bottom_sheet_route_summary">25 min · 12 km</string>
+    <string name="bottom_sheet_route_detail">Ruta más rápida, tráfico ligero</string>
+    <string name="bottom_sheet_route_show_steps">Ver pasos</string>
+    <string name="bottom_sheet_route_hide_steps">Ocultar pasos</string>
+    <string-array name="bottom_sheet_route_steps">
+        <item>Sal hacia el norte por la avenida principal</item>
+        <item>Gira a la derecha en el segundo semáforo</item>
+        <item>Continúa 8 km por la vía expresa</item>
+        <item>Toma la salida 3 hacia el centro</item>
+        <item>Llegaste a tu destino</item>
+    </string-array>
 </resources>

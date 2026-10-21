@@ -44,3 +44,6 @@ data object ZoomDemo : NavKey
 
 @Serializable
 data object SettingsDemo : NavKey
+
+@Serializable
+data object KeyboardDemo : NavKey

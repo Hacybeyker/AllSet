@@ -147,4 +147,23 @@
     <string name="settings_dynamic_color_unavailable">Disponible desde Android 12.</string>
     <string name="settings_about">Acerca de</string>
     <string name="settings_version">Versión</string>
+
+    <!-- Keyboard -->
+    <string name="keyboard_title">Teclado y formularios</string>
+    <string name="keyboard_intro">Cada campo abre el teclado adecuado y su acción pasa al siguiente. La pantalla se desplaza para que el teclado no tape el campo activo, y el autocompletado del sistema reconoce cada dato.</string>
+    <string name="keyboard_status_visible">Teclado visible</string>
+    <string name="keyboard_status_hidden">Teclado oculto</string>
+    <string name="keyboard_name">Nombre</string>
+    <string name="keyboard_email">Email</string>
+    <string name="keyboard_phone">Teléfono</string>
+    <string name="keyboard_password">Contraseña</string>
+    <string name="keyboard_name_error">Escribe tu nombre</string>
+    <string name="keyboard_email_error">Escribe un email válido</string>
+    <string name="keyboard_password_hint">Al menos 8 caracteres</string>
+    <string name="keyboard_password_error">Usa al menos 8 caracteres</string>
+    <string name="keyboard_show_password">Mostrar</string>
+    <string name="keyboard_hide_password">Ocultar</string>
+    <string name="keyboard_hide_keyboard">Ocultar teclado</string>
+    <string name="keyboard_submit">Enviar</string>
+    <string name="keyboard_form_sent">Formulario enviado</string>
 </resources>

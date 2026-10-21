@@ -5,6 +5,7 @@ import com.hacybeyker.allset.navigation.CarouselDemo
 import com.hacybeyker.allset.navigation.ContactsDemo
 import com.hacybeyker.allset.navigation.InboxDemo
 import com.hacybeyker.allset.navigation.KenBurnsDemo
+import com.hacybeyker.allset.navigation.KeyboardDemo
 import com.hacybeyker.allset.navigation.OnboardingDemo
 import com.hacybeyker.allset.navigation.SettingsDemo
 import com.hacybeyker.allset.navigation.ShelvesDemo
@@ -21,9 +22,9 @@ object DemoCatalog {
     val demos: List<Demo> = listOf(
         Demo(
             id = "keyboard",
-            name = "Keyboard",
-            description = "Informacion sobre como mostrar el keyboard",
-            show = false
+            name = "Teclado y formularios",
+            description = "Teclado según el dato, acción para pasar al siguiente campo, autocompletado y campos que el teclado no tapa",
+            destination = KeyboardDemo
         ),
         Demo(
             id = "bottom-sheet",

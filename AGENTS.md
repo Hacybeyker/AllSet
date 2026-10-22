@@ -63,6 +63,8 @@ producción. Cualquier incumplimiento de las políticas de Play pone en riesgo t
 - `applicationId`, `VERSION_CODE` y `VERSION_NAME` están en `gradle.properties`. `buildConfig` está activo solo
   para leer la versión desde el código.
 - No hay inyección de dependencias: los repositorios se crean directamente, como `SettingsRepository(context)`.
+- **Licencia:** Apache 2.0 (`LICENSE`). Una dependencia nueva debe tener una licencia compatible, como Apache 2.0,
+  MIT o BSD. Evita GPL y AGPL.
 - Referencia opcional en la máquina del dueño: `~/AndroidStudioProjects/ScaffoldingAndroidCompose` es su plantilla
   de stack y estructura para Compose.
 
@@ -117,8 +119,9 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
    propias, decláralas en la `metadata` de la entrada.
 4. Agrega o actualiza el `Demo` en `DemoCatalog.kt` con su `destination`. Una entrada con `children` es un grupo.
 5. Pon los textos en `strings.xml`, en su propia sección.
-6. Revisa la [política de privacidad](#política-de-privacidad).
-7. Ejecuta las verificaciones y prueba en un dispositivo o emulador, en tema claro y oscuro.
+6. Actualiza la tabla de demos del `README.md` y la de este archivo.
+7. Revisa la [política de privacidad](#política-de-privacidad) y la [ficha de Google Play](#ficha-de-google-play).
+8. Ejecuta las verificaciones y prueba en un dispositivo o emulador, en tema claro y oscuro.
 
 ### Patrones que ya usa el código
 

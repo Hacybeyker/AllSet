@@ -10,8 +10,9 @@ producción. Cualquier incumplimiento de las políticas de Play pone en riesgo t
 
 ## Reglas obligatorias
 
-1. **Mantén la política de privacidad al día.** Cada vez que agregues o cambies algo, revisa si afecta a la política
-   y actualízala en el mismo trabajo. El detalle está en [Política de privacidad](#política-de-privacidad).
+1. **Mantén la política de privacidad y la ficha de Play al día.** Cada vez que agregues o cambies algo, revisa si
+   afecta a la política o a lo que describe la ficha (textos y capturas), y actualízalas en el mismo trabajo. El
+   detalle está en [Política de privacidad](#política-de-privacidad) y [Ficha de Google Play](#ficha-de-google-play).
 2. **Nunca ocultes ni cambies el ícono de la app.** No uses `activity-alias` ni deshabilites el launcher con
    `setComponentEnabledSetting`. La app ya tuvo un rechazo en Play por «Comportamiento engañoso» por este motivo.
 3. **Pide los mínimos permisos.** Hoy la app solo declara `POST_NOTIFICATIONS` y **no tiene `INTERNET`**. Cada
@@ -84,6 +85,7 @@ app/src/main/java/com/hacybeyker/allset/
     ├── catalog/             Demo, DemoCatalog (menú) y CatalogScreen; ComingSoonScreen para entradas sin pantalla
     └── <demo>/ui/           Una carpeta por demo; la lógica que no es de UI va en feature/<demo>/
 app/src/main/assets/web/     Páginas locales de la demo de WebView (se sirven con WebViewAssetLoader)
+play-store/                  Textos y gráficos de la ficha de Google Play
 ```
 
 ### Demos actuales
@@ -178,19 +180,43 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
 - **Contexto:** la app fue retirada de Play por una política de privacidad no válida, y una actualización anterior
   se rechazó por ocultar el ícono. Se restaura enviando una actualización que cumpla todo. No envíes nada a revisión
   sin que el dueño confirme que está listo, porque cada rechazo adicional suma riesgo para la cuenta.
-- **Target API:** desde el 31/08/2026, las actualizaciones deben apuntar a la API 36.
-- **Páginas de 16 KB:** la única librería nativa es la de Compose (graphics-path) y ya está alineada. Si agregas
 - **Versiones antiguas activas:** Play revisa todo lo que está activo en cualquier segmento (producción, prueba
   abierta, cerrada o interna). Las versiones con versionCode 10 o menor incluían `ChangeIconAppActivity` con
   `activity-alias` para cambiar el ícono, y ninguna debe quedar activa. Google detectó automáticamente el
   versionCode 8, que estaba en producción. La 7.4.0 (16) estaba limpia, pero se subió solo a prueba abierta y dejó
   la 8 en producción, así que la rechazaron. Cada release que corrija una política tiene que reemplazar la versión de
   **todos** los segmentos activos, empezando por producción.
+- **Target API:** desde el 31/08/2026, las actualizaciones deben apuntar a la API 36.
+- **Páginas de 16 KB:** la única librería nativa es la de Compose (graphics-path) y ya está alineada. Si agregas
   código nativo o una librería con `.so`, verifica la alineación.
 - **Seguridad de los datos (Play Console):** hoy la app no recopila ni comparte datos. Mantén el formulario
   coherente con la política.
 - **Público objetivo recomendado:** 18+. La app no está dirigida a niños, y elegir menores activa la política de
   Familias.
+
+## Ficha de Google Play
+
+`play-store/` contiene lo que se sube a Play Console › Fichas de Play Store:
+
+- `listings/en-US/` (idioma predeterminado) y `listings/es-419/`: `title.txt` (máx. 30 caracteres),
+  `short_description.txt` (máx. 80) y `full_description.txt` (máx. 4000). La descripción termina con la atribución
+  Creative Commons del robot de Android, que es obligatoria porque el ícono lo usa.
+- `graphics/icon.png`: 512×512, igual al ícono del launcher (`app/src/main/ic_launcher-playstore.png`). El ícono de
+  la ficha y el de la app instalada deben coincidir.
+- `graphics/feature-graphic.png`: 1024×500, generado desde `feature-graphic.html` (el comando está en el archivo).
+- `graphics/phone/`: capturas de 1080×1920 (Play exige 9:16) de la app real en tema claro, salvo la de Ajustes.
+
+**Cuándo actualizarla:** si agregas, quitas o renombras una demo, o cambias algo que se ve en las capturas, actualiza
+las dos descripciones y las capturas afectadas. Una ficha que muestra funciones que ya no existen es motivo de
+rechazo por metadatos engañosos.
+
+**Cómo regenerar las capturas** en el emulador:
+
+1. `adb shell wm size 1080x1920` y `adb shell wm density 420`.
+2. Activa el modo demo de la barra de estado: `settings put global sysui_demo_allowed 1` y los broadcasts
+   `com.android.systemui.demo` (`enter`, `clock -e hhmm 1200`, batería al 100 % y sin notificaciones).
+3. Captura con `adb exec-out screencap -p`. Revisa que la barra de gestos no tape texto.
+4. Restaura con `wm size reset`, `wm density reset`, el broadcast `exit` y `sysui_demo_allowed 0`.
 
 ## Política de privacidad
 

@@ -1,0 +1,20 @@
+AllSet is a catalog of hands-on examples for developers. Each demo solves a real case with Jetpack Compose and the current platform APIs, so you can try it on your phone and see how it behaves. The app's interface is in Spanish.
+
+What's inside:
+
+• Keyboard and forms: keyboard by data type, action to move to the next field, autofill and fields the keyboard never covers.
+• Bottom Sheet: modal and standard Material 3 bottom sheets.
+• Animations: shared elements, content animations and screen transitions that follow the predictive back gesture.
+• Pager: onboarding with HorizontalPager and Material 3 carousels.
+• Lists: sticky headers, swipe to mark or delete with undo, pull to refresh and horizontal rows.
+• WebView: pages bundled with the app, messages between the page and the app, and external links in Custom Tabs.
+• Notifications: Android 13 permission, channels, big text, picture and progress styles, actions and opening the app from a notification.
+• Settings: light, dark or system theme and dynamic color, saved with DataStore.
+• Image effects: Ken Burns effect and gesture zoom.
+• Tabs: fixed and scrollable tabs with badges.
+• Clipboard: copy and paste, sensitive content and reading only when you tap "Pegar" (Paste).
+• Spotlight tutorial: highlights elements of the screen step by step.
+
+Privacy: AllSet does not collect or share data, has no ads or analytics and does not connect to the internet.
+
+The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.

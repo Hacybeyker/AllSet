@@ -1,56 +1,282 @@
 <resources>
     <string name="app_name">AllSet</string>
-    <string name="message_not_find_activity">No se encontro o no se definio el activity a mostrar</string>
-    <string name="images_coil_regular">Regular</string>
-    <string name="images_coil_rounded">Rounded Corner</string>
-    <string name="images_coil_circle">Circle</string>
-    <string name="images_coil_gray_scale">Gray Scale</string>
-    <string name="images_coil_blur">Blur</string>
-    <string name="images_coil_multiple_transformation">Multiple Transformation</string>
-    <string name="next">Next</string>
-    <string name="start">Start</string>
-    <string name="scan">Scan</string>
-    <string name="generate">Generate</string>
-    <string name="generate_information">Ingresa un mensaje para generar un QR:</string>
-    <string name="share">Share</string>
-    <string name="send_qr">Enviar QR</string>
-    <string name="scan_cancel">Escaner cancelado</string>
-    <string name="scan_success">Escaneado con Exito</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="navigate_back">Volver</string>
+    <string name="no_browser">No hay un navegador para abrir el enlace.</string>
+    <string name="coming_soon_title">Próximamente</string>
+    <string name="coming_soon_message">Este ejemplo se está rehaciendo con Jetpack Compose.</string>
 
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <!-- Bottom Sheet -->
+    <string name="bottom_sheet_title">Bottom Sheet</string>
+    <string name="bottom_sheet_intro">Material 3 tiene dos tipos de hoja inferior: la modal, que bloquea el resto de la pantalla hasta cerrarse, y la persistente, que convive con el contenido.</string>
+    <string name="bottom_sheet_modal_title">Hoja modal</string>
+    <string name="bottom_sheet_open_actions">Ver acciones</string>
+    <string name="bottom_sheet_dismiss_outside">Cerrar al tocar fuera</string>
+    <string name="bottom_sheet_dismiss_back">Cerrar con el gesto atrás</string>
+    <string name="bottom_sheet_draggable">Permitir arrastrar</string>
+    <string name="bottom_sheet_open_comment">Escribir comentario</string>
+    <string name="bottom_sheet_persistent_title">Hoja persistente</string>
+    <string name="bottom_sheet_persistent_hint">La hoja de abajo siempre está visible: arrástrala o toca «Ver pasos». Con la hoja expandida, el gesto atrás la contrae.</string>
+    <string name="bottom_sheet_action_share">Compartir</string>
+    <string name="bottom_sheet_action_favorite">Añadir a favoritos</string>
+    <string name="bottom_sheet_action_edit">Editar</string>
+    <string name="bottom_sheet_action_delete">Eliminar</string>
+    <string name="bottom_sheet_action_selected">Elegiste: %1$s</string>
+    <string name="bottom_sheet_comment_title">Nuevo comentario</string>
+    <string name="bottom_sheet_comment_label">Comentario</string>
+    <string name="bottom_sheet_comment_send">Enviar</string>
+    <string name="bottom_sheet_comment_sent">Comentario enviado</string>
+    <string name="bottom_sheet_discard_title">¿Descartar comentario?</string>
+    <string name="bottom_sheet_discard_message">Se perderá lo que escribiste.</string>
+    <string name="bottom_sheet_discard_confirm">Descartar</string>
+    <string name="bottom_sheet_discard_cancel">Seguir escribiendo</string>
+    <string name="bottom_sheet_route_summary">25 min · 12 km</string>
+    <string name="bottom_sheet_route_detail">Ruta más rápida, tráfico ligero</string>
+    <string name="bottom_sheet_route_show_steps">Ver pasos</string>
+    <string name="bottom_sheet_route_hide_steps">Ocultar pasos</string>
+    <string-array name="bottom_sheet_route_steps">
+        <item>Sal hacia el norte por la avenida principal</item>
+        <item>Gira a la derecha en el segundo semáforo</item>
+        <item>Continúa 8 km por la vía expresa</item>
+        <item>Toma la salida 3 hacia el centro</item>
+        <item>Llegaste a tu destino</item>
+    </string-array>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-    <string name="check_title">Include images for backup</string>
+    <!-- Pager -->
+    <string name="pager_indicator_description">Página %1$d de %2$d</string>
+    <string name="onboarding_skip">Omitir</string>
+    <string name="onboarding_next">Siguiente</string>
+    <string name="onboarding_start">Comenzar</string>
+    <string name="onboarding_explore_title">Explora ejemplos</string>
+    <string name="onboarding_explore_description">Recorre componentes de Android listos para probar en tu dispositivo.</string>
+    <string name="onboarding_learn_title">Aprende haciendo</string>
+    <string name="onboarding_learn_description">Cada demo muestra casos reales hechos con Jetpack Compose.</string>
+    <string name="onboarding_apply_title">Llévalo a tu app</string>
+    <string name="onboarding_apply_description">Usa el código como punto de partida en tus proyectos.</string>
+    <string name="carousel_title">Carousel</string>
+    <string name="carousel_banner_section">Banner automático</string>
+    <string name="carousel_banner_description">HorizontalPager que avanza solo cada 3 segundos y se pausa mientras lo arrastras.</string>
+    <string name="carousel_banner_season_title">Oferta de temporada</string>
+    <string name="carousel_banner_season_subtitle">Hasta 40% de descuento en destinos seleccionados</string>
+    <string name="carousel_banner_new_title">Nuevos destinos</string>
+    <string name="carousel_banner_new_subtitle">Descubre los lugares agregados esta semana</string>
+    <string name="carousel_banner_for_you_title">Para ti</string>
+    <string name="carousel_banner_for_you_subtitle">Recomendaciones según tus viajes anteriores</string>
+    <string name="carousel_multi_browse_section">Multi-browse</string>
+    <string name="carousel_multi_browse_description">Un elemento grande y avances de los siguientes. Ideal para explorar una colección.</string>
+    <string name="carousel_hero_section">Hero centrado</string>
+    <string name="carousel_hero_description">Destaca un elemento grande al centro, con vistas previas a los lados.</string>
+    <string name="carousel_uncontained_section">Sin contención</string>
+    <string name="carousel_uncontained_description">Elementos del mismo tamaño que siguen más allá del borde de la pantalla.</string>
+    <string name="carousel_place_mountain">Montaña</string>
+    <string name="carousel_place_forest">Bosque</string>
+    <string name="carousel_place_coast">Costa</string>
+    <string name="carousel_place_desert">Desierto</string>
+    <string name="carousel_place_lake">Lago</string>
+    <string name="carousel_place_volcano">Volcán</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="open_settings_preferences">open settings preferences</string>
+    <!-- Lists -->
+    <string name="lists_contacts_title">Contactos por sección</string>
+    <string name="lists_favorites">Favoritos</string>
+    <string name="lists_scroll_to_top">Volver arriba</string>
+    <string name="lists_inbox_title">Bandeja con gestos</string>
+    <string name="lists_inbox_hint">Desliza a la derecha para marcar como leído o no leído, y a la izquierda para eliminar. Arrastra hacia abajo para recargar.</string>
+    <string name="lists_inbox_deleted">Mensaje eliminado</string>
+    <string name="lists_inbox_undo">Deshacer</string>
+    <string name="lists_inbox_mark_read">Marcar como leído</string>
+    <string name="lists_inbox_mark_unread">Marcar como no leído</string>
+    <string name="lists_inbox_delete">Eliminar</string>
+    <string name="lists_inbox_empty_title">No hay mensajes</string>
+    <string name="lists_inbox_empty_message">Arrastra hacia abajo para recargar la bandeja.</string>
+    <string name="lists_shelves_title">Filas horizontales</string>
+    <string name="lists_shelves_hint">Cada fila es una LazyRow dentro de la LazyColumn. Al soltarla se ajusta a la tarjeta más cercana y recuerda su posición aunque salga de la pantalla.</string>
+    <string name="lists_shelf_recommended">Recomendados para ti</string>
+    <string name="lists_shelf_popular">Más populares</string>
+    <string name="lists_shelf_new">Novedades</string>
+    <string name="lists_shelf_weekend">Para el fin de semana</string>
+    <string name="lists_shelf_nearby">Cerca de ti</string>
+    <string name="lists_shelf_classics">Clásicos</string>
 
-    <string name="tab_layout_home_fragment">Home Fragment</string>
-    <string name="tab_layout_account_fragment">Account Fragment</string>
-    <string name="tab_layout_settings_fragment">Settings Fragment</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="previous">Previous</string>
+    <!-- Tabs -->
+    <string name="tabs_title">Tabs</string>
+    <string name="tabs_explore">Explorar</string>
+    <string name="tabs_messages">Mensajes</string>
+    <string name="tabs_profile">Perfil</string>
+    <plurals name="tabs_unread_messages">
+        <item quantity="one">%d mensaje sin leer</item>
+        <item quantity="other">%d mensajes sin leer</item>
+    </plurals>
+    <string name="tabs_category_all">Todo</string>
+    <string name="tabs_category_beaches">Playas</string>
+    <string name="tabs_category_mountains">Montañas</string>
+    <string name="tabs_category_cities">Ciudades</string>
+    <string name="tabs_category_forests">Bosques</string>
+    <string name="tabs_category_deserts">Desiertos</string>
+    <string name="tabs_category_lakes">Lagos</string>
+    <string name="tabs_profile_notifications">Notificaciones</string>
+    <string name="tabs_profile_compact">Modo compacto</string>
+    <string name="tabs_profile_wifi">Descargar solo con Wi-Fi</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="go_to_b">Go to B</string>
-    <string name="go_to_a">Go to A</string>
-    <string name="bottom_sheet_dialog_text">Bottom Sheet Dialog</string>
-    <string name="bottom_sheet_dialog_fragment_text">Bottom Sheet Dialog Fragment</string>
-    <string name="bottom_sheet_cancelable">cancelable</string>
-    <string name="bottom_sheet_touch_outside">cancel touch outside</string>
-    <string name="bottom_sheet_dragable">dragable</string>
-    <string name="bottom_sheet_expanded">Expanded</string>
-    <string name="bottom_sheet_collapsed">Collapsed</string>
+    <!-- WebView -->
+    <string name="webview_title">WebView</string>
+    <string name="webview_reload">Recargar</string>
+    <string name="webview_message_from_page">La página dice: %1$s</string>
+    <string name="webview_reply">La app recibió tu mensaje.</string>
+    <string name="webview_renderer_gone">La página dejó de responder y se volvió a cargar.</string>
+
+    <!-- Image effects -->
+    <string name="image_effects_ken_burns_title">Ken Burns</string>
+    <string name="image_effects_ken_burns_description">KenBurns es un componente propio: acerca y desplaza su contenido poco a poco hacia puntos aleatorios sin mostrar los bordes. Funciona con cualquier contenido y se queda quieto si el sistema tiene las animaciones desactivadas.</string>
+    <string name="image_effects_ken_burns_pause">Pausar</string>
+    <string name="image_effects_ken_burns_resume">Reanudar</string>
+    <string name="image_effects_zoom_title">Zoom con gestos</string>
+    <string name="image_effects_zoom_description">Pellizca para acercar, arrastra para moverte y toca dos veces para alternar el zoom. Los botones hacen lo mismo sin gestos.</string>
+    <string name="image_effects_zoom_in">Acercar</string>
+    <string name="image_effects_zoom_out">Alejar</string>
+    <string name="image_effects_zoom_reset">Restablecer zoom</string>
+    <string name="image_effects_zoom_level">%1$.1fx</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_system">Usar el del sistema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Oscuro</string>
+    <string name="settings_color">Color</string>
+    <string name="settings_dynamic_color">Color dinámico</string>
+    <string name="settings_dynamic_color_description">Usa los colores de tu fondo de pantalla.</string>
+    <string name="settings_dynamic_color_unavailable">Disponible desde Android 12.</string>
+    <string name="settings_about">Acerca de</string>
+    <string name="settings_privacy_policy">Política de privacidad</string>
+    <string name="settings_privacy_policy_description">Qué información trata la app y cómo contactar al desarrollador</string>
+    <string name="settings_version">Versión</string>
+
+    <!-- Keyboard -->
+    <string name="keyboard_title">Teclado y formularios</string>
+    <string name="keyboard_intro">Cada campo abre el teclado adecuado y su acción pasa al siguiente. La pantalla se desplaza para que el teclado no tape el campo activo, y el autocompletado del sistema reconoce cada dato.</string>
+    <string name="keyboard_status_visible">Teclado visible</string>
+    <string name="keyboard_status_hidden">Teclado oculto</string>
+    <string name="keyboard_name">Nombre</string>
+    <string name="keyboard_email">Email</string>
+    <string name="keyboard_phone">Teléfono</string>
+    <string name="keyboard_password">Contraseña</string>
+    <string name="keyboard_name_error">Escribe tu nombre</string>
+    <string name="keyboard_email_error">Escribe un email válido</string>
+    <string name="keyboard_password_hint">Al menos 8 caracteres</string>
+    <string name="keyboard_password_error">Usa al menos 8 caracteres</string>
+    <string name="keyboard_show_password">Mostrar</string>
+    <string name="keyboard_hide_password">Ocultar</string>
+    <string name="keyboard_hide_keyboard">Ocultar teclado</string>
+    <string name="keyboard_submit">Enviar</string>
+    <string name="keyboard_form_sent">Formulario enviado</string>
+
+    <!-- Clipboard -->
+    <string name="clipboard_title">Portapapeles</string>
+    <string name="clipboard_label">AllSet</string>
+    <string name="clipboard_copy_title">Copiar un código</string>
+    <string name="clipboard_copy_description">En Android 13 o superior el sistema confirma la copia, así que la app no muestra un aviso propio.</string>
+    <string name="clipboard_copy">Copiar</string>
+    <string name="clipboard_sensitive_title">Copiar contenido sensible</string>
+    <string name="clipboard_sensitive_description">Se marca como sensible, así que la vista previa del sistema lo oculta. Úsalo para contraseñas o códigos de verificación.</string>
+    <string name="clipboard_copy_sensitive">Copiar oculto</string>
+    <string name="clipboard_paste_title">Pegar</string>
+    <string name="clipboard_paste_description">La app lee el portapapeles solo cuando tocas Pegar. Android avisa cada vez que una app lo lee.</string>
+    <string name="clipboard_pasted_text">Texto pegado</string>
+    <string name="clipboard_paste">Pegar</string>
+    <string name="clipboard_clear">Limpiar</string>
+    <string name="clipboard_copied">Copiado al portapapeles</string>
+    <string name="clipboard_empty">El portapapeles está vacío o no tiene texto</string>
+
+    <!-- Animations -->
+    <string name="animations_close">Cerrar</string>
+    <string name="animations_shared_title">Elementos compartidos</string>
+    <string name="animations_place_mountain">Montaña</string>
+    <string name="animations_place_forest">Bosque</string>
+    <string name="animations_place_coast">Costa</string>
+    <string name="animations_place_desert">Desierto</string>
+    <string name="animations_place_lake">Lago</string>
+    <string name="animations_place_volcano">Volcán</string>
+    <string name="animations_place_mountain_description">Picos nevados y senderos para caminar entre las nubes.</string>
+    <string name="animations_place_forest_description">Árboles centenarios, ríos tranquilos y mucha sombra.</string>
+    <string name="animations_place_coast_description">Playas largas, olas suaves y atardeceres sobre el mar.</string>
+    <string name="animations_place_desert_description">Dunas doradas y cielos llenos de estrellas por la noche.</string>
+    <string name="animations_place_lake_description">Agua cristalina rodeada de montañas y pueblos pequeños.</string>
+    <string name="animations_place_volcano_description">Paisajes de lava, aguas termales y vistas únicas.</string>
+    <string name="animations_content_title">Animaciones de contenido</string>
+    <string name="animations_counter_title">AnimatedContent</string>
+    <string name="animations_counter_description">El número sube al aumentar y baja al disminuir.</string>
+    <string name="animations_counter_increase">Aumentar</string>
+    <string name="animations_counter_decrease">Disminuir</string>
+    <string name="animations_visibility_title">AnimatedVisibility</string>
+    <string name="animations_visibility_description">El mensaje aparece y desaparece expandiéndose.</string>
+    <string name="animations_visibility_toggle">Mostrar mensaje</string>
+    <string name="animations_visibility_message">Este mensaje entra con una expansión y un fundido.</string>
+    <string name="animations_size_title">animateContentSize</string>
+    <string name="animations_size_description">La tarjeta cambia de tamaño con suavidad al mostrar todo el texto.</string>
+    <string name="animations_size_text">Jetpack Compose anima los cambios de tamaño sin que tengas que calcular alturas. Basta con agregar el modificador al contenedor: cuando el texto pasa de dos líneas a mostrarse completo, la altura cambia poco a poco en lugar de saltar.</string>
+    <string name="animations_size_more">Ver más</string>
+    <string name="animations_size_less">Ver menos</string>
+    <string name="animations_value_title">Valores animados</string>
+    <string name="animations_value_description">El color y la escala del ícono cambian con un resorte.</string>
+    <string name="animations_value_add_favorite">Agregar a favoritos</string>
+    <string name="animations_value_remove_favorite">Quitar de favoritos</string>
+    <string name="animations_value_favorite">En tus favoritos</string>
+    <string name="animations_value_not_favorite">Toca el corazón</string>
+    <string name="animations_infinite_title">Animación infinita</string>
+    <string name="animations_infinite_description">Un indicador que se repite mientras la pantalla está visible.</string>
+    <string name="animations_infinite_live">En vivo</string>
+    <string name="animations_transition_title">Transición entre pantallas</string>
+    <string name="animations_transition_description">Esta pantalla entró desde abajo con una transición definida en los metadatos de su entrada de navegación. Al volver sale hacia abajo y, con el gesto atrás predictivo, sigue tu dedo.</string>
+
+    <!-- Spotlight -->
+    <string name="spotlight_title">Tutorial con foco</string>
+    <string name="spotlight_intro">Spotlight es un componente propio: oscurece la pantalla y resalta cada elemento con una explicación. Toca en cualquier parte o usa los botones para avanzar.</string>
+    <string name="spotlight_replay">Ver el tutorial de nuevo</string>
+    <string name="spotlight_step">%1$d de %2$d</string>
+    <string name="spotlight_skip">Omitir</string>
+    <string name="spotlight_next">Siguiente</string>
+    <string name="spotlight_done">Entendido</string>
+    <string name="spotlight_search_title">Buscar</string>
+    <string name="spotlight_search_description">Encuentra cualquier mensaje por remitente o asunto.</string>
+    <string name="spotlight_filters_title">Filtros</string>
+    <string name="spotlight_filters_description">Muestra solo los mensajes no leídos o los importantes.</string>
+    <string name="spotlight_compose_title">Redactar</string>
+    <string name="spotlight_compose_description">Escribe un mensaje nuevo desde cualquier pantalla.</string>
+    <string name="spotlight_filter_all">Todos</string>
+    <string name="spotlight_filter_unread">No leídos</string>
+    <string name="spotlight_filter_important">Importantes</string>
+    <string name="spotlight_sample_message">Te escribo para confirmar la reunión de mañana.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notificaciones</string>
+    <string name="notifications_permission_title">Permiso</string>
+    <string name="notifications_permission_rationale">Desde Android 13 cada app pide permiso para mostrar notificaciones. Esta demo solo las usa para mostrarte los ejemplos que envías con los botones.</string>
+    <string name="notifications_permission_granted">Las notificaciones están permitidas. Envía un ejemplo y abre el panel de notificaciones.</string>
+    <string name="notifications_permission_blocked">Las notificaciones de la app están desactivadas. Actívalas en Ajustes para probar la demo.</string>
+    <string name="notifications_allow">Permitir notificaciones</string>
+    <string name="notifications_open_settings">Abrir Ajustes</string>
+    <string name="notifications_send_title">Ejemplos</string>
+    <string name="notifications_send_description">Cada ejemplo usa un estilo y un canal distintos. Al tocar la notificación se abre esta pantalla.</string>
+    <string name="notifications_send_message">Mensaje con texto largo y acción</string>
+    <string name="notifications_send_picture">Imagen</string>
+    <string name="notifications_send_download">Descarga con progreso</string>
+    <string name="notifications_channels_title">Canales</string>
+    <string name="notifications_channels_description">Mensajes, Promociones y Descargas son canales separados: en Ajustes puedes silenciar o desactivar cada uno sin afectar a los demás.</string>
+    <string name="notifications_open_channels">Ver canales en Ajustes</string>
+    <string name="notifications_channel_messages">Mensajes</string>
+    <string name="notifications_channel_messages_description">Ejemplo de mensaje con texto largo y una acción</string>
+    <string name="notifications_channel_promotions">Promociones</string>
+    <string name="notifications_channel_promotions_description">Ejemplo de notificación con imagen</string>
+    <string name="notifications_channel_downloads">Descargas</string>
+    <string name="notifications_channel_downloads_description">Progreso de descargas simuladas</string>
+    <string name="notifications_message_title">Lucía Mendoza</string>
+    <string name="notifications_message_text">¿Confirmamos la reunión de mañana?</string>
+    <string name="notifications_message_long_text">¿Confirmamos la reunión de mañana a las 10:00? Llevo el resumen del proyecto y las cifras del último mes. Si prefieres pasarla a la tarde, avísame y reservo otra sala.</string>
+    <string name="notifications_mark_as_read">Marcar como leído</string>
+    <string name="notifications_picture_title">Nuevos fondos de pantalla</string>
+    <string name="notifications_picture_text">Expande la notificación para ver la imagen.</string>
+    <string name="notifications_picture_summary">12 fondos nuevos para tu pantalla de inicio.</string>
+    <string name="notifications_picture_banner">Colección de otoño</string>
+    <string name="notifications_download_title">Fotos del viaje.zip</string>
+    <string name="notifications_download_progress">Descargando… %1$d %%</string>
+    <string name="notifications_download_completed">Descarga completada</string>
 </resources>

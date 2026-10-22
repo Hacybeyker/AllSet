@@ -7,11 +7,11 @@ runs:
       uses: ./.github/actions/configure
 
     - name: Cache local
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: |
           ~/.gradle/caches
           ~/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', 'gradle/libs.versions.toml') }}
         restore-keys: |
           ${{ runner.os }}-gradle-

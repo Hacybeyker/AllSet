@@ -1,0 +1,16 @@
+<en-US>
+AllSet 8.0.0 was rebuilt from scratch with Jetpack Compose and Material 3:
+• 12 demos: forms, bottom sheets, animations, pager, lists, WebView, notifications, image effects, tabs, clipboard and a spotlight tutorial.
+• Light, dark and dynamic color themes.
+• Privacy policy link in Settings.
+• The demo that changed the app icon was removed.
+• Targets Android 16.
+</en-US>
+<es-419>
+AllSet 8.0.0 se rehízo por completo con Jetpack Compose y Material 3:
+• 12 demos: formularios, hojas inferiores, animaciones, pager, listas, WebView, notificaciones, efectos de imagen, pestañas, portapapeles y tutorial con foco.
+• Tema claro, oscuro y color dinámico.
+• Enlace a la política de privacidad en Ajustes.
+• Se eliminó la demo que cambiaba el ícono de la app.
+• Compatible con Android 16.
+</es-419>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Contenido web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+    <h1>Contenido web en Compose</h1>
+    <p>Esta página viene dentro de la app y se carga con <code>WebViewAssetLoader</code>, sin permiso de internet.</p>
+
+    <section>
+        <h2>Historial</h2>
+        <p>Abre <a href="detalle.html">otra página</a> y vuelve con el gesto atrás: recorre el historial de la página antes de salir de la pantalla.</p>
+    </section>
+
+    <section>
+        <h2>Enlaces externos</h2>
+        <p>Los sitios de terceros se abren en Custom Tabs, no dentro de la app. Prueba con la <a href="https://developer.android.com/develop/ui/compose">documentación de Jetpack Compose</a>.</p>
+    </section>
+
+    <section>
+        <h2>Mensajes con la app</h2>
+        <p>La página usa <code>addWebMessageListener</code>, que solo acepta mensajes de este origen.</p>
+        <button id="send" type="button">Enviar mensaje a la app</button>
+        <p id="reply" aria-live="polite"></p>
+    </section>
+</main>
+<script>
+    const button = document.getElementById('send');
+    const reply = document.getElementById('reply');
+    if (window.allset) {
+        allset.onmessage = (event) => { reply.textContent = event.data; };
+        button.addEventListener('click', () => allset.postMessage('Hola desde la página web'));
+    } else {
+        button.disabled = true;
+        reply.textContent = 'Este dispositivo no admite mensajes entre la página y la app.';
+    }
+</script>
+</body>
+</html>

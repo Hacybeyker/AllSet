@@ -1,24 +1,22 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
-    id("kotlin-parcelize")
-    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = ConfigureApp.applicationId
-    compileSdk = AppVersion.compileSdkVersion
+    namespace = "com.hacybeyker.allset"
+    compileSdk {
+        version = release(libs.versions.compileSdk.get().toInt())
+    }
 
     defaultConfig {
-        applicationId = ConfigureApp.applicationId
-        minSdk = AppVersion.minSdkVersion
-        targetSdk = AppVersion.targetSdkVersion
-        versionCode = ConfigureApp.versionCode
-        versionName = ConfigureApp.versionName
-        testInstrumentationRunner = AppVersion.testInstrumentationRunner
-        renderscriptSupportModeEnabled = true
-        vectorDrawables.useSupportLibrary = true
+        applicationId = providers.gradleProperty("APP_ID").get()
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
+        versionCode = providers.gradleProperty("VERSION_CODE").get().toInt()
+        versionName = providers.gradleProperty("VERSION_NAME").get()
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -51,11 +49,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
-
     buildFeatures {
-        dataBinding = true
-        viewBinding = true
+        compose = true
+        // BuildConfig.VERSION_NAME shows VERSION_NAME in Settings, also in its @Preview.
         buildConfig = true
     }
 
@@ -75,11 +71,7 @@ android {
         disable.addAll(
             listOf(
                 "TypographyFractions",
-                "TypographyQuotes",
-                "JvmStaticProvidesInObjectDetector",
-                "FieldSiteTargetOnQualifierAnnotation",
-                "ModuleCompanionObjects",
-                "ModuleCompanionObjectsNotInModuleParent"
+                "TypographyQuotes"
             )
         )
         checkDependencies = true
@@ -89,34 +81,27 @@ android {
 }
 
 dependencies {
-    //Libs
-    implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
-    //kotlin
-    implementation(AppDependencies.coreKtx)
-    //View
-    implementation(AppDependencies.appCompat)
-    implementation(AppDependencies.material)
-    implementation(AppDependencies.constraintLayout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.activity.compose)
+    //Compose
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.core)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    //Navigation
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.kotlinx.serialization.core)
+    //Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    //Web
+    implementation(libs.androidx.webkit)
+    implementation(libs.androidx.browser)
+    //Storage
+    implementation(libs.androidx.datastore.preferences)
     //Test
-    testImplementation(TestDependencies.junit)
-    androidTestImplementation(TestDependencies.extJUnit)
-    androidTestImplementation(TestDependencies.espressoCore)
-    //AndroidX
-    implementation(AppDependencies.viewPager2)
-    implementation(AppDependencies.cardView)
-    implementation(AppDependencies.palette)
-    implementation(AppDependencies.preference)
-    implementation(AppDependencies.legacySupportV4)
-    implementation(AppDependencies.navigationFragment)
-    implementation(AppDependencies.navigationUI)
-    //Pictures
-    implementation(AppDependencies.glide)
-    kapt(AppDependencies.glideCompiler)
-    implementation(AppDependencies.coil)
-    //LibsExternals
-    implementation(AppDependencies.roundedImageView)
-    implementation(AppDependencies.kenburnsView)
-    implementation(AppDependencies.touchImageView)
-    implementation(AppDependencies.slidableActivity)
-    implementation(AppDependencies.tapTargetView)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
 }

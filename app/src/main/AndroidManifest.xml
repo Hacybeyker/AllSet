@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hacybeyker.allset">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Only the notifications demo uses it, and it asks for it when the user taps a button. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -14,7 +13,7 @@
         android:theme="@style/Theme.AllSet">
 
         <activity
-            android:name=".principal.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,76 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".view.keyboard.KeyboardActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".view.security.SecurityActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.bottomsheet.BottomSheetActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.taptargetview.TapTargetViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.activities.animation.normal.AnimationNormalActivityB"
-            android:exported="false" />
-        <activity
-            android:name=".view.activities.animation.normal.AnimationNormalActivityA"
-            android:exported="false" />
-        <activity
-            android:name=".view.activities.animation.AnimationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.activities.animation.swipe.AnimationSwipeActivityB"
-            android:exported="false" />
-        <activity
-            android:name=".view.activities.animation.swipe.AnimationSwipeActivityA"
-            android:exported="false" />
-        <activity
-            android:name=".view.extractcolor.ExtractColorActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AllSet.NoActionBar" />
-        <activity
-            android:name=".view.clipboard.ClipBoardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.recycler.viewtype.RecyclerViewTypeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.tablayout.TabLayoutMainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.preferencessettings.SettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.preferencessettings.PreferencesSettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.notifications.NotificationsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.libraries.LibraryTouchImageViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.libraries.LibraryKenBurnsViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.viewpager.slider.ViewPagerSliderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.viewpager.onboarding.ViewPagerOnboardingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.webview.WebViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.images.coil.ImagesCoilActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.recycler.RecyclerMainActivity"
+        <receiver
+            android:name=".feature.notifications.NotificationActionReceiver"
             android:exported="false" />
     </application>
 </manifest>

@@ -1,0 +1,20 @@
+AllSet es un catálogo de ejemplos prácticos para desarrolladores. Cada demo resuelve un caso real con Jetpack Compose y las APIs actuales de la plataforma, para que puedas probarlo en tu teléfono y ver cómo se comporta.
+
+Qué incluye:
+
+• Teclado y formularios: teclado según el tipo de dato, acción para pasar al siguiente campo, autocompletado y campos que el teclado no tapa.
+• Bottom Sheet: hojas inferiores modales y persistentes de Material 3.
+• Animaciones: elementos compartidos, animaciones de contenido y transiciones entre pantallas que siguen el gesto atrás predictivo.
+• Pager: introducción con HorizontalPager y carruseles de Material 3.
+• Listas: encabezados fijos, deslizar para marcar o eliminar con opción de deshacer, arrastrar para recargar y filas horizontales.
+• WebView: páginas incluidas en la app, mensajes entre la página y la app, y enlaces externos en Custom Tabs.
+• Notificaciones: permiso de Android 13, canales, estilos de texto largo, imagen y progreso, acciones y apertura de la app desde la notificación.
+• Ajustes: tema claro, oscuro o del sistema y color dinámico, guardados con DataStore.
+• Efectos de imagen: efecto Ken Burns y zoom con gestos.
+• Tabs: pestañas fijas y desplazables con contadores.
+• Portapapeles: copiar y pegar, contenido sensible y lectura solo al tocar «Pegar».
+• Tutorial con foco: resalta elementos de la pantalla paso a paso.
+
+Privacidad: AllSet no recopila ni comparte datos, no tiene anuncios ni analítica y no se conecta a internet.
+
+El robot de Android se reproduce o modifica a partir del trabajo generado y compartido por Google, y se usa conforme a lo descrito en la Licencia de Atribución de Creative Commons 3.0.

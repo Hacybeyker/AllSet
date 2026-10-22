@@ -2,7 +2,6 @@ package com.hacybeyker.allset.feature.settings.ui
 
 import android.app.UiModeManager
 import android.content.Context
-import android.content.pm.PackageManager
 import android.os.Build
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
@@ -32,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.hacybeyker.allset.BuildConfig
 import com.hacybeyker.allset.R
 import com.hacybeyker.allset.core.data.settings.AppSettings
 import com.hacybeyker.allset.core.data.settings.SettingsRepository
@@ -50,13 +50,12 @@ fun SettingsScreen(onBack: () -> Unit, modifier: Modifier = Modifier) {
     val scope = rememberCoroutineScope()
     val repository = remember { SettingsRepository(context) }
     val settings by repository.settings.collectAsStateWithLifecycle(initialValue = AppSettings())
-    val appVersion = remember { context.appVersionName() }
     val snackbarHostState = remember { SnackbarHostState() }
     val noBrowserMessage = stringResource(R.string.no_browser)
 
     SettingsContent(
         settings = settings,
-        appVersion = appVersion,
+        appVersion = BuildConfig.VERSION_NAME,
         snackbarHostState = snackbarHostState,
         dynamicColorAvailable = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S,
         onThemeModeChange = { themeMode ->
@@ -191,23 +190,13 @@ private fun Context.applyApplicationNightMode(themeMode: ThemeMode) {
     getSystemService(UiModeManager::class.java).setApplicationNightMode(nightMode)
 }
 
-private fun Context.appVersionName(): String {
-    val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
-    } else {
-        @Suppress("DEPRECATION")
-        packageManager.getPackageInfo(packageName, 0)
-    }
-    return packageInfo.versionName.orEmpty()
-}
-
 @Preview(showBackground = true)
 @Composable
 private fun SettingsContentPreview() {
     AllSetTheme {
         SettingsContent(
             settings = AppSettings(themeMode = ThemeMode.Dark),
-            appVersion = "7.4.0",
+            appVersion = BuildConfig.VERSION_NAME,
             snackbarHostState = remember { SnackbarHostState() },
             dynamicColorAvailable = true,
             onThemeModeChange = {},

@@ -51,6 +51,8 @@ android {
 
     buildFeatures {
         compose = true
+        // BuildConfig.VERSION_NAME shows VERSION_NAME in Settings, also in its @Preview.
+        buildConfig = true
     }
 
     bundle {

@@ -257,8 +257,34 @@ Revisa la política **siempre** que un cambio:
 
 ## Pendientes conocidos
 
-- Actualizar `androidx.webkit` a 1.18.0 después de publicar la 8.0.0. Se dejó en 1.17.1 porque salió el mismo día
-  en que se preparó el release (21/10/2026) y solo agrega APIs que la app no usa. Las demás dependencias estaban al
-  día en esa fecha.
-- Decidir la demo de Coil después de publicar (requiere `INTERNET` y actualizar la política).
-- Opcional: agregar la capa monocroma del ícono del launcher.
+Mejoras que no bloquean nada, anotadas al publicar la 8.0.0 (21/10/2026). Resuélvelas después de que Play apruebe
+esa versión, cada una en su propio commit.
+
+### App
+
+- **webkit:** actualizar `androidx.webkit` a 1.18.0. Se dejó en 1.17.1 porque salió el mismo día en que se preparó
+  el release y solo agrega APIs que la app no usa. Las demás dependencias estaban al día en esa fecha.
+- **Símbolos de depuración nativos:** Play avisa que el AAB tiene código nativo sin símbolos de depuración. El
+  único código nativo es la librería `graphics-path` de Compose. Prueba con `ndk { debugSymbolLevel = "SYMBOL_TABLE" }`
+  en el build type `release` y comprueba si el aviso desaparece: como la librería llega ya compilada dentro de AndroidX,
+  puede que no haya símbolos que extraer. Solo sirve para leer mejor los fallos nativos y no afecta a la revisión.
+  Referencia: <https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#native-crash-support>.
+- **Demo de Coil:** decidir si se agrega. Requiere `INTERNET` y actualizar la política y la sección de Seguridad
+  de los datos.
+- **Ícono monocromo:** opcional, agregar la capa monocroma del ícono del launcher (aviso `MonochromeLauncherIcon`).
+
+### Workflow «Android Publish»
+
+- **`track` está obsoleto:** `r0adkll/upload-google-play` avisa *«'track' is deprecated… migrate to 'tracks'»*.
+  Basta con cambiar `track: beta` por `tracks: beta`.
+- **Ubuntu 26:** desde el 19/10/2026, `ubuntu-latest` pasa a Ubuntu 26. Es solo informativo. Si algún paso falla en
+  la imagen nueva, fija `runs-on: ubuntu-24.04` mientras se corrige.
+- **Orden de los pasos:** el tag se crea antes de subir a Play. Si la subida falla, el tag queda creado y el siguiente
+  intento falla en ese paso, así que antes de reintentar hay que borrarlo (`git push origin :refs/tags/<versión>`).
+  Conviene mover «Create Tag Release» después de la subida.
+- **Verificaciones y notas:** el workflow no ejecuta tests ni lint antes de subir, y la versión de prueba abierta
+  llega sin notas. Se puede añadir `./gradlew :app:testReleaseUnitTest :app:lintRelease` antes de compilar y usar
+  `whatsNewDirectory` con las notas de `play-store/release-notes/`. Ese parámetro espera un archivo
+  `whatsnew-<idioma>` por idioma, así que hay que adaptar el formato.
+- **Caché duplicada:** `setup-java` (`cache: 'gradle'`) y la acción `.github/actions/android` cachean las mismas
+  carpetas de Gradle. Basta con una de las dos.

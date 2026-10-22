@@ -161,8 +161,8 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
   salen de `SIGNING_KEY_ALIAS_ALLSET`, `SIGNING_KEY_PASSWORD_HACYBEYKER` y `SIGNING_STORE_PASSWORD_HACYBEYKER` en
   `~/.gradle/gradle.properties` o, en CI, de `SIGNING_KEY_ALIAS`, `SIGNING_KEY_PASSWORD` y `SIGNING_STORE_PASSWORD`.
 - **Versiones:** se definen solo en `gradle.properties`. Ajustes las muestra con `BuildConfig.VERSION_NAME`
-  (`buildConfig = true`). La versión actual es **8.0.0 (17)**, todavía sin publicar. La 7.4.0 (16) ya se generó desde
-  `master` en abril de 2025 y su tag existe. Cada release necesita un `VERSION_CODE` mayor que el último subido
+  (`buildConfig = true`). La versión publicada es **8.0.0 (17)**, aprobada el 21/10/2026, y su tag existe. La 7.4.0
+  (16) también tiene tag, aunque nunca se aprobó. Cada release necesita un `VERSION_CODE` mayor que el último subido
   (compruébalo en Play Console › Explorador de app bundles) y un `VERSION_NAME` sin tag.
 - **Workflow `.github/workflows/android_publish.yml` («Android Publish»):**
   - Solo se ejecuta a mano (`workflow_dispatch`). No se dispara con push ni con merge.
@@ -180,9 +180,9 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
 
 ## Google Play
 
-- **Contexto:** la app fue retirada de Play por una política de privacidad no válida, y una actualización anterior
-  se rechazó por ocultar el ícono. Se restaura enviando una actualización que cumpla todo. No envíes nada a revisión
-  sin que el dueño confirme que está listo, porque cada rechazo adicional suma riesgo para la cuenta.
+- **Contexto:** en mayo de 2025, Play retiró la app por una política de privacidad no válida, y una actualización
+  anterior se había rechazado por ocultar el ícono. La 8.0.0 (17) corrigió todo y se aprobó y publicó el 21/10/2026.
+  La cuenta ya tuvo advertencias, así que no envíes nada a revisión sin que el dueño confirme que está listo.
 - **Versiones antiguas activas:** Play revisa todo lo que está activo en cualquier segmento (producción, prueba
   abierta, cerrada o interna). Las versiones con versionCode 10 o menor incluían `ChangeIconAppActivity` con
   `activity-alias` para cambiar el ícono, y ninguna debe quedar activa. Google detectó automáticamente el

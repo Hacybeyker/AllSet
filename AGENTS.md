@@ -191,7 +191,9 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
   **todos** los segmentos activos, empezando por producción.
 - **Target API:** desde el 31/08/2026, las actualizaciones deben apuntar a la API 36.
 - **Páginas de 16 KB:** la única librería nativa es la de Compose (graphics-path) y ya está alineada. Si agregas
-  código nativo o una librería con `.so`, verifica la alineación.
+  código nativo o una librería con `.so`, verifica la alineación. Prueba la app en un emulador con imagen `ps16k`
+  (páginas de 16 KB), como el `Pixel_10_Pro` del dueño con `android-37.1/google_apis_playstore_ps16k`, con el que
+  se probó la 8.0.0.
 - **Seguridad de los datos (Play Console):** hoy la app no recopila ni comparte datos. Mantén el formulario
   coherente con la política.
 - **Público objetivo recomendado:** 18+. La app no está dirigida a niños, y elegir menores activa la política de

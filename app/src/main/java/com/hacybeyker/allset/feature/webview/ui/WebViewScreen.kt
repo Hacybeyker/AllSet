@@ -1,7 +1,6 @@
 package com.hacybeyker.allset.feature.webview.ui
 
 import android.annotation.SuppressLint
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.net.Uri
 import android.webkit.RenderProcessGoneDetail
@@ -11,7 +10,6 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.compose.BackHandler
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -45,6 +43,7 @@ import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewCompat
 import androidx.webkit.WebViewFeature
 import com.hacybeyker.allset.R
+import com.hacybeyker.allset.core.ui.browser.openInCustomTab
 import com.hacybeyker.allset.core.ui.components.AllSetTopAppBar
 import kotlinx.coroutines.launch
 
@@ -81,7 +80,7 @@ fun WebViewScreen(onBack: () -> Unit, modifier: Modifier = Modifier) {
                 canGoBack = back
             },
             onExternalLink = { uri ->
-                if (!openInCustomTab(context, uri)) showMessage(resources.getString(R.string.webview_no_browser))
+                if (!openInCustomTab(context, uri)) showMessage(resources.getString(R.string.no_browser))
             },
             onPageMessage = { text -> showMessage(resources.getString(R.string.webview_message_from_page, text)) },
             onRendererGone = {
@@ -214,14 +213,4 @@ private class DemoWebViewClient(
         onRendererGone()
         return true
     }
-}
-
-private fun openInCustomTab(context: Context, uri: Uri): Boolean = try {
-    CustomTabsIntent.Builder()
-        .setShowTitle(true)
-        .build()
-        .launchUrl(context, uri)
-    true
-} catch (_: ActivityNotFoundException) {
-    false
 }

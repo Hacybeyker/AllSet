@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AllSet</string>
     <string name="navigate_back">Volver</string>
+    <string name="no_browser">No hay un navegador para abrir el enlace.</string>
     <string name="coming_soon_title">Próximamente</string>
     <string name="coming_soon_message">Este ejemplo se está rehaciendo con Jetpack Compose.</string>
 
@@ -120,7 +121,6 @@
     <string name="webview_reload">Recargar</string>
     <string name="webview_message_from_page">La página dice: %1$s</string>
     <string name="webview_reply">La app recibió tu mensaje.</string>
-    <string name="webview_no_browser">No hay un navegador para abrir el enlace.</string>
     <string name="webview_renderer_gone">La página dejó de responder y se volvió a cargar.</string>
 
     <!-- Image effects -->
@@ -146,6 +146,8 @@
     <string name="settings_dynamic_color_description">Usa los colores de tu fondo de pantalla.</string>
     <string name="settings_dynamic_color_unavailable">Disponible desde Android 12.</string>
     <string name="settings_about">Acerca de</string>
+    <string name="settings_privacy_policy">Política de privacidad</string>
+    <string name="settings_privacy_policy_description">Qué información trata la app y cómo contactar al desarrollador</string>
     <string name="settings_version">Versión</string>
 
     <!-- Keyboard -->

@@ -143,8 +143,9 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
 ```
 
 - Lint tiene `abortOnError = false`, así que revisa siempre `app/build/reports/lint-results-debug.html`. Los avisos
-  aceptados hoy son `MonochromeLauncherIcon` (falta la capa monocroma del ícono) y `OldTargetApi` (el target 36 es
-  intencional). Cualquier otro aviso se corrige, salvo que haya un motivo documentado.
+  aceptados hoy son `MonochromeLauncherIcon` (falta la capa monocroma del ícono), `OldTargetApi` (el target 36 es
+  intencional) y `GradleDependency`, solo por webkit 1.18.0 (ver [Pendientes conocidos](#pendientes-conocidos)).
+  Cualquier otro aviso se corrige, salvo que haya un motivo documentado.
 - Los permisos que suman las librerías se ven en el manifiesto fusionado:
   `app/build/intermediates/merged_manifest/release/processReleaseMainManifest/AndroidManifest.xml`.
 - Los tests actuales son solo de ejemplo. Si agregas lógica no trivial, agrega tests unitarios.
@@ -162,8 +163,10 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
   - Solo se ejecuta a mano (`workflow_dispatch`). No se dispara con push ni con merge.
   - Compila el AAB y el APK firmados y los guarda como artefactos del run.
   - Crea el tag `VERSION_NAME` y lo sube. Si el tag ya existe, el paso falla y no se sube nada a Play.
-  - Sube el AAB con `r0adkll/upload-google-play` al track **`beta`** (prueba abierta), aunque el paso se llame
-    «Deploy to Alpha».
+  - Sube el AAB con `r0adkll/upload-google-play` al track **`beta`** (prueba abierta).
+  - Usa acciones que se ejecutan con Node 24, porque Node 20 ya no existe en los runners de GitHub desde el
+    23/09/2026. El JDK es 17 Corretto, el mismo que pide `gradle/gradle-daemon-jvm.properties`. Si cambias el JDK
+    en uno de los dos sitios, cámbialo también en el otro.
   - Usa `changesNotSentForReview: true`, así que la versión queda en borrador: hay que enviarla a revisión a mano
     desde Play Console.
   - No ejecuta tests ni lint antes de subir, y no envía notas de la versión.
@@ -177,6 +180,12 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
   sin que el dueño confirme que está listo, porque cada rechazo adicional suma riesgo para la cuenta.
 - **Target API:** desde el 31/08/2026, las actualizaciones deben apuntar a la API 36.
 - **Páginas de 16 KB:** la única librería nativa es la de Compose (graphics-path) y ya está alineada. Si agregas
+- **Versiones antiguas activas:** Play revisa todo lo que está activo en cualquier segmento (producción, prueba
+  abierta, cerrada o interna). Las versiones con versionCode 10 o menor incluían `ChangeIconAppActivity` con
+  `activity-alias` para cambiar el ícono, y ninguna debe quedar activa. Google detectó automáticamente el
+  versionCode 8, que estaba en producción. La 7.4.0 (16) estaba limpia, pero se subió solo a prueba abierta y dejó
+  la 8 en producción, así que la rechazaron. Cada release que corrija una política tiene que reemplazar la versión de
+  **todos** los segmentos activos, empezando por producción.
   código nativo o una librería con `.so`, verifica la alineación.
 - **Seguridad de los datos (Play Console):** hoy la app no recopila ni comparte datos. Mantén el formulario
   coherente con la política.
@@ -219,6 +228,8 @@ Revisa la política **siempre** que un cambio:
 
 ## Pendientes conocidos
 
-- Actualizar `androidx.webkit` a 1.18.0 y revisar el resto de dependencias antes del release.
+- Actualizar `androidx.webkit` a 1.18.0 después de publicar la 8.0.0. Se dejó en 1.17.1 porque salió el mismo día
+  en que se preparó el release (21/10/2026) y solo agrega APIs que la app no usa. Las demás dependencias estaban al
+  día en esa fecha.
 - Decidir la demo de Coil después de publicar (requiere `INTERNET` y actualizar la política).
 - Opcional: agregar la capa monocroma del ícono del launcher.

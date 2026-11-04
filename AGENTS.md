@@ -62,7 +62,7 @@ producción. Cualquier incumplimiento de las políticas de Play pone en riesgo t
 | SDK | `compileSdk 37`, `targetSdk 36` (requisito de Play desde el 31/08/2026), `minSdk 24` |
 | Compose | BOM 2026.09.00 (UI 1.12, Material 3 1.4) y `material-icons-core` |
 | Navegación | Navigation 3 1.2.0 (`NavDisplay`, `@Serializable data object … : NavKey`) |
-| Otros | lifecycle-runtime-compose 2.11, DataStore Preferences 1.3, webkit 1.17.1, browser 1.10 (Custom Tabs) |
+| Otros | lifecycle-runtime-compose 2.11, DataStore Preferences 1.3, webkit 1.18, browser 1.10 (Custom Tabs) |
 | Release | R8 con `isMinifyEnabled` y `isShrinkResources`, AAB con splits por idioma, densidad y ABI |
 
 - Las dependencias se declaran en `gradle/libs.versions.toml`. No hay `buildSrc`.
@@ -154,9 +154,8 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
 ```
 
 - Lint tiene `abortOnError = false`, así que revisa siempre `app/build/reports/lint-results-debug.html`. Los avisos
-  aceptados hoy son `MonochromeLauncherIcon` (falta la capa monocroma del ícono), `OldTargetApi` (el target 36 es
-  intencional) y `GradleDependency`, solo por webkit 1.18.0 (ver [Pendientes conocidos](#pendientes-conocidos)).
-  Cualquier otro aviso se corrige, salvo que haya un motivo documentado.
+  aceptados hoy son `MonochromeLauncherIcon` (falta la capa monocroma del ícono) y `OldTargetApi` (el target 36 es
+  intencional). Cualquier otro aviso se corrige, salvo que haya un motivo documentado.
 - Los permisos que suman las librerías se ven en el manifiesto fusionado:
   `app/build/intermediates/merged_manifest/release/processReleaseMainManifest/AndroidManifest.xml`.
 - Los tests actuales son solo de ejemplo. Si agregas lógica no trivial, agrega tests unitarios.
@@ -278,8 +277,6 @@ esa versión, cada una en su propio commit.
 
 ### App
 
-- **webkit:** actualizar `androidx.webkit` a 1.18.0. Se dejó en 1.17.1 porque salió el mismo día en que se preparó
-  el release y solo agrega APIs que la app no usa. Las demás dependencias estaban al día en esa fecha.
 - **Símbolos de depuración nativos:** Play avisa que el AAB tiene código nativo sin símbolos de depuración. El
   único código nativo es la librería `graphics-path` de Compose. Prueba con `ndk { debugSymbolLevel = "SYMBOL_TABLE" }`
   en el build type `release` y comprueba si el aviso desaparece: como la librería llega ya compilada dentro de AndroidX,

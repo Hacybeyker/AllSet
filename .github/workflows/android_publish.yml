@@ -45,13 +45,6 @@ jobs:
           name: apk-bundle-release
           path: ./app/build/outputs/bundle/release
 
-      - name: Create Tag Release
-        run: |
-          versionName=$(grep '^VERSION_NAME=' gradle.properties | cut -d'=' -f2)
-          echo "Version: $versionName"
-          git tag "$versionName"
-          git push origin --tags
-
       - name: Obtain Package Name
         run: |
           packageName=$(grep '^APP_ID=' gradle.properties | cut -d'=' -f2)
@@ -66,3 +59,10 @@ jobs:
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           tracks: beta
           changesNotSentForReview: true
+
+      - name: Create Tag Release
+        run: |
+          versionName=$(grep '^VERSION_NAME=' gradle.properties | cut -d'=' -f2)
+          echo "Version: $versionName"
+          git tag "$versionName"
+          git push origin --tags

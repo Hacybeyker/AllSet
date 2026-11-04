@@ -180,8 +180,9 @@ Antes de dar una tarea por terminada:
 - **Workflow `.github/workflows/android_publish.yml` («Android Publish»):**
   - Solo se ejecuta a mano (`workflow_dispatch`). No se dispara con push ni con merge.
   - Compila el AAB y el APK firmados y los guarda como artefactos del run.
-  - Crea el tag `VERSION_NAME` y lo sube. Si el tag ya existe, el paso falla y no se sube nada a Play.
   - Sube el AAB con `r0adkll/upload-google-play` al track **`beta`** (prueba abierta).
+  - Después de la subida crea el tag `VERSION_NAME` y lo sube. Si la subida falla, no queda un tag que haya que borrar
+    antes de reintentar.
   - Corre en `ubuntu-26.04` y cada acción está fijada por SHA, con su versión en un comentario.
   - Usa acciones que se ejecutan con Node 24, porque Node 20 ya no existe en los runners de GitHub desde el
     23/09/2026. El JDK es 17 Corretto, el mismo que pide `gradle/gradle-daemon-jvm.properties`. Si cambias el JDK
@@ -289,9 +290,6 @@ esa versión, cada una en su propio commit.
 
 ### Workflow «Android Publish»
 
-- **Orden de los pasos:** el tag se crea antes de subir a Play. Si la subida falla, el tag queda creado y el siguiente
-  intento falla en ese paso, así que antes de reintentar hay que borrarlo (`git push origin :refs/tags/<versión>`).
-  Conviene mover «Create Tag Release» después de la subida.
 - **Verificaciones y notas:** el workflow no ejecuta tests ni lint antes de subir, y la versión de prueba abierta
   llega sin notas. Se puede añadir `./gradlew :app:testReleaseUnitTest :app:lintRelease` antes de compilar y usar
   `whatsNewDirectory` con las notas de `play-store/release-notes/`. Ese parámetro espera un archivo

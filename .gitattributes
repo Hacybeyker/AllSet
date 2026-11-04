@@ -1,0 +1,7 @@
+# Finales de línea de los scripts del wrapper de Gradle, como los genera `gradle init`:
+# gradlew corre en macOS y Linux (LF) y gradlew.bat en Windows (CRLF).
+/gradlew        text eol=lf
+*.bat           text eol=crlf
+
+# El jar del wrapper es binario: git no debe tocarlo.
+*.jar           binary

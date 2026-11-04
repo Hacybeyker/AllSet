@@ -203,10 +203,15 @@ Antes de dar una tarea por terminada:
   la 8 en producción, así que la rechazaron. Cada release que corrija una política tiene que reemplazar la versión de
   **todos** los segmentos activos, empezando por producción.
 - **Target API:** desde el 31/08/2026, las actualizaciones deben apuntar a la API 36.
-- **Páginas de 16 KB:** la única librería nativa es la de Compose (graphics-path) y ya está alineada. Si agregas
+- **Páginas de 16 KB:** las librerías nativas son dos y llegan compiladas dentro de AndroidX: `graphics-path` de
+  Compose y `datastore_shared_counter` de DataStore. Las dos están alineadas a 16 KB en las cuatro ABI. Si agregas
   código nativo o una librería con `.so`, verifica la alineación. Prueba la app en un emulador con imagen `ps16k`
   (páginas de 16 KB), como el `Pixel_10_Pro` del dueño con `android-37.1/google_apis_playstore_ps16k`, con el que
   se probó la 8.0.0.
+- **Aviso de símbolos de depuración nativos:** Play avisa que el AAB tiene código nativo sin símbolos, y no se
+  puede resolver desde la app. Las dos librerías llegan de AndroidX sin tabla de símbolos (`.symtab`) ni información
+  DWARF, así que `ndk { debugSymbolLevel = "SYMBOL_TABLE" }` no tiene nada que extraer y el AAB sale igual (se
+  comprobó el 04/11/2026). El aviso es una recomendación: no bloquea la publicación ni la revisión.
 - **Seguridad de los datos (Play Console):** hoy la app no recopila ni comparte datos. Mantén el formulario
   coherente con la política.
 - **Público objetivo recomendado:** 18+. La app no está dirigida a niños, y elegir menores activa la política de
@@ -277,11 +282,6 @@ esa versión, cada una en su propio commit.
 
 ### App
 
-- **Símbolos de depuración nativos:** Play avisa que el AAB tiene código nativo sin símbolos de depuración. El
-  único código nativo es la librería `graphics-path` de Compose. Prueba con `ndk { debugSymbolLevel = "SYMBOL_TABLE" }`
-  en el build type `release` y comprueba si el aviso desaparece: como la librería llega ya compilada dentro de AndroidX,
-  puede que no haya símbolos que extraer. Solo sirve para leer mejor los fallos nativos y no afecta a la revisión.
-  Referencia: <https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#native-crash-support>.
 - **Demo de Coil:** decidir si se agrega. Requiere `INTERNET` y actualizar la política y la sección de Seguridad
   de los datos.
 - **Ícono monocromo:** opcional, agregar la capa monocroma del ícono del launcher (aviso `MonochromeLauncherIcon`).

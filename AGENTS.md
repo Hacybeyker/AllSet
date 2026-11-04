@@ -289,8 +289,6 @@ esa versión, cada una en su propio commit.
 
 ### Workflow «Android Publish»
 
-- **`track` está obsoleto:** `r0adkll/upload-google-play` avisa *«'track' is deprecated… migrate to 'tracks'»*.
-  Basta con cambiar `track: beta` por `tracks: beta`.
 - **Orden de los pasos:** el tag se crea antes de subir a Play. Si la subida falla, el tag queda creado y el siguiente
   intento falla en ese paso, así que antes de reintentar hay que borrarlo (`git push origin :refs/tags/<versión>`).
   Conviene mover «Create Tag Release» después de la subida.

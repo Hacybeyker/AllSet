@@ -64,5 +64,5 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
           packageName: com.hacybeyker.allset
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
-          track: beta
+          tracks: beta
           changesNotSentForReview: true

@@ -1,7 +1,0 @@
-name: "Setup and Build Step"
-description: "Run steps to build project"
-runs:
-  using: "composite"
-  steps:
-    - name: Configure Step
-      uses: ./.github/actions/configure

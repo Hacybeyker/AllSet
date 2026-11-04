@@ -4,7 +4,6 @@ run-name: Android Publish execute by @${{ github.actor }}
 on: [ workflow_dispatch ]
 
 env:
-  PACKAGE: ${{ secrets.PACKAGE }}
   SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
   SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
   SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
@@ -25,15 +24,25 @@ jobs:
           cache: 'gradle'
           check-latest: true
 
-      - name: Setup Project
-        uses: ./.github/actions/android
+      # Paquete y versión salen de gradle.properties una sola vez y se pasan como salidas del paso
+      # (steps.app.outputs), la forma documentada de usar el valor de un paso en los parámetros de otro.
+      - name: Read App Info
+        id: app
+        run: |
+          package=$(grep '^APP_ID=' gradle.properties | cut -d'=' -f2)
+          version=$(grep '^VERSION_NAME=' gradle.properties | cut -d'=' -f2)
+          [ -n "$package" ] && [ -n "$version" ] || { echo "::error::Faltan APP_ID o VERSION_NAME en gradle.properties"; exit 1; }
+          echo "App: $package $version"
+          echo "package=$package" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
 
       # Las notas viven en play-store/release-notes/<VERSION_NAME>.txt con un bloque <idioma>…</idioma> por idioma;
       # Play las espera como un archivo whatsnew-<idioma> por idioma, de 500 caracteres como máximo.
       - name: Prepare Release Notes
+        env:
+          VERSION: ${{ steps.app.outputs.version }}
         run: |
-          versionName=$(grep '^VERSION_NAME=' gradle.properties | cut -d'=' -f2)
-          notes="play-store/release-notes/$versionName.txt"
+          notes="play-store/release-notes/$VERSION.txt"
           [ -f "$notes" ] || { echo "::error::Falta $notes con las notas de la versión"; exit 1; }
           mkdir -p build/whatsnew
           awk '
@@ -68,25 +77,19 @@ jobs:
           name: apk-bundle-release
           path: ./app/build/outputs/bundle/release
 
-      - name: Obtain Package Name
-        run: |
-          packageName=$(grep '^APP_ID=' gradle.properties | cut -d'=' -f2)
-          echo "PackageName: $packageName"
-          echo "PACKAGE=$packageName" >> "$GITHUB_ENV"
-
       - name: Deploy to Open Testing (beta)
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
         with:
           serviceAccountJsonPlainText: ${{ secrets.SIGNING_SERVICE_ACCOUNT }}
-          packageName: com.hacybeyker.allset
+          packageName: ${{ steps.app.outputs.package }}
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           tracks: beta
           whatsNewDirectory: build/whatsnew
           changesNotSentForReview: true
 
       - name: Create Tag Release
+        env:
+          VERSION: ${{ steps.app.outputs.version }}
         run: |
-          versionName=$(grep '^VERSION_NAME=' gradle.properties | cut -d'=' -f2)
-          echo "Version: $versionName"
-          git tag "$versionName"
+          git tag "$VERSION"
           git push origin --tags

@@ -177,6 +177,9 @@ Antes de dar una tarea por terminada:
   (`buildConfig = true`). La versión publicada es **8.0.0 (17)**, aprobada el 21/10/2026, y su tag existe. La 7.4.0
   (16) también tiene tag, aunque nunca se aprobó. Cada release necesita un `VERSION_CODE` mayor que el último subido
   (compruébalo en Play Console › Explorador de app bundles) y un `VERSION_NAME` sin tag.
+- **Workflow `.github/workflows/ci.yml` («CI»):** corre el DoD (R8, tests y lint) en cada PR hacia `master` y en cada
+  push a `master`, y deja el reporte de lint como artefacto. No firma ni publica. `master` está protegida: todo entra
+  por PR con ese check en verde.
 - **Workflow `.github/workflows/android_publish.yml` («Android Publish»):**
   - Solo se ejecuta a mano (`workflow_dispatch`). No se dispara con push ni con merge.
   - Compila el AAB y el APK firmados y los guarda como artefactos del run.

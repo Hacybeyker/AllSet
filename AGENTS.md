@@ -187,8 +187,11 @@ Antes de dar una tarea por terminada:
   - Usa acciones que se ejecutan con Node 24, porque Node 20 ya no existe en los runners de GitHub desde el
     23/09/2026. El JDK es 17 Corretto, el mismo que pide `gradle/gradle-daemon-jvm.properties`. Si cambias el JDK
     en uno de los dos sitios, cámbialo también en el otro.
-  - Usa `changesNotSentForReview: true`, así que la versión queda en borrador: hay que enviarla a revisión a mano
-    desde Play Console.
+  - Usa `changesNotSentForReview: true`, que **debe mantenerse**: la versión queda en borrador, pasa por las
+    verificaciones previas de Play Console (tardan hasta 15 minutos) y se envía a revisión a mano desde «Descripción
+    general de la publicación». Los problemas críticos hay que corregirlos. Los no críticos que se omiten con
+    «Continuar de todos modos» pueden volver a aparecer y causar un rechazo. Pasar las verificaciones no garantiza la
+    aprobación ([referencia](https://support.google.com/googleplay/android-developer/answer/14807773)).
   - Antes de compilar prepara las notas desde `play-store/release-notes/<VERSION_NAME>.txt` y corre
     `testReleaseUnitTest` y `lintRelease`. Falla si ese archivo no existe o si un idioma pasa de los 500 caracteres
     que acepta Play, así que cada versión necesita su archivo de notas.
@@ -290,11 +293,3 @@ esa versión, cada una en su propio commit.
   de los datos.
 - **Ícono monocromo:** opcional, agregar la capa monocroma del ícono del launcher (aviso `MonochromeLauncherIcon`).
 
-### Workflow «Android Publish»
-
-- **Verificaciones previas a la revisión:** documentar en la sección del workflow que `changesNotSentForReview: true`
-  debe mantenerse. Así cada versión pasa por las verificaciones previas de Play Console, que tardan hasta 15 minutos,
-  y se envía a mano desde «Descripción general de la publicación». Los problemas críticos hay que corregirlos. Los no
-  críticos que se omiten con «Continuar de todos modos» pueden volver a aparecer y causar un rechazo. Pasar las
-  verificaciones no garantiza la aprobación. Referencia:
-  <https://support.google.com/googleplay/android-developer/answer/14807773>.

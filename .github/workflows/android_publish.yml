@@ -28,6 +28,29 @@ jobs:
       - name: Setup Project
         uses: ./.github/actions/android
 
+      # Las notas viven en play-store/release-notes/<VERSION_NAME>.txt con un bloque <idioma>…</idioma> por idioma;
+      # Play las espera como un archivo whatsnew-<idioma> por idioma, de 500 caracteres como máximo.
+      - name: Prepare Release Notes
+        run: |
+          versionName=$(grep '^VERSION_NAME=' gradle.properties | cut -d'=' -f2)
+          notes="play-store/release-notes/$versionName.txt"
+          [ -f "$notes" ] || { echo "::error::Falta $notes con las notas de la versión"; exit 1; }
+          mkdir -p build/whatsnew
+          awk '
+            /^<[A-Za-z][A-Za-z0-9-]*>$/ { file = "build/whatsnew/whatsnew-" substr($0, 2, length($0) - 2); next }
+            /^<\/[A-Za-z0-9-]+>$/ { file = ""; next }
+            file != "" { print > file }
+          ' "$notes"
+          ls build/whatsnew/whatsnew-* > /dev/null 2>&1 || { echo "::error::$notes no tiene bloques <idioma>"; exit 1; }
+          for f in build/whatsnew/whatsnew-*; do
+            n=$(LC_ALL=C.UTF-8 wc -m < "$f")
+            echo "$f: $n caracteres"
+            [ "$n" -le 500 ] || { echo "::error::$f tiene $n caracteres y Play acepta 500"; exit 1; }
+          done
+
+      - name: Tests and Lint
+        run: ./gradlew :app:testReleaseUnitTest :app:lintRelease
+
       - name: Signing App Release
         run: |
           ./gradlew app:bundleRelease
@@ -58,6 +81,7 @@ jobs:
           packageName: com.hacybeyker.allset
           releaseFiles: ./app/build/outputs/bundle/release/app-release.aab
           tracks: beta
+          whatsNewDirectory: build/whatsnew
           changesNotSentForReview: true
 
       - name: Create Tag Release

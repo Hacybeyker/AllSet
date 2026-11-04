@@ -189,7 +189,9 @@ Antes de dar una tarea por terminada:
     en uno de los dos sitios, cámbialo también en el otro.
   - Usa `changesNotSentForReview: true`, así que la versión queda en borrador: hay que enviarla a revisión a mano
     desde Play Console.
-  - No ejecuta tests ni lint antes de subir, y no envía notas de la versión.
+  - Antes de compilar prepara las notas desde `play-store/release-notes/<VERSION_NAME>.txt` y corre
+    `testReleaseUnitTest` y `lintRelease`. Falla si ese archivo no existe o si un idioma pasa de los 500 caracteres
+    que acepta Play, así que cada versión necesita su archivo de notas.
   - Necesita los secretos `SIGNING_KEY_ALIAS`, `SIGNING_KEY_PASSWORD`, `SIGNING_STORE_PASSWORD` y
     `SIGNING_SERVICE_ACCOUNT`.
 
@@ -290,10 +292,6 @@ esa versión, cada una en su propio commit.
 
 ### Workflow «Android Publish»
 
-- **Verificaciones y notas:** el workflow no ejecuta tests ni lint antes de subir, y la versión de prueba abierta
-  llega sin notas. Se puede añadir `./gradlew :app:testReleaseUnitTest :app:lintRelease` antes de compilar y usar
-  `whatsNewDirectory` con las notas de `play-store/release-notes/`. Ese parámetro espera un archivo
-  `whatsnew-<idioma>` por idioma, así que hay que adaptar el formato.
 - **Caché duplicada:** `setup-java` (`cache: 'gradle'`) y la acción `.github/actions/android` cachean las mismas
   carpetas de Gradle. Basta con una de las dos.
 - **Verificaciones previas a la revisión:** documentar en la sección del workflow que `changesNotSentForReview: true`

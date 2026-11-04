@@ -46,7 +46,7 @@ XML, y los textos de la app están en español.
 
 ## Stack
 
-- Kotlin 2.4, AGP 9.4 (con Kotlin integrado) y Gradle 9.8, con un catálogo de versiones en `gradle/libs.versions.toml`.
+- Kotlin 2.4, AGP 9.5 (con Kotlin integrado) y Gradle 9.8, con un catálogo de versiones en `gradle/libs.versions.toml`.
 - Jetpack Compose (BOM 2026.09) con Material 3 y Navigation 3.
 - Lifecycle, DataStore Preferences, WebKit y Browser (Custom Tabs).
 - `compileSdk 37`, `targetSdk 36` y `minSdk 24`.
@@ -54,7 +54,7 @@ XML, y los textos de la app están en español.
 
 ## Cómo ejecutarlo
 
-Requisitos: JDK 17 y una versión de Android Studio compatible con AGP 9.4.
+Requisitos: JDK 17 y una versión de Android Studio compatible con AGP 9.5.
 
 ```bash
 git clone https://github.com/Hacybeyker/AllSet.git

@@ -48,15 +48,21 @@ producción. Cualquier incumplimiento de las políticas de Play pone en riesgo t
 
 ## Stack
 
+- Perfil: hb-stack-mobile-kotlin
+- Variante: android
+- Alcance del perfil: solo Compose, Material 3, testing, seguridad y rendimiento. Su arquitectura por capas
+  (`domain`/`data`/`ui`/`di`, ViewModel con `UiState` y `onAction`, inyección de dependencias) no aplica: AllSet es
+  un catálogo de demos de UI y sigue la [estructura](#estructura) de este archivo, que prevalece sobre el perfil.
+
 | Pieza | Versión / detalle |
 |---|---|
-| AGP | 9.4.1, con Kotlin integrado (no hay plugin `kotlin-android`) |
+| AGP | 9.5.0, con Kotlin integrado (no hay plugin `kotlin-android`) |
 | Gradle | 9.8.2; el daemon usa JDK 17 Corretto (`gradle/gradle-daemon-jvm.properties`, foojay) |
 | Kotlin | 2.4.21; plugins `kotlin.compose` y `kotlin.serialization` |
 | SDK | `compileSdk 37`, `targetSdk 36` (requisito de Play desde el 31/08/2026), `minSdk 24` |
 | Compose | BOM 2026.09.00 (UI 1.12, Material 3 1.4) y `material-icons-core` |
 | Navegación | Navigation 3 1.2.0 (`NavDisplay`, `@Serializable data object … : NavKey`) |
-| Otros | lifecycle-runtime-compose 2.11, DataStore Preferences 1.3, webkit 1.17.1, browser 1.10 (Custom Tabs) |
+| Otros | lifecycle-runtime-compose 2.11, DataStore Preferences 1.3, webkit 1.18, browser 1.10 (Custom Tabs) |
 | Release | R8 con `isMinifyEnabled` y `isShrinkResources`, AAB con splits por idioma, densidad y ABI |
 
 - Las dependencias se declaran en `gradle/libs.versions.toml`. No hay `buildSrc`.
@@ -148,12 +154,19 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
 ```
 
 - Lint tiene `abortOnError = false`, así que revisa siempre `app/build/reports/lint-results-debug.html`. Los avisos
-  aceptados hoy son `MonochromeLauncherIcon` (falta la capa monocroma del ícono), `OldTargetApi` (el target 36 es
-  intencional) y `GradleDependency`, solo por webkit 1.18.0 (ver [Pendientes conocidos](#pendientes-conocidos)).
-  Cualquier otro aviso se corrige, salvo que haya un motivo documentado.
+  aceptados hoy son `MonochromeLauncherIcon` (falta la capa monocroma del ícono) y `OldTargetApi` (el target 36 es
+  intencional). Cualquier otro aviso se corrige, salvo que haya un motivo documentado.
 - Los permisos que suman las librerías se ven en el manifiesto fusionado:
   `app/build/intermediates/merged_manifest/release/processReleaseMainManifest/AndroidManifest.xml`.
 - Los tests actuales son solo de ejemplo. Si agregas lógica no trivial, agrega tests unitarios.
+
+## DoD
+
+Antes de dar una tarea por terminada:
+
+1. `./gradlew :app:minifyReleaseWithR8 :app:testDebugUnitTest :app:lintDebug`.
+2. Revisa `app/build/reports/lint-results-debug.html`: solo pueden quedar los avisos aceptados de [Comandos](#comandos).
+3. Prueba en el emulador con páginas de 16 KB, en tema claro y oscuro.
 
 ## Firma, versiones y publicación
 
@@ -161,28 +174,38 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
   salen de `SIGNING_KEY_ALIAS_ALLSET`, `SIGNING_KEY_PASSWORD_HACYBEYKER` y `SIGNING_STORE_PASSWORD_HACYBEYKER` en
   `~/.gradle/gradle.properties` o, en CI, de `SIGNING_KEY_ALIAS`, `SIGNING_KEY_PASSWORD` y `SIGNING_STORE_PASSWORD`.
 - **Versiones:** se definen solo en `gradle.properties`. Ajustes las muestra con `BuildConfig.VERSION_NAME`
-  (`buildConfig = true`). La versión actual es **8.0.0 (17)**, todavía sin publicar. La 7.4.0 (16) ya se generó desde
-  `master` en abril de 2025 y su tag existe. Cada release necesita un `VERSION_CODE` mayor que el último subido
+  (`buildConfig = true`). La versión publicada es **8.0.0 (17)**, aprobada el 21/10/2026, y su tag existe. La 7.4.0
+  (16) también tiene tag, aunque nunca se aprobó. Cada release necesita un `VERSION_CODE` mayor que el último subido
   (compruébalo en Play Console › Explorador de app bundles) y un `VERSION_NAME` sin tag.
+- **Workflow `.github/workflows/ci.yml` («CI»):** corre el DoD (R8, tests y lint) en cada PR hacia `master` y en cada
+  push a `master`, y deja el reporte de lint como artefacto. No firma ni publica. `master` está protegida: todo entra
+  por PR con ese check en verde.
 - **Workflow `.github/workflows/android_publish.yml` («Android Publish»):**
   - Solo se ejecuta a mano (`workflow_dispatch`). No se dispara con push ni con merge.
   - Compila el AAB y el APK firmados y los guarda como artefactos del run.
-  - Crea el tag `VERSION_NAME` y lo sube. Si el tag ya existe, el paso falla y no se sube nada a Play.
   - Sube el AAB con `r0adkll/upload-google-play` al track **`beta`** (prueba abierta).
+  - Después de la subida crea el tag `VERSION_NAME` y lo sube. Si la subida falla, no queda un tag que haya que borrar
+    antes de reintentar.
+  - Corre en `ubuntu-26.04` y cada acción está fijada por SHA, con su versión en un comentario.
   - Usa acciones que se ejecutan con Node 24, porque Node 20 ya no existe en los runners de GitHub desde el
     23/09/2026. El JDK es 17 Corretto, el mismo que pide `gradle/gradle-daemon-jvm.properties`. Si cambias el JDK
     en uno de los dos sitios, cámbialo también en el otro.
-  - Usa `changesNotSentForReview: true`, así que la versión queda en borrador: hay que enviarla a revisión a mano
-    desde Play Console.
-  - No ejecuta tests ni lint antes de subir, y no envía notas de la versión.
+  - Usa `changesNotSentForReview: true`, que **debe mantenerse**: la versión queda en borrador, pasa por las
+    verificaciones previas de Play Console (tardan hasta 15 minutos) y se envía a revisión a mano desde «Descripción
+    general de la publicación». Los problemas críticos hay que corregirlos. Los no críticos que se omiten con
+    «Continuar de todos modos» pueden volver a aparecer y causar un rechazo. Pasar las verificaciones no garantiza la
+    aprobación ([referencia](https://support.google.com/googleplay/android-developer/answer/14807773)).
+  - Antes de compilar prepara las notas desde `play-store/release-notes/<VERSION_NAME>.txt` y corre
+    `testReleaseUnitTest` y `lintRelease`. Falla si ese archivo no existe o si un idioma pasa de los 500 caracteres
+    que acepta Play, así que cada versión necesita su archivo de notas.
   - Necesita los secretos `SIGNING_KEY_ALIAS`, `SIGNING_KEY_PASSWORD`, `SIGNING_STORE_PASSWORD` y
     `SIGNING_SERVICE_ACCOUNT`.
 
 ## Google Play
 
-- **Contexto:** la app fue retirada de Play por una política de privacidad no válida, y una actualización anterior
-  se rechazó por ocultar el ícono. Se restaura enviando una actualización que cumpla todo. No envíes nada a revisión
-  sin que el dueño confirme que está listo, porque cada rechazo adicional suma riesgo para la cuenta.
+- **Contexto:** en mayo de 2025, Play retiró la app por una política de privacidad no válida, y una actualización
+  anterior se había rechazado por ocultar el ícono. La 8.0.0 (17) corrigió todo y se aprobó y publicó el 21/10/2026.
+  La cuenta ya tuvo advertencias, así que no envíes nada a revisión sin que el dueño confirme que está listo.
 - **Versiones antiguas activas:** Play revisa todo lo que está activo en cualquier segmento (producción, prueba
   abierta, cerrada o interna). Las versiones con versionCode 10 o menor incluían `ChangeIconAppActivity` con
   `activity-alias` para cambiar el ícono, y ninguna debe quedar activa. Google detectó automáticamente el
@@ -190,8 +213,15 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
   la 8 en producción, así que la rechazaron. Cada release que corrija una política tiene que reemplazar la versión de
   **todos** los segmentos activos, empezando por producción.
 - **Target API:** desde el 31/08/2026, las actualizaciones deben apuntar a la API 36.
-- **Páginas de 16 KB:** la única librería nativa es la de Compose (graphics-path) y ya está alineada. Si agregas
-  código nativo o una librería con `.so`, verifica la alineación.
+- **Páginas de 16 KB:** las librerías nativas son dos y llegan compiladas dentro de AndroidX: `graphics-path` de
+  Compose y `datastore_shared_counter` de DataStore. Las dos están alineadas a 16 KB en las cuatro ABI. Si agregas
+  código nativo o una librería con `.so`, verifica la alineación. Prueba la app en un emulador con imagen `ps16k`
+  (páginas de 16 KB), como el `Pixel_10_Pro` del dueño con `android-37.1/google_apis_playstore_ps16k`, con el que
+  se probó la 8.0.0.
+- **Aviso de símbolos de depuración nativos:** Play avisa que el AAB tiene código nativo sin símbolos, y no se
+  puede resolver desde la app. Las dos librerías llegan de AndroidX sin tabla de símbolos (`.symtab`) ni información
+  DWARF, así que `ndk { debugSymbolLevel = "SYMBOL_TABLE" }` no tiene nada que extraer y el AAB sale igual (se
+  comprobó el 04/11/2026). El aviso es una recomendación: no bloquea la publicación ni la revisión.
 - **Seguridad de los datos (Play Console):** hoy la app no recopila ni comparte datos. Mantén el formulario
   coherente con la política.
 - **Público objetivo recomendado:** 18+. La app no está dirigida a niños, y elegir menores activa la política de
@@ -257,8 +287,12 @@ Revisa la política **siempre** que un cambio:
 
 ## Pendientes conocidos
 
-- Actualizar `androidx.webkit` a 1.18.0 después de publicar la 8.0.0. Se dejó en 1.17.1 porque salió el mismo día
-  en que se preparó el release (21/10/2026) y solo agrega APIs que la app no usa. Las demás dependencias estaban al
-  día en esa fecha.
-- Decidir la demo de Coil después de publicar (requiere `INTERNET` y actualizar la política).
-- Opcional: agregar la capa monocroma del ícono del launcher.
+Mejoras que no bloquean nada, anotadas al publicar la 8.0.0 (21/10/2026). Resuélvelas después de que Play apruebe
+esa versión, cada una en su propio commit.
+
+### App
+
+- **Demo de Coil:** decidir si se agrega. Requiere `INTERNET` y actualizar la política y la sección de Seguridad
+  de los datos.
+- **Ícono monocromo:** opcional, agregar la capa monocroma del ícono del launcher (aviso `MonochromeLauncherIcon`).
+

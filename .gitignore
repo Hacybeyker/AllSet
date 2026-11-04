@@ -7,3 +7,5 @@
 local.properties
 /captures
 /build
+# Reportes HTML de la skill hb-implement
+reports/

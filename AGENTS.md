@@ -48,6 +48,12 @@ producción. Cualquier incumplimiento de las políticas de Play pone en riesgo t
 
 ## Stack
 
+- Perfil: hb-stack-mobile-kotlin
+- Variante: android
+- Alcance del perfil: solo Compose, Material 3, testing, seguridad y rendimiento. Su arquitectura por capas
+  (`domain`/`data`/`ui`/`di`, ViewModel con `UiState` y `onAction`, inyección de dependencias) no aplica: AllSet es
+  un catálogo de demos de UI y sigue la [estructura](#estructura) de este archivo, que prevalece sobre el perfil.
+
 | Pieza | Versión / detalle |
 |---|---|
 | AGP | 9.4.1, con Kotlin integrado (no hay plugin `kotlin-android`) |
@@ -154,6 +160,14 @@ la política y la sección de Seguridad de los datos antes de mostrarla.
 - Los permisos que suman las librerías se ven en el manifiesto fusionado:
   `app/build/intermediates/merged_manifest/release/processReleaseMainManifest/AndroidManifest.xml`.
 - Los tests actuales son solo de ejemplo. Si agregas lógica no trivial, agrega tests unitarios.
+
+## DoD
+
+Antes de dar una tarea por terminada:
+
+1. `./gradlew :app:minifyReleaseWithR8 :app:testDebugUnitTest :app:lintDebug`.
+2. Revisa `app/build/reports/lint-results-debug.html`: solo pueden quedar los avisos aceptados de [Comandos](#comandos).
+3. Prueba en el emulador con páginas de 16 KB, en tema claro y oscuro.
 
 ## Firma, versiones y publicación
 

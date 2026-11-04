@@ -182,6 +182,7 @@ Antes de dar una tarea por terminada:
   - Compila el AAB y el APK firmados y los guarda como artefactos del run.
   - Crea el tag `VERSION_NAME` y lo sube. Si el tag ya existe, el paso falla y no se sube nada a Play.
   - Sube el AAB con `r0adkll/upload-google-play` al track **`beta`** (prueba abierta).
+  - Corre en `ubuntu-26.04` y cada acción está fijada por SHA, con su versión en un comentario.
   - Usa acciones que se ejecutan con Node 24, porque Node 20 ya no existe en los runners de GitHub desde el
     23/09/2026. El JDK es 17 Corretto, el mismo que pide `gradle/gradle-daemon-jvm.properties`. Si cambias el JDK
     en uno de los dos sitios, cámbialo también en el otro.
@@ -290,8 +291,6 @@ esa versión, cada una en su propio commit.
 
 - **`track` está obsoleto:** `r0adkll/upload-google-play` avisa *«'track' is deprecated… migrate to 'tracks'»*.
   Basta con cambiar `track: beta` por `tracks: beta`.
-- **Ubuntu 26:** desde el 19/10/2026, `ubuntu-latest` pasa a Ubuntu 26. Es solo informativo. Si algún paso falla en
-  la imagen nueva, fija `runs-on: ubuntu-24.04` mientras se corrige.
 - **Orden de los pasos:** el tag se crea antes de subir a Play. Si la subida falla, el tag queda creado y el siguiente
   intento falla en ese paso, así que antes de reintentar hay que borrarlo (`git push origin :refs/tags/<versión>`).
   Conviene mover «Create Tag Release» después de la subida.

@@ -56,7 +56,7 @@ producción. Cualquier incumplimiento de las políticas de Play pone en riesgo t
 
 | Pieza | Versión / detalle |
 |---|---|
-| AGP | 9.4.1, con Kotlin integrado (no hay plugin `kotlin-android`) |
+| AGP | 9.5.0, con Kotlin integrado (no hay plugin `kotlin-android`) |
 | Gradle | 9.8.2; el daemon usa JDK 17 Corretto (`gradle/gradle-daemon-jvm.properties`, foojay) |
 | Kotlin | 2.4.21; plugins `kotlin.compose` y `kotlin.serialization` |
 | SDK | `compileSdk 37`, `targetSdk 36` (requisito de Play desde el 31/08/2026), `minSdk 24` |

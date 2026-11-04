@@ -292,8 +292,6 @@ esa versión, cada una en su propio commit.
 
 ### Workflow «Android Publish»
 
-- **Caché duplicada:** `setup-java` (`cache: 'gradle'`) y la acción `.github/actions/android` cachean las mismas
-  carpetas de Gradle. Basta con una de las dos.
 - **Verificaciones previas a la revisión:** documentar en la sección del workflow que `changesNotSentForReview: true`
   debe mantenerse. Así cada versión pasa por las verificaciones previas de Play Console, que tardan hasta 15 minutos,
   y se envía a mano desde «Descripción general de la publicación». Los problemas críticos hay que corregirlos. Los no
